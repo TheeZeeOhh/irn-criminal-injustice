@@ -1,0 +1,80 @@
+.wrapper {
+  padding: 6rem 5%;
+  background-color: var(--bg);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.textCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.visualCol {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg2);
+  border: 1px solid var(--line);
+  padding: 3rem;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.desc {
+  font-family: var(--font-body);
+  color: var(--ink2);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--bg) 0%, var(--ember) 50%, var(--bg) 100%);
+  opacity: 0.5;
+  margin: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .step {
+    flex-direction: row;
+    align-items: center;
+    gap: 6rem;
+  }
+  
+  .step:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}

@@ -1,0 +1,136 @@
+.wrapper {
+  padding: 8rem 5%;
+  background-color: var(--bg);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.left {
+  flex: 55;
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  flex: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.body {
+  font-family: var(--font-body);
+  color: var(--ink2);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--ink);
+  min-height: 44px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.cardPrimary {
+  background-color: var(--ember);
+}
+
+.cardPrimary:hover {
+  box-shadow: 0 12px 32px rgba(212, 98, 46, 0.2);
+}
+
+.cardSecondary {
+  background-color: var(--bg3);
+  border: 1px solid var(--line);
+}
+
+.cardSecondary:hover {
+  box-shadow: var(--shadow);
+}
+
+.cardTertiary {
+  background-color: var(--bg2);
+  border: 1px solid var(--gold);
+}
+
+.cardTertiary:hover {
+  box-shadow: 0 12px 32px rgba(200, 149, 42, 0.15);
+}
+
+.cardContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.125rem;
+  display: block;
+}
+
+.cardPrivacy {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(232, 226, 214, 0.7);
+  display: block;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink2);
+  display: block;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.rule {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--ember) 0%, var(--gold) 100%);
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 992px) {
+  .inner {
+    flex-direction: row;
+    gap: 8rem;
+  }
+}

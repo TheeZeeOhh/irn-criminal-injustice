@@ -1,0 +1,41 @@
+.strip {
+  width: 100%;
+  background-color: var(--ember-dim);
+  border-left: 4px solid var(--ember);
+  padding: 4rem 5%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.value {
+  font-family: var(--font-body);
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--ink2);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

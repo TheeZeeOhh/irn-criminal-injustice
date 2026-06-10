@@ -1,0 +1,37 @@
+[
+  {
+    "id": "wrongful-conviction",
+    "title": "WRONGFUL CONVICTION SUPPORT",
+    "description": "IRN documents cases of prosecutorial misconduct and wrongful conviction across Hampton Roads. Through the CJRRP, families receive a case manager, an attorney referral, and a public solidarity statement within 72 hours."
+  },
+  {
+    "id": "kyr",
+    "title": "LEGAL EDUCATION & KNOW YOUR RIGHTS",
+    "description": "We deliver Know Your Rights workshops in Hampton Roads neighborhoods — covering police encounters, pretrial detention, school discipline, and tenant rights — at an 8th-grade reading level with zero legal jargon."
+  },
+  {
+    "id": "fines-relief",
+    "title": "FINES, COSTS & GARNISHMENT RELIEF",
+    "description": "Court fines and cost garnishment trap people in cycles of poverty and re-incarceration. IRN identifies relief pathways, connects individuals to legal aid, and documents patterns of predatory fee assessment for legislative advocacy."
+  },
+  {
+    "id": "community-service",
+    "title": "COMMUNITY SERVICE PROGRAM",
+    "description": "Alternative accountability rooted in community, not punishment. IRN supports restorative approaches that address harm without feeding the carceral system."
+  },
+  {
+    "id": "victim-advocacy",
+    "title": "VICTIM / WITNESS ADVOCACY",
+    "description": "Survivors and witnesses navigate complex legal systems alone. IRN provides trauma-informed accompaniment, documentation support, and rights education at every stage of the legal process."
+  },
+  {
+    "id": "crime-prevention",
+    "title": "CRIME PREVENTION THROUGH INVESTMENT",
+    "description": "Safety comes from investment, not surveillance. IRN advocates for the community programs, mental health infrastructure, and economic resources that actually reduce harm."
+  },
+  {
+    "id": "chrt",
+    "title": "COMMUNITY HARM REPORTING (CHRT)",
+    "description": "IRN's privacy-first reporting tool documents civil rights incidents anonymously. Zero-knowledge architecture means IRN cannot be compelled to identify reporters. Your account. Your data. Your choice."
+  }
+]

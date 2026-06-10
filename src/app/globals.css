@@ -1,47 +1,70 @@
-@import "tailwindcss";
+:root {
+  --bg: #16130F;
+  --bg2: #1E1A14;
+  --bg3: #272117;
+  --line: #332B20;
+  --ink: #E8E2D6;
+  --ink2: #B5A992;
+  --ink3: #7A6F5C;
+  --ember: #D4622E;
+  --ember-dim: #3A2218;
+  --gold: #C8952A;
+  --gold-l: #E8B84B;
+  --sage: #7C9B72;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
 
-@theme {
-  --color-navy: #081224;
-  --color-navy-light: #12223a;
-  --color-ember: #D94833;
-  --color-amber: #E29B27;
-  --color-sage: #6B8E78;
-  --color-cream: #F5F2E9;
-  
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Mono', monospace;
 }
 
-@layer base {
-  body {
-    @apply bg-navy text-cream font-sans antialiased overflow-x-hidden;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Custom Utilities for Animations */
-.animate-fade-in {
-  animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+html, body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-.animate-slide-up {
-  animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-  transform: translateY(30px);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
-.scrolly-text::-webkit-scrollbar {
-  display: none;
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--ember);
+  color: var(--ink);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
 }

@@ -1,13 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Playfair_Display, DM_Mono } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-playfair',
+});
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-dm-mono',
+});
 
 export const metadata: Metadata = {
-  title: 'Criminal Injustice | Injustice Reform Network',
-  description: 'Documenting and fighting systemic injustice in Hampton Roads.',
+  title: 'Injustice Reform Network',
+  description: 'Building accountability infrastructure for Hampton Roads communities.',
 };
 
 export default function RootLayout({
@@ -16,8 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={\`\${inter.variable} \${playfair.variable}\`} suppressHydrationWarning>
-      <body className="font-sans bg-navy text-cream antialiased pb-24">
+    <html lang="en" className={`${playfair.variable} ${dmMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         {children}
       </body>
     </html>
