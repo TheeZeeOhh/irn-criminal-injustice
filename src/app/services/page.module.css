@@ -1,0 +1,263 @@
+.main {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 6rem 5%;
+}
+
+.sectionDark {
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  padding: 10rem 5% 5rem;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(200, 149, 42, 0.07), transparent 55%),
+    var(--bg);
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.crest {
+  flex-shrink: 0;
+  height: auto;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+
+.heroSub {
+  color: var(--ink2);
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.motto {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+/* ---------- SECTION HEADERS ---------- */
+
+.sectionHeader {
+  margin-bottom: 3rem;
+  max-width: 44rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--ink);
+}
+
+.sectionSub {
+  color: var(--ink2);
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+/* ---------- SERVICES GRID ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ---------- BOOKING FORMATS ---------- */
+
+.formatGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.formatCard {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.formatName {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.formatSpec {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  color: var(--ember);
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+.formatDesc {
+  color: var(--ink2);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ---------- HONORARIA TIERS ---------- */
+
+.tierGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tierCard {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+}
+
+.tierRate {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--ember);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.tierWho {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold-l);
+  margin-bottom: 0.75rem;
+}
+
+.tierDesc {
+  color: var(--ink2);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.included {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  color: var(--ink2);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.included strong {
+  color: var(--ink);
+}
+
+/* ---------- CTA ---------- */
+
+.ctaStrip {
+  padding: 5rem 5%;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(212, 98, 46, 0.16), transparent 60%),
+    var(--bg2);
+  border-top: 1px solid var(--line);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.ctaText {
+  color: var(--ink2);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.ctaBtn {
+  display: inline-block;
+  background: var(--ember);
+  color: var(--ink);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  padding: 1rem 2.25rem;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ctaBtn:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 8rem 5% 4rem;
+  }
+
+  .heroInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}

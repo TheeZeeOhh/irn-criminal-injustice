@@ -47,6 +47,7 @@ export default function Nav() {
             <Link href="/homelessness" className={styles.dropdownItem}>Homelessness Prevention</Link>
           </div>
         </div>
+        <Link href="/services" className={styles.link}>Services</Link>
         <Link href="/campaigns" className={styles.link}>Campaigns</Link>
         <Link href="/events" className={styles.link}>Events</Link>
         <Link href="/blog" className={styles.link}>Blog</Link>
@@ -85,6 +86,7 @@ export default function Nav() {
               <Link href="/homelessness" className={styles.mobileSublink} onClick={() => setMobileOpen(false)}>Homelessness Prevention</Link>
             </div>
           </div>
+          <Link href="/services" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Services</Link>
           <Link href="/campaigns" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Campaigns</Link>
           <Link href="/events" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Events</Link>
           <Link href="/blog" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Blog</Link>

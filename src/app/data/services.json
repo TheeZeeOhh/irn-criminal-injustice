@@ -1,0 +1,32 @@
+[
+  {
+    "id": "no-more-bars",
+    "title": "NO MORE BARS VOTING INITIATIVE",
+    "description": "Registering eligible incarcerated people to vote — restoring civic power to the communities the system tries to erase. Mass incarceration strips civic participation and silences those most impacted by policy. We connect civic participation directly to systemic reform."
+  },
+  {
+    "id": "legal-education",
+    "title": "LEGAL EDUCATION & RIGHTS ADVOCACY",
+    "description": "Know Your Rights education, self-advocacy training, and community expungement clinics that clear the record and the path. We equip people with the knowledge to navigate their legal rights and secure fair representation — at an 8th-grade reading level with zero legal jargon."
+  },
+  {
+    "id": "fines-relief",
+    "title": "FINES, COSTS & GARNISHMENT RELIEF",
+    "description": "Court fines and cost garnishment turn a sentence into a lifetime of economic punishment. We help people break out of court-debt cycles, identify relief pathways, and document patterns of predatory fee assessment for legislative advocacy."
+  },
+  {
+    "id": "policy-school",
+    "title": "YOUTH CAMPAIGN & POLICY SCHOOL",
+    "description": "Civic education for students in grades 6–12 — the history of U.S. politics, the political process, and the fundamentals of campaigning. Structured civic education and leadership development as crime prevention, not surveillance."
+  },
+  {
+    "id": "until-they-see-us-too",
+    "title": "\u201CUNTIL THEY SEE US TOO\u201D CAMPAIGN",
+    "description": "Community events and panels amplifying the voices of incarcerated and formerly incarcerated women and LGBTQIA+ people — the stories the system works hardest to bury, told by the people who lived them."
+  },
+  {
+    "id": "policy-analysis",
+    "title": "POLICY ANALYSIS & LEGISLATIVE DRAFTING",
+    "description": "Statute evaluation, harm analyses, and council-ready legislative revisions that move reform from rally to record. We write the language that turns community demands into actionable systems change."
+  }
+]
