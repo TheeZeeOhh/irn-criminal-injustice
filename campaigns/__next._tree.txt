@@ -1,0 +1,8 @@
+:HL["/irn-criminal-injustice/_next/static/chunks/39biwcaswvd_2.css","style"]
+:HL["/irn-criminal-injustice/_next/static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/irn-criminal-injustice/_next/static/media/36363bfb06833f56-s.p.38hmww4cj4vme.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/irn-criminal-injustice/_next/static/media/70e3db2de7f94926-s.p.39pl-v7c3qrze.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/irn-criminal-injustice/_next/static/media/7546fe8f902b88b8-s.p.1agee208_hwfr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/irn-criminal-injustice/_next/static/media/a73419dd2ba2d841-s.p.2yee423r7ahpo.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/irn-criminal-injustice/_next/static/chunks/0ip-usk964_oq.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"campaigns","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"eYG9FlixNzB_9EBRuIcZe"}
