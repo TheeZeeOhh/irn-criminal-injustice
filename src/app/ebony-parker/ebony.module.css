@@ -1,0 +1,50 @@
+.main { min-height: 100vh; background: var(--bg); }
+.accentBar { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--ember) 0%, var(--gold) 50%, var(--ember) 100%); z-index: 1001; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.hero { background: var(--bg2); padding: 120px 0 56px; border-bottom: 1px solid var(--line); }
+.kicker { display: block; font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember); margin-bottom: 12px; }
+.heroTitle { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; color: var(--ink); line-height: 1.05; margin: 0 0 20px; }
+.verdict { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.06em; color: #4a7c59; border: 1px solid #4a7c59; padding: 8px 16px; margin-bottom: 20px; }
+.verdictIcon { color: #4a7c59; flex-shrink: 0; }
+.heroSubtitle { font-family: var(--font-body); font-size: 0.84rem; color: var(--ink3); line-height: 1.7; max-width: 600px; margin: 0 0 24px; }
+.heroActions { display: flex; gap: 12px; flex-wrap: wrap; }
+.summarySection { padding: 40px 0; border-top: 1px solid var(--line); background: var(--bg3); }
+.summaryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+.summaryCard { background: var(--bg3); padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.summaryIcon { color: var(--ember); margin-bottom: 4px; }
+.summaryIconGreen { color: #4a7c59; margin-bottom: 4px; }
+.summaryIconGold { color: var(--gold); margin-bottom: 4px; }
+.summaryNum { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--ink); line-height: 1; }
+.summaryLabel { font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); }
+.timelineSection { padding: 72px 0; border-top: 1px solid var(--line); }
+.sectionKicker { display: block; font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember); margin-bottom: 8px; }
+.sectionTitle { font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--ink); margin: 0 0 40px; }
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 28px; border-left: 2px solid var(--line); }
+.timelineItem { display: flex; gap: 20px; padding: 0 0 32px; position: relative; }
+.timelineDot { position: absolute; left: -37px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg3); border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; top: 2px; }
+.timelineOutcome .timelineDot { background: #4a7c59; border-color: #4a7c59; color: #fff; width: 22px; height: 22px; left: -41px; }
+.timelineContent { flex: 1; }
+.timelineHeader { display: flex; gap: 12px; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; }
+.timelineDate { font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.timelineLabel { font-family: var(--font-display); font-size: 0.96rem; font-weight: 700; color: var(--ink); }
+.timelineOutcome .timelineLabel { color: #4a7c59; }
+.timelineDesc { font-family: var(--font-body); font-size: 0.82rem; color: var(--ink2); line-height: 1.6; margin: 0; }
+.irnSection { padding: 72px 0; border-top: 1px solid var(--line); background: var(--bg2); }
+.irnGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+.irnCard { background: var(--bg3); border: 1px solid var(--line); border-top: 2px solid var(--ember); padding: 24px; }
+.irnCardTitle { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+.irnCardBody { font-family: var(--font-body); font-size: 0.8rem; color: var(--ink2); line-height: 1.6; margin: 0; }
+.ctaSection { padding: 72px 0; background: var(--bg3); border-top: 1px solid var(--line); text-align: center; }
+.ctaBlock { max-width: 520px; margin: 0 auto; }
+.ctaTitle { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--ink); margin: 0 0 12px; }
+.ctaBody { font-family: var(--font-body); font-size: 0.86rem; color: var(--ink2); line-height: 1.7; margin: 0 0 24px; }
+.btnPrimary { display: inline-flex; align-items: center; gap: 6px; background: var(--ember); color: #fff; font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 28px; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s; }
+.btnPrimary:hover { opacity: 0.85; }
+.btnGhost { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: var(--ink2); border: 1px solid var(--line); font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 20px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.btnGhost:hover { border-color: var(--ink3); color: var(--ink); }
+@media print {
+  .accentBar, .heroActions, .ctaSection { display: none !important; }
+  .hero { padding: 40px 0 24px; }
+  .main { background: #fff; color: #000; }
+}
+@media (max-width: 640px) { .irnGrid { grid-template-columns: 1fr; } .summaryGrid { grid-template-columns: 1fr; } }
