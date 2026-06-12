@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, DM_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  weight: ['400', '500', '600', '700', '800', '900'],
+const playfair = localFont({
+  src: [
+    { path: './fonts/PlayfairDisplay-Variable.woff2', weight: '400 900', style: 'normal' },
+    { path: './fonts/PlayfairDisplay-Italic-Variable.woff2', weight: '400 900', style: 'italic' },
+  ],
   variable: '--font-playfair',
 });
 
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
+const dmMono = localFont({
+  src: [
+    { path: './fonts/DMMono-Light.woff2', weight: '300', style: 'normal' },
+    { path: './fonts/DMMono-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/DMMono-Medium.woff2', weight: '500', style: 'normal' },
+  ],
   variable: '--font-dm-mono',
 });
 
@@ -28,7 +32,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${dmMono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>

@@ -34,13 +34,13 @@ jobs:
       - name: Build static export
         run: npm run build
 
-      - name: Add .nojekyll
-        run: touch out/.nojekyll
-
       - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: gh-pages
-          force_orphan: true
+        run: |
+          cd out
+          touch .nojekyll
+          git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy ${GITHUB_SHA:0:7}"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
