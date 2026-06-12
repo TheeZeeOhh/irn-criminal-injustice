@@ -26,7 +26,7 @@ const fadeUp: Variants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.15, ease: 'easeOut' as const },
+    transition: { duration: 0.5, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const },
   }),
 };
 
@@ -43,9 +43,9 @@ export function MissionSection() {
           variants={fadeUp}
         >
           <blockquote className={styles.pullquote}>
-            &ldquo;The Injustice Reform Network is dedicated to combating inequities within the
-            criminal justice system. We advocate for individuals affected by wrongful convictions
-            and unjust legal or administrative practices.&rdquo;
+            &ldquo;The Injustice Reform Network is a systems-justice organization dedicated to combating
+            inequities within the criminal legal system. We produce meaningful intersectional impact
+            for LGBTQ+ communities by addressing the root causes of criminalization.&rdquo;
           </blockquote>
         </motion.div>
 

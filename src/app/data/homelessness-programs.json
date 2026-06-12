@@ -1,0 +1,27 @@
+[
+  {
+    "id": "housing-defense",
+    "title": "HOUSING DEFENSE NETWORK",
+    "description": "Rapid-response legal support for renters facing eviction, illegal lockouts, or discriminatory housing practices, keeping marginalized families safely housed."
+  },
+  {
+    "id": "jail-release-stabilization",
+    "title": "JAIL RELEASE STABILIZATION",
+    "description": "Immediate housing placement and emergency funds for individuals leaving incarceration, preventing the cycle of homelessness and re-arrest during the critical 72-hour window."
+  },
+  {
+    "id": "unhoused-rights",
+    "title": "UNHOUSED RIGHTS ADVOCACY",
+    "description": "Fighting municipal sweeps, hostile architecture, and the criminalization of poverty through strategic litigation, community organizing, and direct action."
+  },
+  {
+    "id": "shelter-access",
+    "title": "SHELTER ACCESS & NON-DISCRIMINATION",
+    "description": "Ensuring shelters comply with anti-discrimination laws, particularly protecting trans and gender non-conforming individuals who are frequently denied safe emergency housing."
+  },
+  {
+    "id": "chrt-housing",
+    "title": "CHRT: HOUSING VIOLATIONS",
+    "description": "Documenting landlord abuse, unlawful evictions, and uninhabitable living conditions to build systemic cases against predatory property owners and corporate landlords."
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "trans-parent-youth",
+    "title": "TRANS PARENT & YOUTH DEFENSE",
+    "description": "Legal and navigation support for trans parents facing custody discrimination and LGBTQ+ youth navigating family instability or hostile foster environments."
+  },
+  {
+    "id": "cps-defense",
+    "title": "CPS DEFENSE NETWORK",
+    "description": "Rapid-response navigation and legal advocacy for families targeted by Child Protective Services, fighting state separation and prioritizing community-based kinship care."
+  },
+  {
+    "id": "reproductive-justice",
+    "title": "REPRODUCTIVE JUSTICE ADVOCACY",
+    "description": "Fighting for bodily autonomy, access to gender-affirming care, and comprehensive reproductive healthcare without state surveillance, coercion, or criminalization."
+  },
+  {
+    "id": "mandatory-reporter",
+    "title": "MANDATORY REPORTER REFORM",
+    "description": "Training educators and healthcare providers on the disproportionate harms of the family regulation system on marginalized communities, advocating for support over surveillance."
+  },
+  {
+    "id": "chrt-family",
+    "title": "CHRT: FAMILY SEPARATION",
+    "description": "Documenting civil rights violations, coercion, and discrimination within the child welfare and foster care systems to build an evidentiary record for legislative reform."
+  }
+]

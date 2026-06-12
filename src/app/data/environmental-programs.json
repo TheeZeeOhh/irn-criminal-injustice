@@ -1,0 +1,27 @@
+[
+  {
+    "id": "disaster-resilience",
+    "title": "DISASTER SURVIVAL & RESILIENCE",
+    "description": "Climate disasters disproportionately displace marginalized and unhoused people. We provide emergency mutual aid, inclusive disaster planning, and resilience hubs prioritizing those most at risk."
+  },
+  {
+    "id": "utility-shutoff",
+    "title": "UTILITY SHUTOFF PREVENTION",
+    "description": "Utility shutoffs are a direct pipeline to eviction, instability, and family separation. We provide emergency utility relief and advocate for policies that categorize energy and water as human rights."
+  },
+  {
+    "id": "toxic-infrastructure",
+    "title": "TOXIC INFRASTRUCTURE ADVOCACY",
+    "description": "We document the health impacts of industrial pollution purposefully placed in marginalized communities, using this data to block new toxic permits and demand immediate remediation."
+  },
+  {
+    "id": "tenant-defense",
+    "title": "TENANT ENVIRONMENTAL DEFENSE",
+    "description": "We fight for renters exposed to mold, lead, and unsafe living conditions, providing legal navigation to force landlord compliance and prevent retaliatory evictions for demanding safe housing."
+  },
+  {
+    "id": "chrt-environmental",
+    "title": "CHRT: ENVIRONMENTAL HAZARDS",
+    "description": "Our privacy-first tool documents environmental health hazards and discriminatory zoning anonymously, building an undeniable evidentiary record of corporate and municipal neglect."
+  }
+]

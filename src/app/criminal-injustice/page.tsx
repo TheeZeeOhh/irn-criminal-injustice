@@ -175,7 +175,8 @@ export default function CriminalInjusticePage() {
         {/* 8. GET INVOLVED */}
         <GetInvolved />
 
-        {/* 9. NEWSLETTER */}
+
+        {/* 10. NEWSLETTER */}
         <NewsletterStrip />
 
       </main>

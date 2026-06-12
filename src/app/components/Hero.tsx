@@ -8,7 +8,11 @@ import { useIntersection } from '../hooks/useIntersection';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import statsData from '../data/stats.json';
 
-const sentence = "The System Was Built This Way.";
+interface HeroProps {
+  kicker?: string;
+  title?: string;
+  subtitle?: string;
+}
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -23,7 +27,7 @@ const wordVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' as const },
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -32,11 +36,15 @@ const fadeUpVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' as const },
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
-export default function Hero() {
+export default function Hero({
+  kicker = "What We Do — Criminal Justice Reform",
+  title = "The System Was Built This Way.",
+  subtitle = "IRN documents harm, fights wrongful prosecution, and builds the intersectional infrastructure needed to protect Black trans people, formerly incarcerated LGBTQ+ individuals, and marginalized communities from systemic abuse."
+}: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
   const [statRef, isStatVisible] = useIntersection<HTMLDivElement>(0.1);
 
@@ -56,7 +64,7 @@ export default function Hero() {
           animate="visible"
           variants={fadeUpVariants}
         >
-          What We Do — Criminal Justice Reform
+          {kicker}
         </motion.span>
 
         <motion.h1
@@ -65,7 +73,7 @@ export default function Hero() {
           animate="visible"
           variants={containerVariants}
         >
-          {sentence.split(' ').map((word, i) => (
+          {title.split(' ').map((word, i) => (
             <motion.span key={i} className={styles.word} variants={wordVariants}>
               {word}{' '}
             </motion.span>
@@ -78,8 +86,7 @@ export default function Hero() {
           animate="visible"
           variants={fadeUpVariants}
         >
-          IRN documents harm, fights wrongful prosecution, and builds the infrastructure
-          communities need to hold institutions accountable.
+          {subtitle}
         </motion.p>
 
         <motion.div
