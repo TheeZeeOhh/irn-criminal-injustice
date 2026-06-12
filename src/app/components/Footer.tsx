@@ -97,6 +97,7 @@ export default function Footer() {
             <Link href="/know-your-rights" className={styles.link} aria-label="Know Your Rights guide">
               Know Your Rights
             </Link>
+            <Link href="/chapters" className={styles.link} aria-label="IRN Chapters & Locations">Chapters</Link>
             <Link href="/reports" className={styles.link} aria-label="IRN Annual Reports">Annual Reports</Link>
             <Link href="/blog" className={styles.link} aria-label="IRN Blog">Blog</Link>
             <Link href="/press" className={styles.link} aria-label="IRN Press">Press</Link>
@@ -115,8 +116,8 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <p className={styles.copyright}>
-          &copy; 2024&ndash;2026 Injustice Reform Network &middot; EIN 41-4321283 &middot; Virginia
-          501(c)(3) &middot; All Rights Reserved
+          &copy; 2024&ndash;2026 Injustice Reform Network &middot; EIN 41-4321283 &middot;
+          501(c)(3) Nonprofit &middot; Virginia, Maryland, North Carolina &amp; DC &middot; All Rights Reserved
         </p>
         <p className={styles.disclaimer}>
           IRN is not a law firm. Nothing on this site constitutes legal advice or creates an

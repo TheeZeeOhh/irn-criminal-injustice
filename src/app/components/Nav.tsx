@@ -55,6 +55,7 @@ export default function Nav() {
         <Link href="/events" className={styles.link}>Events</Link>
         <Link href="/blog" className={styles.link}>Blog</Link>
         <Link href="/gallery" className={styles.link}>Gallery</Link>
+        <Link href="/chapters" className={styles.link}>Chapters</Link>
         <Link href="/about" className={styles.link}>About</Link>
         <Link href="/contact" className={styles.link}>Contact</Link>
         <Link href="/newsletter" className={styles.link}>Newsletter</Link>
@@ -96,6 +97,7 @@ export default function Nav() {
           <Link href="/events" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Events</Link>
           <Link href="/blog" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Blog</Link>
           <Link href="/gallery" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Gallery</Link>
+          <Link href="/chapters" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Chapters</Link>
           <Link href="/about" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Contact</Link>
           <Link href="/newsletter" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Newsletter</Link>

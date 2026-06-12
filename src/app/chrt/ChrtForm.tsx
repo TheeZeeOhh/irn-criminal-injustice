@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react';
 import { Shield, Lock, Download, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import styles from './ChrtForm.module.css';
+import { supabase } from '../lib/supabase';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -123,6 +124,7 @@ export default function ChrtForm() {
   const [encryptedPayload, setEncryptedPayload] = useState('');
   const [decryptionKey, setDecryptionKey] = useState('');
   const [encrypting, setEncrypting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [errors, setErrors] = useState<Partial<ReportData>>({});
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -179,12 +181,27 @@ export default function ChrtForm() {
   // ── Step 3: encrypt & submit ───────────────────────────────────────────────
   async function handleEncryptAndSubmit() {
     setEncrypting(true);
+    setSubmitError('');
     try {
+      const submittedAt = new Date().toISOString();
       const payload: ReportData = {
         ...fields,
-        submittedAt: new Date().toISOString(),
+        submittedAt,
       };
       const { encrypted, keyHex } = await encryptReport(payload);
+
+      // POST ciphertext to Supabase — no PII, no decryption key
+      const { error } = await supabase.from('chrt_reports').insert({
+        ciphertext: encrypted,
+        report_type: fields.reportType,
+        submitted_at: submittedAt,
+      });
+
+      if (error) {
+        // Non-fatal: the user still gets their download package
+        setSubmitError('Report encrypted locally but could not reach IRN servers. Download your package and email the payload to cirnpresident@gmail.com.');
+      }
+
       setEncryptedPayload(encrypted);
       setDecryptionKey(keyHex);
       setStep('done');
@@ -623,6 +640,14 @@ export default function ChrtForm() {
               </p>
             </div>
 
+            {/* Server submission error (non-fatal) */}
+            {submitError && (
+              <div className={styles.submitError} role="alert">
+                <AlertTriangle size={14} className={styles.doneWarningIcon} />
+                <p>{submitError}</p>
+              </div>
+            )}
+
             {/* Download options */}
             <div className={styles.downloadGrid}>
               <div className={styles.downloadCard}>
@@ -708,7 +733,7 @@ const FAQS = [
   },
   {
     q: 'Is my report stored anywhere?',
-    a: 'No. The encryption and everything on this page runs entirely in your browser. IRN has no server receiving this form. Nothing is stored unless you download the package yourself.',
+    a: 'Only the encrypted ciphertext is stored — on IRN\'s Supabase database. The ciphertext is mathematically unreadable without your decryption key, which never leaves your device and is never sent anywhere. IRN receives an unreadable blob. Your key stays with you.',
   },
 ];
 

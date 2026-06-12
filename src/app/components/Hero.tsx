@@ -43,7 +43,7 @@ const fadeUpVariants: Variants = {
 export default function Hero({
   kicker = "What We Do — Criminal Justice Reform",
   title = "The System Was Built This Way.",
-  subtitle = "IRN documents harm, fights wrongful prosecution, and builds the intersectional infrastructure needed to protect Black trans people, formerly incarcerated LGBTQ+ individuals, and marginalized communities from systemic abuse."
+  subtitle = "IRN documents harm, fights wrongful prosecution, and builds the intersectional infrastructure needed to protect Black trans people, formerly incarcerated LGBTQ+ individuals, and marginalized communities from systemic abuse — across Virginia, Maryland, North Carolina, and DC."
 }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
   const [statRef, isStatVisible] = useIntersection<HTMLDivElement>(0.1);
