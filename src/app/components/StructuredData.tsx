@@ -6,8 +6,7 @@ export default function StructuredData() {
         "@type": "NonprofitOrganization",
         "name": "Injustice Reform Network",
         "url": "https://injusticereformnetwork.org",
-        "logo": "https://injusticereformnetwork.org/og/criminal-injustice.jpg",
-        "sameAs": ["https://facebook.com/IRN", "https://twitter.com/IRN"],
+        "logo": "https://injusticereformnetwork.org/logo.png",
         "description": "IRN documents civil rights incidents, fights wrongful convictions, and builds accountability infrastructure for Hampton Roads communities."
       },
       {
