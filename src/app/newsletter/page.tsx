@@ -18,6 +18,20 @@ export default function NewsletterPage() {
               Subscribe to our encrypted mailing list for rapid-response action alerts, policy updates, and Hampton Roads accountability news.
             </p>
             <NewsletterStrip />
+
+            <div style={{ marginTop: '5rem', borderTop: '1px solid #333', paddingTop: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#fff', marginBottom: '2rem', textAlign: 'center' }}>Archive</h2>
+              
+              <div style={{ display: 'grid', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}>
+                <a href="/irn-criminal-injustice/irn-dispatch-vol01.html" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', background: '#111', borderRadius: '8px', border: '1px solid #333', textDecoration: 'none' }}>
+                  <div>
+                    <span style={{ color: '#E4A853', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Vol. 01 • June 2026</span>
+                    <h3 style={{ color: '#fff', fontSize: '1.25rem', marginTop: '0.5rem', marginBottom: '0' }}>The People's Intelligence Brief</h3>
+                  </div>
+                  <span style={{ color: '#E4A853' }}>Read →</span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
