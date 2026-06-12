@@ -29,8 +29,9 @@ export default function Nav() {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <a href="/irn-criminal-injustice/criminal-injustice" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-        <img src="/irn-criminal-injustice/logo.png" alt="Injustice Reform Network" style={{ height: '44px', width: 'auto' }} />
+      <a href="/irn-criminal-injustice/criminal-injustice" className={styles.logo} aria-label="Injustice Reform Network Home">
+        <img src="/irn-criminal-injustice/logo.png" alt="" aria-hidden="true" style={{ height: '44px', width: 'auto' }} />
+        <span className={styles.logoText}>IRN</span>
       </a>
 
       <div className={styles.links}>

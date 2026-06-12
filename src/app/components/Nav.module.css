@@ -19,11 +19,18 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoText {
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 1.5rem;
   color: var(--ink);
-  text-decoration: none;
+  line-height: 1;
 }
 
 .links {
