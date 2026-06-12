@@ -15,8 +15,8 @@ export default function SplashPage() {
 
       <div style={{ width: '100%', maxWidth: '800px', marginBottom: '4rem', borderRadius: '12px', overflow: 'hidden', border: '1px solid #333', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', animation: 'fadeIn 1.5s ease-out' }}>
         <iframe 
-          src="/irn-criminal-injustice/commercial.html" 
-          title="IRN 30-Second Commercial Animatic"
+          src="/irn-criminal-injustice/commercial-cinematic.html" 
+          title="IRN Cinematic Commercial"
           style={{ width: '100%', aspectRatio: '16/9', border: 'none', display: 'block' }}
           scrolling="no"
         />
