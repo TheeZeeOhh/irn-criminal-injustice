@@ -29,9 +29,9 @@ export default function PressPage() {
               <div>
                 <h2 style={{ color: '#fff', marginBottom: '1rem' }}>Media Assets</h2>
                 <div style={{ background: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #333' }}>
-                  <img src="/irn-crest.png" alt="IRN Crest" style={{ width: '100px', height: '100px', marginBottom: '1rem' }} />
+                  <img src="/irn-criminal-injustice/irn-crest.png" alt="IRN Crest" style={{ width: '100px', height: '100px', marginBottom: '1rem' }} />
                   <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a href="/irn-crest.png" download style={{ color: '#D4A843', fontSize: '0.9rem' }}>Download PNG</a>
+                    <a href="/irn-criminal-injustice/irn-crest.png" download style={{ color: '#D4A843', fontSize: '0.9rem' }}>Download PNG</a>
                   </div>
                 </div>
               </div>

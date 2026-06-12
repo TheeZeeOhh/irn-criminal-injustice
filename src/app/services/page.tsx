@@ -89,7 +89,7 @@ export default function ServicesPage() {
           <div className={styles.container}>
             <div className={styles.heroInner}>
               <Image
-                src="/irn-crest.png"
+                src="/irn-criminal-injustice/irn-crest.png"
                 alt="Injustice Reform Network crest — shield with IRN monogram, crown, crossed swords, and laurel wreath"
                 width={220}
                 height={210}
