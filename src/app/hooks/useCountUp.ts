@@ -2,10 +2,14 @@
 import { useState, useEffect } from 'react';
 
 export function useCountUp(end: number, duration: number = 2000, trigger: boolean = true) {
-  const [count, setCount] = useState(0);
+  // Initialize to 'end' so the SSR markup contains the final number for crawlers
+  const [count, setCount] = useState(end);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!trigger) return;
+    if (hasStarted) return;
+    setHasStarted(true);
 
     let startTime: number | null = null;
     let animationFrameId: number;
@@ -28,7 +32,7 @@ export function useCountUp(end: number, duration: number = 2000, trigger: boolea
     animationFrameId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, [end, duration, trigger]);
+  }, [end, duration, trigger, hasStarted]);
 
   return count;
 }

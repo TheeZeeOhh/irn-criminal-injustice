@@ -31,7 +31,7 @@ const steps = [
   {
     step: 'STEP 03',
     title: 'DATA BECOMES LEGISLATION',
-    desc: 'Documented patterns become testimony, FOIA requests, DOJ complaints, and Virginia General Assembly evidence through IRN\'s JFV legislative partnership.',
+    desc: <>Documented patterns become testimony, FOIA requests, DOJ complaints, and Virginia General Assembly evidence through IRN's JFV legislative partnership. <br /><br /><a href="/campaigns" style={{color: '#D4A843', fontWeight: 500, textDecoration: 'underline'}}>View the Newport News Community Safety & Equity Act kit →</a></>,
     visual: (
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 100 L40 60 L60 80 L100 20" stroke="var(--gold)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
