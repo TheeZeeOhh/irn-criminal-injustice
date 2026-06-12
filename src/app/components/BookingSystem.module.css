@@ -1,0 +1,405 @@
+.bookingWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.progressTracker {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: #0a0a0a;
+  border-bottom: 1px solid #222;
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.progressStep.active {
+  opacity: 1;
+}
+
+.stepCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  color: #fff;
+}
+
+.progressStep.active .stepCircle {
+  background: #E4A853;
+  color: #000;
+  border-color: #E4A853;
+}
+
+.stepLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.contentArea {
+  padding: 3rem;
+  min-height: 500px;
+  position: relative;
+}
+
+.stepTitle {
+  font-size: 2rem;
+  color: #E4A853;
+  margin-bottom: 0.5rem;
+}
+
+.stepSubtitle {
+  color: #888;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.serviceCard {
+  background: transparent;
+  border: 1px solid #333;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.serviceCard:hover {
+  border-color: #666;
+  background: #1a1a1a;
+}
+
+.serviceCard.selected {
+  border-color: #E4A853;
+  background: rgba(228, 168, 83, 0.05);
+}
+
+.serviceName {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.serviceDesc {
+  color: #bbb;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #E4A853;
+  background: rgba(228, 168, 83, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #222;
+}
+
+.primaryBtn {
+  background: #E4A853;
+  color: #000;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+}
+
+.primaryBtn:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.primaryBtn:not(:disabled):hover {
+  background: #f0bc74;
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #444;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.secondaryBtn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.dateTimeLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.colTitle {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dateGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.dateBtn {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 1rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s;
+}
+
+.dateBtn:not(.disabled):hover {
+  border-color: #666;
+}
+
+.dateBtn.selected {
+  border-color: #E4A853;
+  background: rgba(228, 168, 83, 0.05);
+}
+
+.dateBtn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.dateDay {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.dateNum {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.dateBtn.selected .dateDay,
+.dateBtn.selected .dateNum {
+  color: #E4A853;
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.timeBtn {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 0.75rem;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeBtn:hover {
+  border-color: #666;
+}
+
+.timeBtn.selected {
+  border-color: #E4A853;
+  background: rgba(228, 168, 83, 0.05);
+  color: #E4A853;
+}
+
+.emptyState {
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+  text-align: center;
+  background: #0a0a0a;
+  border-radius: 8px;
+  border: 1px dashed #333;
+}
+
+.intakeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #E4A853;
+}
+
+.summaryBox {
+  background: rgba(228, 168, 83, 0.05);
+  border: 1px solid #E4A853;
+  padding: 1rem;
+  border-radius: 4px;
+  color: #E4A853;
+  font-size: 0.95rem;
+}
+
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.successIcon {
+  color: #E4A853;
+  margin-bottom: 1.5rem;
+}
+
+.successTitle {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.successText {
+  color: #bbb;
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.trackingBox {
+  background: #1a1a1a;
+  border: 1px dashed #444;
+  padding: 1.5rem 3rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trackingBox span {
+  color: #888;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trackingBox strong {
+  color: #E4A853;
+  font-size: 1.5rem;
+  font-family: var(--font-mono);
+  letter-spacing: 2px;
+}
+
+.nextStepsText {
+  color: #888;
+  font-size: 0.95rem;
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .dateTimeLayout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  .progressTracker {
+    display: none;
+  }
+  .contentArea {
+    padding: 1.5rem;
+  }
+}

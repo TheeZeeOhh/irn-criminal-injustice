@@ -48,6 +48,7 @@ export default function Nav() {
           </div>
         </div>
         <Link href="/services" className={styles.link}>Services</Link>
+        <Link href="/booking" className={styles.link}>Book Intake</Link>
         <Link href="/campaigns" className={styles.link}>Campaigns</Link>
         <Link href="/events" className={styles.link}>Events</Link>
         <Link href="/blog" className={styles.link}>Blog</Link>
@@ -87,6 +88,7 @@ export default function Nav() {
             </div>
           </div>
           <Link href="/services" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Services</Link>
+          <Link href="/booking" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Book Intake</Link>
           <Link href="/campaigns" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Campaigns</Link>
           <Link href="/events" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Events</Link>
           <Link href="/blog" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Blog</Link>
