@@ -2,7 +2,7 @@
 import { useState, useRef } from 'react';
 import { Shield, Lock, Download, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import styles from './ChrtForm.module.css';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -191,11 +191,14 @@ export default function ChrtForm() {
       const { encrypted, keyHex } = await encryptReport(payload);
 
       // POST ciphertext to Supabase — no PII, no decryption key
-      const { error } = await supabase.from('chrt_reports').insert({
-        ciphertext: encrypted,
-        report_type: fields.reportType,
-        submitted_at: submittedAt,
-      });
+      const sb = getSupabase();
+      const { error } = sb
+        ? await sb.from('chrt_reports').insert({
+            ciphertext: encrypted,
+            report_type: fields.reportType,
+            submitted_at: submittedAt,
+          })
+        : { error: null };
 
       if (error) {
         // Non-fatal: the user still gets their download package
