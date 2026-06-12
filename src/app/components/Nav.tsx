@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import styles from './Nav.module.css';
 
@@ -28,9 +29,8 @@ export default function Nav() {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-        <img src="/irn-criminal-injustice/logo.png" alt="IRN Logo" style={{ height: '36px', width: 'auto' }} />
-        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>IRN</span>
+      <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+        <Image src="/logo.png" alt="Injustice Reform Network" width={104} height={91} style={{ height: '44px', width: 'auto' }} priority />
       </Link>
 
       <div className={styles.links}>
