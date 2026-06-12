@@ -8,6 +8,7 @@ import StatStrip from '../components/StatStrip';
 import Accordion from '../components/Accordion';
 import GetInvolved from '../components/GetInvolved';
 import NewsletterStrip from '../components/NewsletterStrip';
+import ExpungementBanner from '../components/ExpungementBanner';
 import Footer from '../components/Footer';
 import StructuredData from '../components/StructuredData';
 import { MissionSection } from '../components/MissionSection';
@@ -176,7 +177,10 @@ export default function CriminalInjusticePage() {
         {/* 7. IMPACT DATA STRIP */}
         <StatStrip />
 
-        {/* 8. GET INVOLVED */}
+        {/* 8. EXPUNGEMENT CLINIC BANNER */}
+        <ExpungementBanner />
+
+        {/* 9. GET INVOLVED */}
         <GetInvolved />
 
 
