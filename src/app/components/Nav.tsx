@@ -28,8 +28,9 @@ export default function Nav() {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home">
-        IRN
+      <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+        <img src="/logo.png" alt="IRN Logo" style={{ height: '36px', width: 'auto' }} />
+        <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>IRN</span>
       </Link>
 
       <div className={styles.links}>
@@ -55,6 +56,7 @@ export default function Nav() {
         <Link href="/gallery" className={styles.link}>Gallery</Link>
         <Link href="/about" className={styles.link}>About</Link>
         <Link href="/contact" className={styles.link}>Contact</Link>
+        <Link href="/newsletter" className={styles.link}>Newsletter</Link>
       </div>
 
       <Link href="/donate" className={styles.donateBtn}>
@@ -95,6 +97,7 @@ export default function Nav() {
           <Link href="/gallery" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Gallery</Link>
           <Link href="/about" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Contact</Link>
+          <Link href="/newsletter" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Newsletter</Link>
           <Link href="/donate" className={`${styles.donateBtn} mt-8 text-center`} onClick={() => setMobileOpen(false)} style={{display: 'block'}}>Donate</Link>
         </div>
       </div>
