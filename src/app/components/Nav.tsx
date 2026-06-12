@@ -29,12 +29,12 @@ export default function Nav() {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+      <Link href="/criminal-injustice" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
         <img src="/irn-criminal-injustice/logo.png" alt="Injustice Reform Network" style={{ height: '44px', width: 'auto' }} />
       </Link>
 
       <div className={styles.links}>
-        <Link href="/" className={styles.link}>Home</Link>
+        <Link href="/criminal-injustice" className={styles.link}>Home</Link>
         <div className={styles.dropdown}>
           <button className={styles.link} aria-haspopup="true" aria-expanded="false">
             What We Do
@@ -80,7 +80,7 @@ export default function Nav() {
           <X size={32} />
         </button>
         <div className={styles.mobileLinks}>
-          <Link href="/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Home</Link>
+          <Link href="/criminal-injustice" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Home</Link>
           <div className={styles.mobileLink}>What We Do
             <div className={styles.mobileSublinks}>
               <Link href="/criminal-injustice" className={styles.mobileSublink} onClick={() => setMobileOpen(false)}>Criminal Injustice</Link>
