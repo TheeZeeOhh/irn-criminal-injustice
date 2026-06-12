@@ -11,6 +11,7 @@ import NewsletterStrip from '../components/NewsletterStrip';
 import Footer from '../components/Footer';
 import StructuredData from '../components/StructuredData';
 import { MissionSection } from '../components/MissionSection';
+import CommercialEmbed from '../components/CommercialEmbed';
 import programs from '../data/programs.json';
 import styles from './page.module.css';
 
@@ -75,6 +76,9 @@ export default function CriminalInjusticePage() {
 
         {/* 1. HERO */}
         <Hero />
+
+        {/* 1.5 COMMERCIAL */}
+        <CommercialEmbed />
 
         {/* 2. MISSION STATEMENT (#approach) */}
         <MissionSection />
