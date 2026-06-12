@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import Chatbot from './components/Chatbot';
 
 const playfair = localFont({
   src: [
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         {children}
+        <Chatbot />
       </body>
     </html>
   );
