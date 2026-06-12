@@ -40,7 +40,7 @@ export default function ContactPage() {
             </form>
             <p style={{ marginTop: '2rem', textAlign: 'center', color: '#888', fontSize: '0.9rem' }}>
               Need to report a civil rights violation anonymously? <br />
-              <a href="/chrt" style={{ color: '#E4A853', textDecoration: 'underline' }}>Use our encrypted CHRT tool.</a>
+              <a href="/irn-criminal-injustice/chrt" style={{ color: '#E4A853', textDecoration: 'underline' }}>Use our encrypted CHRT tool.</a>
             </p>
           </div>
         </section>

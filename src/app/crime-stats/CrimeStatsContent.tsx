@@ -299,7 +299,7 @@ export default function CrimeStatsContent() {
               and legislators to act. The data above tells the pattern. Your testimony names it.
             </p>
             <div className={styles.ctaActions}>
-              <a href="/chrt" className={styles.btnPrimary}>Report an Incident via CHRT</a>
+              <a href="/irn-criminal-injustice/chrt" className={styles.btnPrimary}>Report an Incident via CHRT</a>
               <a href="/criminal-injustice" className={styles.btnGhost}>Back to Criminal Justice</a>
             </div>
           </motion.div>

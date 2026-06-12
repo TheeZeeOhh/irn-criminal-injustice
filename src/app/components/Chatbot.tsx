@@ -168,7 +168,7 @@ export default function Chatbot() {
             </button>
           </div>
           <p className={styles.disclaimer}>
-            Not legal advice. For urgent matters use <a href="/chrt" className={styles.disclaimerLink}>CHRT</a>.
+            Not legal advice. For urgent matters use <a href="/irn-criminal-injustice/chrt" className={styles.disclaimerLink}>CHRT</a>.
           </p>
         </div>
       )}
