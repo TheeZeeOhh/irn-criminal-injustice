@@ -30,7 +30,7 @@ export default function Nav() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-        <Image src="/logo.png" alt="Injustice Reform Network" width={104} height={91} style={{ height: '44px', width: 'auto' }} priority />
+        <img src="/irn-criminal-injustice/logo.png" alt="Injustice Reform Network" style={{ height: '44px', width: 'auto' }} />
       </Link>
 
       <div className={styles.links}>
