@@ -27,7 +27,8 @@ git rm -rf . --quiet
 cp -r out/. .
 rm -rf out
 touch .nojekyll
-printf "node_modules\n.next\nout\n" > .gitignore
+printf "node_modules\n.next\nout\n.env*\n" > .gitignore
+rm -f .env.local .env .env.production
 
 echo "→ Committing..."
 git add -A
