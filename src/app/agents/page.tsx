@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Lock, Scale, FileText, Send, Sparkles, Terminal, ChevronRight, Play } from 'lucide-react';
+import { Shield, Lock, Scale, FileText, Send, Sparkles, Terminal, ChevronRight, Play, Search, X, CornerDownLeft } from 'lucide-react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import styles from '../criminal-injustice/page.module.css';
+import searchStyles from './agents.module.css';
+import { SEARCH_INDEX } from '../components/GlobalSearch';
 
 // Styling override inline to ensure it looks extremely premium and matches the rest of the site
 const agentStyles = {
@@ -355,11 +358,187 @@ Contact: campaigns@injusticereformnetwork.org`;
   },
 ];
 
+interface SearchResultItem {
+  id: string;
+  type: 'agent' | 'template' | 'page';
+  title: string;
+  subtitle: string;
+  snippet: string;
+  path?: string;
+  agentIndex?: number;
+  templateText?: string;
+}
+
 export default function AgentsPage() {
   const [activeTab, setActiveTab] = useState(0);
   const [inputText, setInputText] = useState(AGENT_DATA[0].samples[0].text);
   const [running, setRunning] = useState(false);
   const [consoleOutput, setConsoleOutput] = useState('Terminal ready. Choose a sample or enter custom text and click "Run Agent".');
+
+  const router = useRouter();
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [activeSearchIndex, setActiveSearchIndex] = useState(0);
+  const [toastMessage, setToastMessage] = useState('');
+
+  // Build the complete search database once
+  const searchDatabase = useMemo<SearchResultItem[]>(() => {
+    const database: SearchResultItem[] = [];
+
+    // 1. Add AI Agents
+    AGENT_DATA.forEach((agent, idx) => {
+      database.push({
+        id: `agent-${idx}`,
+        type: 'agent',
+        title: agent.name,
+        subtitle: agent.role,
+        snippet: agent.systemPrompt,
+        agentIndex: idx,
+      });
+
+      // 2. Add Agent Templates
+      agent.samples.forEach((sample, sIdx) => {
+        database.push({
+          id: `template-${idx}-${sIdx}`,
+          type: 'template',
+          title: `Template: ${sample.label}`,
+          subtitle: `Capability of ${agent.name}`,
+          snippet: sample.text.substring(0, 120) + (sample.text.length > 120 ? '...' : ''),
+          agentIndex: idx,
+          templateText: sample.text,
+        });
+      });
+    });
+
+    // 3. Add Site Pages & Guides
+    SEARCH_INDEX.forEach((page, idx) => {
+      database.push({
+        id: `page-${idx}`,
+        type: 'page',
+        title: page.title,
+        subtitle: page.category,
+        snippet: page.snippet,
+        path: page.path,
+      });
+    });
+
+    return database;
+  }, []);
+
+  // Filter search results based on query
+  const filteredSearchResults = useMemo(() => {
+    if (!searchQuery.trim()) {
+      // Suggest agents when input is empty but focused
+      return searchDatabase.filter(item => item.type === 'agent');
+    }
+    const q = searchQuery.toLowerCase();
+    return searchDatabase.filter(item => 
+      item.title.toLowerCase().includes(q) ||
+      item.subtitle.toLowerCase().includes(q) ||
+      item.snippet.toLowerCase().includes(q)
+    );
+  }, [searchQuery, searchDatabase]);
+
+  // Reset index when search query changes
+  useEffect(() => {
+    setActiveSearchIndex(0);
+  }, [searchQuery]);
+
+  // Toast auto-clear
+  useEffect(() => {
+    if (toastMessage) {
+      const timer = setTimeout(() => setToastMessage(''), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [toastMessage]);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(e.target as Node) &&
+        searchInputRef.current && 
+        !searchInputRef.current.contains(e.target as Node)
+      ) {
+        setSearchFocused(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Capture global hotkeys to focus search input
+  useEffect(() => {
+    const handleGlobalShortcut = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      const isInput = target.tagName === 'INPUT' || 
+                      target.tagName === 'TEXTAREA' || 
+                      target.isContentEditable;
+      if (isInput) return;
+
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        e.stopPropagation();
+        setSearchFocused(true);
+        searchInputRef.current?.focus();
+      } else if (e.key === '/') {
+        e.preventDefault();
+        e.stopPropagation();
+        setSearchFocused(true);
+        searchInputRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', handleGlobalShortcut, true);
+    return () => window.removeEventListener('keydown', handleGlobalShortcut, true);
+  }, []);
+
+  const handleSelectResult = (item: SearchResultItem) => {
+    if (item.type === 'agent' && typeof item.agentIndex === 'number') {
+      handleTabChange(item.agentIndex);
+      setToastMessage(`Switched to ${item.title}`);
+    } else if (item.type === 'template' && typeof item.agentIndex === 'number' && item.templateText) {
+      handleTabChange(item.agentIndex);
+      setInputText(item.templateText);
+      setToastMessage(`Loaded template: "${item.title.replace('Template: ', '')}"`);
+      setTimeout(() => {
+        const textarea = document.querySelector('textarea');
+        if (textarea) {
+          textarea.focus();
+          textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
+    } else if (item.type === 'page' && item.path) {
+      router.push(item.path);
+    }
+    setSearchQuery('');
+    setSearchFocused(false);
+  };
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveSearchIndex(prev => 
+        prev < filteredSearchResults.length - 1 ? prev + 1 : 0
+      );
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveSearchIndex(prev => 
+        prev > 0 ? prev - 1 : filteredSearchResults.length - 1
+      );
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (filteredSearchResults[activeSearchIndex]) {
+        handleSelectResult(filteredSearchResults[activeSearchIndex]);
+      }
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      setSearchFocused(false);
+      searchInputRef.current?.blur();
+    }
+  };
 
   const activeAgent = AGENT_DATA[activeTab];
 
@@ -398,13 +577,125 @@ export default function AgentsPage() {
       <main id="main-content" style={{ backgroundColor: 'var(--bg)', minHeight: '100vh' }}>
         
         {/* Splash/Hero */}
-        <section className={styles.section} style={{ paddingBottom: '2rem', borderBottom: '1px solid var(--line)' }}>
-          <div className={styles.container} style={{ textAlign: 'center' }}>
+        <section className={styles.section} style={{ paddingBottom: '3rem', borderBottom: '1px solid var(--line)' }}>
+          <div className={styles.container} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span className={styles.sectionKicker}>Next-Gen Infrastructure</span>
             <h1 className={styles.sectionTitle} style={{ marginBottom: '1rem' }}>IRN AI Agent Command Center</h1>
-            <p style={{ maxWidth: '700px', margin: '0 auto', color: 'var(--ink2)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
+            <p style={{ maxWidth: '700px', margin: '0 auto 1.5rem', color: 'var(--ink2)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
               We have defined and built custom AI agents to assist our network operations. Tap into their capabilities below to test real-time case triaging, FOIA writing, legal matching, and press production.
             </p>
+
+            {/* Premium Global Search Bar */}
+            <div className={searchStyles.searchWrapper} ref={dropdownRef}>
+              <div 
+                className={`${searchStyles.searchBar} ${searchFocused ? searchStyles.searchBarFocused : ''}`}
+                onClick={() => searchInputRef.current?.focus()}
+              >
+                <Search className={searchStyles.searchIcon} size={18} />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  className={searchStyles.searchInput}
+                  placeholder="Search agents, capabilities, legal resources..."
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  onFocus={() => setSearchFocused(true)}
+                  onKeyDown={handleSearchKeyDown}
+                  id="global-agent-search"
+                />
+                {searchQuery ? (
+                  <button 
+                    className={searchStyles.clearButton} 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSearchQuery('');
+                      searchInputRef.current?.focus();
+                    }}
+                    aria-label="Clear search"
+                  >
+                    <X size={16} />
+                  </button>
+                ) : (
+                  <div className={searchStyles.hotkeyBadge}>
+                    <span>⌘</span><span>K</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Search results dropdown */}
+              <AnimatePresence>
+                {searchFocused && (
+                  <motion.div 
+                    className={searchStyles.dropdownResults}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {filteredSearchResults.length > 0 ? (
+                      <div>
+                        {/* Grouped header depending on query state */}
+                        <div className={searchStyles.resultSectionHeader}>
+                          {searchQuery.trim() ? `Search Results (${filteredSearchResults.length})` : 'Suggested Actions & Agents'}
+                        </div>
+                        
+                        {filteredSearchResults.map((result, idx) => {
+                          const isActive = idx === activeSearchIndex;
+                          return (
+                            <div
+                              key={result.id}
+                              className={`${searchStyles.resultItem} ${isActive ? searchStyles.resultItemActive : ''}`}
+                              onClick={() => handleSelectResult(result)}
+                              onMouseEnter={() => setActiveSearchIndex(idx)}
+                            >
+                              <div className={searchStyles.resultTitleRow}>
+                                <span className={searchStyles.resultTitle}>
+                                  {result.type === 'agent' && <Shield size={14} style={{ color: 'var(--ember)' }} />}
+                                  {result.type === 'template' && <Sparkles size={14} style={{ color: 'var(--gold)' }} />}
+                                  {result.type === 'page' && <FileText size={14} style={{ color: 'var(--sage)' }} />}
+                                  {result.title}
+                                </span>
+                                <span className={`${searchStyles.resultBadge} ${
+                                  result.type === 'agent' ? searchStyles.badgeAgent :
+                                  result.type === 'template' ? searchStyles.badgeTemplate :
+                                  searchStyles.badgePage
+                                }`}>
+                                  {result.type === 'agent' ? 'Agent' :
+                                   result.type === 'template' ? 'Template' :
+                                   result.subtitle}
+                                </span>
+                              </div>
+                              <p className={searchStyles.resultSnippet}>{result.snippet}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className={searchStyles.noResults}>
+                        No matches found for &ldquo;{searchQuery}&rdquo;
+                      </div>
+                    )}
+                    
+                    {/* Search Footer */}
+                    <div className={searchStyles.searchFooter}>
+                      <div className={searchStyles.keyboardTip}>
+                        <span>Navigate:</span>
+                        <span className={searchStyles.keyLabel}>↑</span>
+                        <span className={searchStyles.keyLabel}>↓</span>
+                      </div>
+                      <div className={searchStyles.keyboardTip}>
+                        <span>Select:</span>
+                        <span className={searchStyles.keyLabel}>Enter</span>
+                      </div>
+                      <div className={searchStyles.keyboardTip}>
+                        <span>Close:</span>
+                        <span className={searchStyles.keyLabel}>ESC</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </section>
 
@@ -527,6 +818,12 @@ export default function AgentsPage() {
 
       </main>
       <Footer />
+      {toastMessage && (
+        <div className={searchStyles.toast} id="search-toast">
+          <Sparkles size={16} style={{ color: 'var(--gold)' }} />
+          <span>{toastMessage}</span>
+        </div>
+      )}
     </>
   );
 }

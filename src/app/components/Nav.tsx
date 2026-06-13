@@ -2,12 +2,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import styles from './Nav.module.css';
+import GlobalSearch from './GlobalSearch';
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,28 @@ export default function Nav() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
+
+  // Handle hotkeys (Cmd+K / Ctrl+K or /) to open search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Do not trigger if user is typing in an input or textarea
+      const target = e.target as HTMLElement;
+      const isInput = target.tagName === 'INPUT' || 
+                      target.tagName === 'TEXTAREA' || 
+                      target.isContentEditable;
+      if (isInput) return;
+
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchOpen(true);
+      } else if (e.key === '/') {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
@@ -60,11 +84,27 @@ export default function Nav() {
         <Link href="/about" className={styles.link}>About</Link>
         <Link href="/contact" className={styles.link}>Contact</Link>
         <Link href="/newsletter" className={styles.link}>Newsletter</Link>
+        <button 
+          onClick={() => setSearchOpen(true)} 
+          className={styles.link}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', cursor: 'pointer', border: 'none', background: 'none' }}
+          aria-label="Open global search"
+        >
+          <Search size={16} /> Search
+        </button>
       </div>
 
       <Link href="/donate" className={styles.donateBtn}>
         Donate
       </Link>
+
+      <button 
+        className={styles.mobileSearchBtn} 
+        onClick={() => setSearchOpen(true)}
+        aria-label="Open search"
+      >
+        <Search size={24} />
+      </button>
 
       <button 
         className={styles.mobileMenuBtn} 
@@ -103,9 +143,17 @@ export default function Nav() {
           <Link href="/about" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Contact</Link>
           <Link href="/newsletter" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Newsletter</Link>
+          <button 
+            className={styles.mobileLink} 
+            onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', textAlign: 'left', cursor: 'pointer', border: 'none', background: 'none' }}
+          >
+            <Search size={22} /> Search
+          </button>
           <Link href="/donate" className={`${styles.donateBtn} mt-8 text-center`} onClick={() => setMobileOpen(false)} style={{display: 'block'}}>Donate</Link>
         </div>
       </div>
+      <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </nav>
   );
 }

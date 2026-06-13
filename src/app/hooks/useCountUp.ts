@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 export function useCountUp(end: number, duration: number = 2000, trigger: boolean = true) {
   // Initialize to 'end' so the SSR markup contains the final number for crawlers
-  const [count, setCount] = useState(end);
+  const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
