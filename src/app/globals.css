@@ -68,3 +68,19 @@ button {
 .skip-link:focus {
   top: 0;
 }
+
+[data-theme="light"] {
+  --bg: #F5F2EC;
+  --bg2: #EDE9E1;
+  --bg3: #E3DDD3;
+  --line: #D5CDC0;
+  --ink: #1F1B16;
+  --ink2: #544D42;
+  --ink3: #8B7E6D;
+  --ember: #B84714;
+  --ember-dim: #FADED6;
+  --gold: #A37213;
+  --gold-l: #D89F35;
+  --sage: #5A7E4F;
+  --shadow: 0 8px 32px rgba(35, 30, 24, 0.08);
+}

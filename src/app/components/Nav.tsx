@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X, Search, Sun, Moon, Globe } from 'lucide-react';
 import styles from './Nav.module.css';
 import GlobalSearch from './GlobalSearch';
 
@@ -9,6 +9,40 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [lang, setLang] = useState<'en' | 'es'>('en');
+
+  // Sync theme and language from localStorage on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' || 'dark';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    const savedLang = localStorage.getItem('lang') as 'en' | 'es' || 'en';
+    setLang(savedLang);
+    window.dispatchEvent(new CustomEvent('langChange', { detail: savedLang }));
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
+
+  const toggleLang = () => {
+    const newLang = lang === 'en' ? 'es' : 'en';
+    setLang(newLang);
+    localStorage.setItem('lang', newLang);
+    window.dispatchEvent(new CustomEvent('langChange', { detail: newLang }));
+
+    // Auto-redirection for Know Your Rights pages
+    if (window.location.pathname.includes('/know-your-rights') && newLang === 'es') {
+      window.location.href = '/irn-criminal-injustice/conoce-tus-derechos/';
+    } else if (window.location.pathname.includes('/conoce-tus-derechos') && newLang === 'en') {
+      window.location.href = '/irn-criminal-injustice/know-your-rights/';
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -94,6 +128,24 @@ export default function Nav() {
         >
           <Search size={16} /> Search
         </button>
+        <div className={styles.controls}>
+          <button 
+            onClick={toggleTheme} 
+            className={styles.controlBtn} 
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+          >
+            {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+            <span style={{ textTransform: 'capitalize' }}>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+          </button>
+          <button 
+            onClick={toggleLang} 
+            className={styles.controlBtn} 
+            aria-label={`Change language to ${lang === 'en' ? 'Español' : 'English'}`}
+          >
+            <Globe size={14} />
+            <span>{lang === 'en' ? 'ES' : 'EN'}</span>
+          </button>
+        </div>
       </div>
 
       <Link href="/donate" className={styles.donateBtn}>Donate</Link>
@@ -160,6 +212,26 @@ export default function Nav() {
           >
             <Search size={22} /> Search
           </button>
+          <div className={styles.controls} style={{ marginTop: '1.5rem', padding: '0.5rem 0', justifyContent: 'flex-start' }}>
+            <button 
+              onClick={toggleTheme} 
+              className={styles.controlBtn} 
+              style={{ padding: '10px 16px', fontSize: '1rem' }}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              <span style={{ textTransform: 'capitalize' }}>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+            </button>
+            <button 
+              onClick={toggleLang} 
+              className={styles.controlBtn} 
+              style={{ padding: '10px 16px', fontSize: '1rem' }}
+              aria-label={`Change language to ${lang === 'en' ? 'Español' : 'English'}`}
+            >
+              <Globe size={18} />
+              <span>{lang === 'en' ? 'ES' : 'EN'}</span>
+            </button>
+          </div>
           <Link href="/donate" className={`${styles.donateBtn} mt-8 text-center`} onClick={() => setMobileOpen(false)} style={{ display: 'block' }}>Donate</Link>
         </div>
       </div>

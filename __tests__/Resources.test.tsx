@@ -90,4 +90,47 @@ describe('ResourcesPage', () => {
     const toast = await screen.findByText(/proposal cached in local storage!|resource proposal submitted successfully!/i);
     expect(toast).toBeInTheDocument();
   });
+
+  it('toggles the theme and localization dynamically', () => {
+    render(<ResourcesPage />);
+
+    // By default, renders the English title
+    expect(screen.getByRole('heading', { level: 1, name: /maryland community resource library/i })).toBeInTheDocument();
+
+    // Find language button
+    const langBtn = screen.getAllByRole('button', { name: /change language to español/i })[0];
+    expect(langBtn).toBeInTheDocument();
+
+    // Toggle language
+    fireEvent.click(langBtn);
+
+    // Title should update to Spanish
+    expect(screen.getByRole('heading', { level: 1, name: /biblioteca de recursos comunitarios de maryland/i })).toBeInTheDocument();
+
+    // Categories title should be in Spanish
+    expect(screen.getByRole('heading', { level: 2, name: /categorías/i })).toBeInTheDocument();
+
+    // Elders category button should translate
+    expect(screen.getByRole('button', { name: /personas mayores/i })).toBeInTheDocument();
+
+    // Switch back to English
+    const langBtnEn = screen.getAllByRole('button', { name: /change language to english/i })[0];
+    fireEvent.click(langBtnEn);
+    expect(screen.getByRole('heading', { level: 1, name: /maryland community resource library/i })).toBeInTheDocument();
+
+    // Find theme button
+    const themeBtn = screen.getAllByRole('button', { name: /switch to light theme/i })[0];
+    expect(themeBtn).toBeInTheDocument();
+
+    // Toggle theme
+    fireEvent.click(themeBtn);
+
+    // The data-theme attribute on documentElement should toggle to light
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+
+    // Toggle theme back
+    const themeBtnDark = screen.getAllByRole('button', { name: /switch to dark theme/i })[0];
+    fireEvent.click(themeBtnDark);
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+  });
 });
