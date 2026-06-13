@@ -94,11 +94,11 @@ export default function Footer() {
           </div>
           <div className={styles.col}>
             <span className={styles.colTitle}>Resources</span>
-            <Link href="/know-your-rights" className={styles.link} aria-label="Know Your Rights guide">
-              Know Your Rights
-            </Link>
+            <Link href="/know-your-rights" className={styles.link} aria-label="Know Your Rights guide">Know Your Rights</Link>
+            <Link href="/attorneys" className={styles.link} aria-label="Attorney Directory">Attorneys</Link>
+            <Link href="/foia" className={styles.link} aria-label="FOIA Generator">FOIA Generator</Link>
+            <Link href="/impact" className={styles.link} aria-label="Impact & Data">Impact &amp; Data</Link>
             <Link href="/chapters" className={styles.link} aria-label="IRN Chapters & Locations">Chapters</Link>
-            <Link href="/reports" className={styles.link} aria-label="IRN Annual Reports">Annual Reports</Link>
             <Link href="/blog" className={styles.link} aria-label="IRN Blog">Blog</Link>
             <Link href="/press" className={styles.link} aria-label="IRN Press">Press</Link>
           </div>

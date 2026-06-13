@@ -14,7 +14,7 @@ vi.mock('next/navigation', () => ({
 describe('ResourcesPage', () => {
   it('renders the main directory title and kicker', () => {
     render(<ResourcesPage />);
-    expect(screen.getByRole('heading', { level: 1, name: /maryland lgbtqia\+ resource library/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: /maryland community resource library/i })).toBeInTheDocument();
     expect(screen.getByText(/mutual aid & community resources/i)).toBeInTheDocument();
   });
 

@@ -67,7 +67,7 @@ export default function ResourcesPage() {
 
   // Update document title for SEO
   useEffect(() => {
-    document.title = "Maryland LGBTQIA+ Resource Directory | IRN";
+    document.title = "Maryland Community Resource Library | IRN";
   }, []);
 
   // Flatten database for search lookup
@@ -207,9 +207,9 @@ export default function ResourcesPage() {
         <section className={rStyles.hero}>
           <div className={rStyles.container}>
             <span className={styles.sectionKicker}>Mutual Aid & Community Resources</span>
-            <h1 className={rStyles.title}>Maryland LGBTQIA+ Resource Library</h1>
+            <h1 className={rStyles.title}>Maryland Community Resource Library</h1>
             <p className={rStyles.subtitle}>
-              A comprehensive, community-vetted directory of inclusive healthcare, legal protection, youth networks, and senior services across Maryland.
+              A comprehensive, community-vetted directory of public healthcare, legal aid, housing programs, youth networks, senior support, and mutual aid across Maryland for all residents.
             </p>
 
             {/* Search Input */}

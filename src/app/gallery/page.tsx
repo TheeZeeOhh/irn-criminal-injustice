@@ -1,35 +1,21 @@
 import type { Metadata } from 'next';
 import Nav from '../components/Nav';
-import Hero from '../components/Hero';
 import Footer from '../components/Footer';
-import styles from '../criminal-injustice/page.module.css';
+import GalleryContent from './GalleryContent';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://injusticereformnetwork.org'),
   title: 'Gallery | Injustice Reform Network',
-  description: 'Community in action. Photos and media from our campaigns.',
+  description: 'Community in action. Photos and media from IRN campaigns, workshops, rallies, and direct action across VA, MD, NC, and DC.',
+  robots: { index: true, follow: true },
+  alternates: { canonical: 'https://injusticereformnetwork.org/gallery/' },
 };
 
 export default function GalleryPage() {
   return (
     <>
       <Nav />
-      <main id="main-content" className={styles.main}>
-        <Hero 
-          kicker="Media"
-          title="Community in Action."
-          subtitle="Photos and media from our workshops, rallies, and direct action campaigns."
-        />
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
-              <div style={{ aspectRatio: '1', background: '#1a1a1a', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555' }}>Image 1</div>
-              <div style={{ aspectRatio: '1', background: '#1a1a1a', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555' }}>Image 2</div>
-              <div style={{ aspectRatio: '1', background: '#1a1a1a', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555' }}>Image 3</div>
-              <div style={{ aspectRatio: '1', background: '#1a1a1a', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555' }}>Image 4</div>
-            </div>
-          </div>
-        </section>
-      </main>
+      <GalleryContent />
       <Footer />
     </>
   );
