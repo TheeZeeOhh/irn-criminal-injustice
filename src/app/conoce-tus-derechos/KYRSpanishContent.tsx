@@ -1,104 +1,376 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Download, Shield, Scale, Home, Camera } from 'lucide-react';
+import Link from 'next/link';
 import styles from './kyr-es.module.css';
 
-const sections = [
+type Scenario = 'trafico' | 'pie' | 'puerta' | 'arrestado' | 'migracion';
+
+const SCENARIOS: { id: Scenario; label: string }[] = [
+  { id: 'trafico', label: 'Parada de tráfico' },
+  { id: 'pie', label: 'Detenido/a a pie' },
+  { id: 'puerta', label: 'Policía en su puerta' },
+  { id: 'arrestado', label: 'Bajo arresto' },
+  { id: 'migracion', label: 'ICE / Migración' },
+];
+
+const RIGHTS = [
   {
-    icon: Shield,
-    title: 'Encuentros con la Policía',
-    items: [
-      { q: 'Tus derechos básicos', a: 'Tienes el derecho de guardar silencio en todos los estados. No estás obligado a responder preguntas sobre adónde vas, dónde has estado, o qué estás haciendo. Di clara y calmadamente: "Invoco mi derecho de guardar silencio."' },
-      { q: '¿Me están deteniendo?', a: 'Pregunta: "¿Soy libre de irme?" Si la respuesta es sí — vete calmamente. Si es no, estás siendo detenido. Di: "No consiento a esta detención. Invoco mi derecho de guardar silencio y mi derecho a un abogado." Mantén la calma y no resistas físicamente.' },
-      { q: 'Registros (cacheos)', a: 'Puedes negar el consentimiento a un registro de tu persona, bolsa o vehículo. Di claramente: "No consiento a un registro." Un oficial puede registrar de todos modos si alega causa probable — tu negativa es legalmente importante y queda registrada.' },
-      { q: 'Si te arrestan', a: 'Di claramente: "Invoco mi derecho de guardar silencio y mi derecho a un abogado." Luego deja de hablar. No expliques ni argumentes. Contacta a IRN a cirnpresident@gmail.com en cuanto puedas.' },
-    ],
+    num: '01',
+    right: 'Derecho a guardar silencio',
+    phrase: 'Estoy ejerciendo mi derecho a guardar silencio.',
+    context:
+      'Usted no está obligado/a a responder preguntas sobre adónde va, dónde ha estado, ni qué está haciendo. Esto aplica en Virginia, Maryland y a nivel federal.',
   },
   {
-    icon: Home,
-    title: 'Derechos del Inquilino',
-    items: [
-      { q: 'Desalojos ilegales', a: 'Los desalojos de auto-ayuda — donde un arrendador cambia las cerraduras, corta los servicios, o remueve tus pertenencias sin orden judicial — son ilegales en Virginia, Maryland y DC. Solo un alguacil puede ejecutar un desalojo después de una orden judicial.' },
-      { q: 'Avisos requeridos', a: 'Virginia: 5 días para pagar o desocupar. Maryland: 4 días. DC: 30 días por falta de pago. Tienes el derecho de aparecer en el tribunal y contestar el desalojo.' },
-    ],
+    num: '02',
+    right: 'Derecho a negarse a un registro',
+    phrase: 'No doy mi consentimiento para un registro.',
+    context:
+      'Un oficial puede registrar de todas formas si alega causa probable — pero su negativa queda documentada y es legalmente significativa.',
   },
   {
-    icon: Camera,
-    title: 'Grabar a la Policía',
-    items: [
-      { q: 'Tu derecho a grabar', a: 'Tienes el derecho de la Primera Enmienda de grabar a oficiales de policía ejerciendo sus funciones en espacios públicos en los 50 estados, siempre que no interferas físicamente con sus acciones.' },
-      { q: 'Si te ordenan parar', a: 'Mantén la calma. Puedes decir: "Tengo el derecho constitucional de grabar." Si exigen tu teléfono, no resistas físicamente — di claramente: "No consiento a un registro de mi dispositivo." Siempre bloquea tu teléfono con un PIN, no biometría, cuando protestes.' },
-    ],
+    num: '03',
+    right: 'Derecho a preguntar si puede irse',
+    phrase: '¿Estoy detenido/a, o puedo irme?',
+    context:
+      'Si la respuesta es que puede irse, aléjese calmadamente. Si está detenido/a, la situación cambia y sus otros derechos entran en juego.',
   },
   {
-    icon: Scale,
-    title: 'Eliminación de Antecedentes',
-    items: [
-      { q: 'Virginia — Ley Clean Slate (1 julio 2026)', a: 'La Ley Clean Slate de Virginia entra en vigor el 1 de julio de 2026. Los antecedentes elegibles serán sellados automáticamente. La clínica gratuita de IRN el 1 y 15 de julio te ayudará a navegar este proceso. Todo es gratis.' },
-      { q: 'Maryland, Carolina del Norte y DC', a: 'Cada estado tiene sus propias vías de eliminación de antecedentes. IRN puede conectarte con abogados en cada jurisdicción. Contacta a cirnpresident@gmail.com.' },
-    ],
+    num: '04',
+    right: 'Derecho a un abogado',
+    phrase: 'Quiero un abogado.',
+    context:
+      'Después de decir esto, guarde silencio. No explique. No argumente. Espere a su abogado/a antes de responder cualquier pregunta.',
+  },
+  {
+    num: '05',
+    right: 'Derecho a grabar a la policía',
+    phrase:
+      'En Virginia y Maryland, grabar es legal en espacios públicos.',
+    context: (
+      <>
+        Tiene el derecho de la Primera Enmienda de grabar a oficiales en el desempeño de sus funciones en espacios públicos.{' '}
+        <span className={styles.contextEmphasis}>No interfiera físicamente.</span>{' '}
+        Bloquee su teléfono con PIN, no biometría, si va a protestar.
+      </>
+    ),
+  },
+  {
+    num: '06',
+    right: 'Derecho a no abrir la puerta',
+    phrase: '¿Tiene una orden judicial firmada por un juez?',
+    context:
+      'Una orden administrativa de ICE NO es suficiente para obligarle a abrir la puerta. Solo una orden firmada por un juez federal o estatal lo requiere.',
   },
 ];
 
-const walletSteps = [
-  'Mantén la calma. Manos visibles.',
-  '"¿Soy libre de irme?"',
-  '"Invoco mi derecho a guardar silencio."',
-  '"No consiento a un registro."',
-  '"Quiero un abogado."',
-  'No resistas físicamente. Documenta todo después.',
+type StepItem = {
+  text: string;
+  say?: string;
+};
+
+const SCENARIO_PANELS: Record<
+  Scenario,
+  { title: string; steps: StepItem[]; warn?: string }
+> = {
+  trafico: {
+    title: 'Parada de tráfico',
+    steps: [
+      {
+        text: 'Orillese de forma segura, apague el motor, baje la ventana.',
+        say: 'Mi licencia está en mi billetera. ¿Puedo sacarla?',
+      },
+      {
+        text: 'El conductor debe mostrar licencia, registro y prueba de seguro cuando se lo pidan.',
+      },
+      {
+        text: 'Los pasajeros NO tienen que identificarse en Virginia. En Maryland las reglas son diferentes (ver nota abajo).',
+      },
+      {
+        text: 'Si preguntan si pueden revisar el vehículo, diga:',
+        say: 'No doy mi consentimiento para un registro.',
+      },
+      {
+        text: 'Si preguntan adónde va o qué hace, puede responder:',
+        say: 'Prefiero no responder esa pregunta.',
+      },
+    ],
+    warn:
+      'Nota sobre Maryland: En Maryland, los pasajeros pueden estar obligados a identificarse en ciertas circunstancias. Consulte el directorio de abogados de IRN si tiene dudas.',
+  },
+  pie: {
+    title: 'Detenido/a en la calle',
+    steps: [
+      {
+        text: 'Primero pregunte:',
+        say: '¿Estoy detenido/a, o puedo irme?',
+      },
+      {
+        text: 'Si puede irse: aléjese calmadamente sin correr.',
+      },
+      {
+        text: 'Si está detenido/a, si le piden que se identifique o que abra su bolsa, diga:',
+        say: 'No doy mi consentimiento a ningún registro.',
+      },
+      {
+        text: 'No tiene que responder preguntas sobre su nombre, domicilio o actividades. Puede decir:',
+        say: 'Estoy ejerciendo mi derecho a guardar silencio.',
+      },
+    ],
+  },
+  puerta: {
+    title: 'Policía en su puerta',
+    steps: [
+      {
+        text: 'No tiene que abrir. Puede hablar desde adentro o a través de la puerta. Pregunte:',
+        say: '¿Tienen una orden judicial firmada por un juez?',
+      },
+      {
+        text: 'Si dicen que tienen una orden: pídales que la deslicen por debajo de la puerta o la sostengan frente a una ventana para verificar que está firmada por un juez.',
+      },
+      {
+        text: 'Si entran sin orden, no resista físicamente. Diga claramente:',
+        say: 'No doy mi consentimiento para este registro.',
+      },
+      {
+        text: 'Abrir la puerta no es obligatorio a menos que presenten una orden judicial válida firmada por un juez estatal o federal.',
+      },
+    ],
+  },
+  arrestado: {
+    title: 'Bajo arresto',
+    steps: [
+      {
+        text: 'No resista físicamente el arresto, aunque crea que es injusto.',
+      },
+      {
+        text: 'Declare claramente y luego guarde silencio:',
+        say: 'Quiero un abogado. No voy a responder preguntas sin un abogado.',
+      },
+      {
+        text: 'No firme ningún documento sin la presencia de su abogado/a.',
+      },
+      {
+        text: 'Tiene derecho a realizar una llamada telefónica. Comuníquese con un abogado/a o con alguien de confianza.',
+      },
+      {
+        text: 'Después del incidente: escriba todo lo que recuerde, tome fotos de cualquier lesión, identifique testigos, y repórtelo a IRN.',
+      },
+    ],
+  },
+  migracion: {
+    title: 'ICE / Migración',
+    steps: [
+      {
+        text: 'Sus derechos constitucionales aplican sin importar su estatus migratorio. La Cuarta y Quinta Enmienda le protegen.',
+      },
+      {
+        text: 'Si un agente de ICE se acerca, puede decir:',
+        say: 'No doy mi consentimiento a ningún registro. Quiero hablar con un abogado.',
+      },
+      {
+        text: 'No firme documentos de ICE sin hablar primero con un abogado/a de inmigración. Firmar puede resultar en deportación acelerada.',
+      },
+      {
+        text: 'Sin una orden judicial firmada por un juez federal, usted no está obligado/a a abrir la puerta de su casa.',
+      },
+      {
+        text: 'Recursos de emergencia: ACLU-VA (804) 644-8022 · Legal Aid SEVA (757) 627-5423 · Directorio de abogados IRN →',
+      },
+    ],
+    warn:
+      'Las leyes de inmigración cambian rápidamente. La información aquí es orientativa. Consulte siempre con un abogado/a de inmigración para su situación específica.',
+  },
+};
+
+const FAQ = [
+  {
+    q: '¿Tengo que dar mi nombre a la policía?',
+    a: 'En Virginia, los conductores deben identificarse, pero los pasajeros generalmente no están obligados durante una parada de tráfico. En Maryland, las reglas pueden variar según las circunstancias. Si está siendo detenido/a por sospecha de un delito, las reglas son diferentes. Cuando tenga duda, puede preguntar: "¿Estoy obligado/a por ley a identificarme en esta situación?"',
+  },
+  {
+    q: '¿Pueden registrar mi teléfono?',
+    a: 'No, según Riley v. California (2014), la Corte Suprema de EE.UU. estableció que los oficiales necesitan una orden judicial para registrar su teléfono celular. No proporcione su contraseña o PIN. Si le exigen el teléfono, diga: "No consiento al registro de mi dispositivo."',
+  },
+  {
+    q: '¿Qué pasa si miento a la policía?',
+    a: 'Mentir a agentes federales es un delito federal (18 U.S.C. § 1001). Mentir a agentes estatales también puede tener consecuencias legales. Es mucho más seguro ejercer su derecho a guardar silencio que arriesgarse mintiendo. Diga simplemente: "Estoy ejerciendo mi derecho a guardar silencio."',
+  },
+  {
+    q: '¿Puedo filmar a la policía?',
+    a: 'Sí. En Virginia y Maryland tiene el derecho de la Primera Enmienda de grabar a oficiales de policía en el desempeño de sus funciones en espacios públicos, siempre que no interfiera físicamente con sus acciones. Este derecho ha sido respaldado por múltiples tribunales federales.',
+  },
+  {
+    q: '¿Qué derechos tengo si soy trans o no binario/a?',
+    a: 'Todos los derechos constitucionales descritos aquí aplican sin importar su identidad de género. En Maryland, la Ley Maryland Trans Shield Act ofrece protecciones adicionales. Si experimenta un trato discriminatorio durante un encuentro con la policía basado en su identidad de género, repórtelo a IRN a través de CHRT.',
+  },
+  {
+    q: '¿Qué hago después de un encuentro con la policía?',
+    a: '1. Anote el número de placa y número de placa del vehículo policial. 2. Escriba todo lo que recuerde del encuentro lo antes posible. 3. Tome fotos de cualquier lesión o daño a su propiedad. 4. Identifique y contacte a testigos si los hay. 5. Reporte el incidente a IRN de forma anónima a través de CHRT en /chrt/',
+  },
+];
+
+const RESOURCES_CARDS = [
+  { icon: '⚖', label: 'Directorio de Abogados', href: '/attorneys/' },
+  { icon: '◉', label: 'Reportar un Incidente (CHRT)', href: '/chrt/' },
+  { icon: '◈', label: 'Tarjeta de Bolsillo', href: '/know-your-rights/#wallet-card' },
+  { icon: '♥', label: 'Trans Care Baltimore', href: '/services/' },
+  { icon: '⬡', label: 'ACLU de Virginia', href: 'https://www.acluva.org' },
+  { icon: '⊞', label: 'ACLU de Maryland', href: 'https://www.aclu-md.org' },
 ];
 
 export default function KYRSpanishContent() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [activeScenario, setActiveScenario] = useState<Scenario>('trafico');
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+
+  function toggleAccordion(i: number) {
+    setOpenAccordion(openAccordion === i ? null : i);
+  }
+
+  function handlePrint() {
+    window.print();
+  }
+
+  function handleShare() {
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      navigator.share({
+        title: 'Conozca Sus Derechos — IRN',
+        url: window.location.href,
+      }).catch(() => {/* user cancelled */});
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Enlace copiado al portapapeles.');
+      });
+    }
+  }
+
+  const panel = SCENARIO_PANELS[activeScenario];
 
   return (
     <main id="main-content" className={styles.main}>
-      <div className={styles.accentBar} aria-hidden="true" />
 
-      <header className={styles.hero}>
-        <div className={styles.container}>
-          <motion.span className={styles.kicker} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-            Conoce Tus Derechos
-          </motion.span>
-          <motion.h1 className={styles.heroTitle} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
-            Conoce Lo Que Tienes Derecho.
-          </motion.h1>
-          <motion.p className={styles.heroSubtitle} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-            Virginia · Maryland · Carolina del Norte · DC — tus derechos durante encuentros con la policía, desalojos, disciplina escolar y más.
-            Esto no es asesoramiento legal. Para tu situación, <a href="/chrt" className={styles.heroLink}>reporta a través de CHRT</a>.
-          </motion.p>
-          <motion.div className={styles.heroActions} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }}>
-            <a href="#tarjeta" className={styles.btnPrimary}><Download size={15} aria-hidden="true" /> Descargar Tarjeta</a>
-            <a href="/know-your-rights" className={styles.btnGhost}>English →</a>
-          </motion.div>
+      {/* LANGUAGE BANNER */}
+      <div className={styles.langBanner}>
+        <span className={styles.langPrompt}>Seleccione su idioma / Select your language</span>
+        <div className={styles.langButtons}>
+          <Link href="/know-your-rights/" className={styles.langBtn}>
+            English
+          </Link>
+          <button className={`${styles.langBtn} ${styles.langBtnActive}`} aria-current="true">
+            Español
+          </button>
         </div>
-      </header>
+      </div>
 
-      {/* ACCORDION */}
-      <section className={styles.section}>
+      {/* HERO */}
+      <div className={styles.hero}>
         <div className={styles.container}>
-          <span className={styles.sectionKicker}>Tus Derechos</span>
-          <h2 className={styles.sectionTitle}>Cuatro Áreas Más Importantes</h2>
+          <p className={styles.heroEyebrow}>Educación Legal Comunitaria · Virginia y Maryland</p>
+          <h1 className={styles.heroTitle}>
+            Conozca Sus <span className={styles.heroGold}>Derechos</span>
+          </h1>
+          <div className={styles.heroRule} aria-hidden="true" />
+          <p className={styles.heroSub}>
+            Usted tiene derechos legales — sin importar su estatus migratorio, identidad de género,
+            o historial. Esta guía cubre sus derechos durante encuentros con la policía en Virginia y Maryland.
+          </p>
+          <div className={styles.disclaimerBar}>
+            <strong>Nota importante:</strong> Esta guía es información educativa, no asesoría legal.
+            Para su situación específica,{' '}
+            <Link href="/attorneys/" className={styles.disclaimerLink}>
+              consulte un abogado/a
+            </Link>.
+          </div>
+        </div>
+      </div>
+
+      {/* QUICK RIGHTS CARDS */}
+      <div className={styles.cardsSection}>
+        <div className={styles.container}>
+          <div className={styles.cardsGrid}>
+            {RIGHTS.map((r) => (
+              <div key={r.num} className={styles.rightCard}>
+                <span className={styles.sayNumber}>Derecho {r.num}</span>
+                <h2 className={styles.sayRight}>{r.right}</h2>
+                <p className={styles.sayPhrase}>{r.phrase}</p>
+                <p className={styles.sayContext}>{r.context}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* SCENARIOS SECTION */}
+      <div className={styles.scenariosSection}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>¿Qué Hacer En Cada Situación?</h2>
+          <p className={styles.sectionSub}>
+            Seleccione la situación que mejor describa lo que está enfrentando.
+          </p>
+          <div className={styles.scenarioTabs} role="tablist" aria-label="Situaciones">
+            {SCENARIOS.map((sc) => (
+              <button
+                key={sc.id}
+                role="tab"
+                aria-selected={activeScenario === sc.id}
+                className={`${styles.scenarioTab} ${activeScenario === sc.id ? styles.scenarioTabActive : ''}`}
+                onClick={() => setActiveScenario(sc.id)}
+              >
+                {sc.label}
+              </button>
+            ))}
+          </div>
+
+          <div className={styles.scenarioPanel} role="tabpanel">
+            <h3 className={styles.panelTitle}>{panel.title}</h3>
+            <ol className={styles.stepList}>
+              {panel.steps.map((step, i) => (
+                <li key={i} className={styles.stepItem}>
+                  <span className={styles.stepNumber}>{i + 1}</span>
+                  <div className={styles.stepText}>
+                    {step.text}
+                    {step.say && (
+                      <span className={styles.stepSay}>&ldquo;{step.say}&rdquo;</span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ol>
+            {panel.warn && (
+              <div className={styles.warnBox}>
+                <strong>Nota:</strong> {panel.warn}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ ACCORDION */}
+      <div className={styles.faqSection}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Preguntas Frecuentes</h2>
           <div className={styles.accordion}>
-            {sections.map((sec, i) => {
-              const Icon = sec.icon;
-              const isOpen = open === i;
+            {FAQ.map((item, i) => {
+              const isOpen = openAccordion === i;
               return (
-                <div key={sec.title} className={styles.accItem}>
-                  <button className={styles.accBtn} onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen}>
-                    <div className={styles.accBtnLeft}><Icon size={18} aria-hidden="true" className={styles.accIcon} /><span className={styles.accTitle}>{sec.title}</span></div>
-                    <span aria-hidden="true">{isOpen ? '▲' : '▼'}</span>
+                <div key={i} className={styles.accItem}>
+                  <button
+                    className={styles.accTrigger}
+                    onClick={() => toggleAccordion(i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span className={styles.accQuestion}>{item.q}</span>
+                    <span
+                      className={styles.accIcon}
+                      aria-hidden="true"
+                      style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}
+                    >
+                      +
+                    </span>
                   </button>
                   {isOpen && (
                     <div className={styles.accBody}>
-                      {sec.items.map(item => (
-                        <div key={item.q} className={styles.accBlock}>
-                          <h3 className={styles.accBlockTitle}>{item.q}</h3>
-                          <p className={styles.accBlockBody}>{item.a}</p>
-                        </div>
-                      ))}
+                      <p className={styles.accAnswer}>{item.a}</p>
                     </div>
                   )}
                 </div>
@@ -106,49 +378,52 @@ export default function KYRSpanishContent() {
             })}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* WALLET CARD */}
-      <section className={styles.walletSection} id="tarjeta">
+      {/* RESOURCES SECTION */}
+      <div className={styles.resourcesSection}>
         <div className={styles.container}>
-          <span className={styles.sectionKicker}>Imprimible</span>
-          <h2 className={styles.sectionTitle}>Tarjeta de Bolsillo</h2>
-          <p className={styles.sectionBody}>Dobla y guarda en tu billetera. Imprime en ambos lados de una hoja, dobla en tercios.</p>
-          <div className={styles.walletCard}>
-            <div className={styles.walletHeader}>
-              <span className={styles.walletOrg}>INJUSTICE REFORM NETWORK</span>
-              <span className={styles.walletTitle}>CONOCE TUS DERECHOS</span>
-              <span className={styles.walletSub}>Encuentro con Policía · 6 Pasos</span>
-            </div>
-            <ol className={styles.walletSteps}>
-              {walletSteps.map((step, i) => (
-                <li key={i} className={styles.walletStep}>
-                  <span className={styles.walletNum}>{i + 1}</span>
-                  <span className={styles.walletStepText}>{step}</span>
-                </li>
-              ))}
-            </ol>
-            <div className={styles.walletFooter}>
-              <span>Reporta incidentes anónimamente:</span>
-              <span className={styles.walletUrl}>injusticereformnetwork.org/chrt</span>
-              <span>cirnpresident@gmail.com · 804-602-9166</span>
-            </div>
-          </div>
-          <button className={styles.btnPrimary} onClick={() => window.print()}>
-            <Download size={15} aria-hidden="true" /> Imprimir Tarjeta
-          </button>
-        </div>
-      </section>
-
-      <section className={styles.ctaSection}>
-        <div className={styles.container}>
-          <div className={styles.ctaBlock}>
-            <h2 className={styles.ctaTitle}>¿Violaron tus derechos?</h2>
-            <p className={styles.ctaBody}>Usa CHRT para documentar lo que pasó — de forma anónima, cifrada, sin necesidad de dar tu nombre.</p>
-            <a href="/chrt" className={styles.btnPrimary}>Reportar a través de CHRT →</a>
+          <h2 className={styles.sectionTitle}>Recursos</h2>
+          <div className={styles.resourcesGrid}>
+            {RESOURCES_CARDS.map((r) => (
+              <Link key={r.href} href={r.href} className={styles.resourceCard}>
+                <span className={styles.resourceIcon} aria-hidden="true">{r.icon}</span>
+                <span className={styles.resourceLabel}>{r.label}</span>
+              </Link>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* REPORT BAND */}
+      <div className={styles.reportBand}>
+        <div className={styles.container}>
+          <h2 className={styles.reportTitle}>¿Fue víctima de abuso o violación de derechos?</h2>
+          <p className={styles.reportSub}>
+            Puede reportarlo de forma completamente anónima a través de CHRT, la plataforma segura
+            y cifrada de IRN. No necesita dar su nombre.
+          </p>
+          <Link href="/chrt/" className={styles.reportBtn}>
+            Reportar Anónimamente →
+          </Link>
+        </div>
+      </div>
+
+      {/* PRINT BAR */}
+      <div className={styles.printBar}>
+        <div className={styles.container}>
+          <p className={styles.printPrompt}>Comparta esta guía con su comunidad:</p>
+          <div className={styles.printActions}>
+            <button className={styles.printBtn} onClick={handlePrint}>
+              Imprimir versión
+            </button>
+            <button className={styles.printBtn} onClick={handleShare}>
+              Compartir enlace
+            </button>
+          </div>
+        </div>
+      </div>
+
     </main>
   );
 }

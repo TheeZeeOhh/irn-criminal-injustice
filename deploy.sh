@@ -35,7 +35,7 @@ git add -A
 git commit -m "Deploy $(date -u '+%Y-%m-%d %H:%M UTC')"
 
 echo "→ Pushing..."
-GIT_TERMINAL_PROMPT=0 git push origin gh-pages
+GIT_TERMINAL_PROMPT=0 git push origin gh-pages --force
 
 echo "→ Returning to main..."
 git checkout main

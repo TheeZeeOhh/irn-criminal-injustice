@@ -1,45 +1,508 @@
-.main { min-height: 100vh; background: var(--bg); }
-.accentBar { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--ember) 0%, var(--gold) 50%, var(--ember) 100%); z-index: 1001; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-.hero { background: var(--bg2); padding: 120px 0 56px; border-bottom: 1px solid var(--line); }
-.kicker { display: block; font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember); margin-bottom: 12px; }
-.heroTitle { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; color: var(--ink); line-height: 1.1; margin: 0 0 16px; }
-.heroSubtitle { font-family: var(--font-body); font-size: 0.88rem; color: var(--ink2); line-height: 1.7; max-width: 600px; margin: 0; }
-.section { padding: 56px 0 80px; }
-.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
-.formLeft, .formRight { display: flex; flex-direction: column; gap: 0; }
-.formCard { background: var(--bg2); border: 1px solid var(--line); border-top: 3px solid var(--ember); padding: 28px; display: flex; flex-direction: column; gap: 18px; }
-.cardTitle { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--ink); margin: 0; }
-.cardSubtitle { font-family: var(--font-body); font-size: 0.78rem; color: var(--ink3); margin: -8px 0 0; }
-.field { display: flex; flex-direction: column; gap: 5px; }
-.label { font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); }
-.req { color: var(--ember); }
-.input { background: var(--bg3); border: 1px solid var(--line); color: var(--ink); font-family: var(--font-body); font-size: 0.84rem; padding: 10px 12px; outline: none; transition: border-color 0.15s; }
-.input:focus { border-color: var(--gold); }
-.textarea { background: var(--bg3); border: 1px solid var(--line); color: var(--ink); font-family: var(--font-body); font-size: 0.84rem; padding: 10px 12px; outline: none; resize: vertical; transition: border-color 0.15s; }
-.textarea:focus { border-color: var(--gold); }
-.checkGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.checkBtn { display: flex; align-items: center; gap: 6px; background: transparent; border: 1px solid var(--line); color: var(--ink3); font-family: var(--font-body); font-size: 0.74rem; padding: 8px 10px; cursor: pointer; transition: border-color 0.15s, color 0.15s; text-align: left; }
-.checkBtn:hover { border-color: var(--gold); color: var(--gold); }
-.checkBtnActive { background: var(--gold); border-color: var(--gold); color: #000; }
-.checkBtnActive svg { color: #000; }
-.roleGrid { display: flex; flex-direction: column; gap: 8px; }
-.roleCard { background: var(--bg3); border: 1px solid var(--line); padding: 14px; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 3px; transition: border-color 0.15s; }
-.roleCard:hover { border-color: var(--ember); }
-.roleCardActive { border-color: var(--ember); background: rgba(212, 98, 46, 0.07); }
-.roleLabel { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--ink); }
-.roleCardActive .roleLabel { color: var(--ember); }
-.roleDesc { font-family: var(--font-body); font-size: 0.72rem; color: var(--ink3); line-height: 1.4; }
-.submitRow { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.submitBtn { display: flex; align-items: center; gap: 8px; background: var(--ember); color: #fff; font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 32px; border: none; cursor: pointer; transition: opacity 0.2s; }
-.submitBtn:hover { opacity: 0.85; }
-.submitBtn:disabled { opacity: 0.4; cursor: not-allowed; }
-.submitNote { font-family: var(--font-body); font-size: 0.74rem; color: var(--ink3); margin: 0; }
-.successPage { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
-.successBlock { text-align: center; max-width: 480px; padding: 48px 24px; }
-.successIcon { color: var(--sage, #4a7c59); margin-bottom: 20px; }
-.successTitle { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--ink); margin: 0 0 12px; }
-.successBody { font-family: var(--font-body); font-size: 0.86rem; color: var(--ink2); line-height: 1.7; margin: 0 0 28px; }
-.btnGhost { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: var(--ink2); border: 1px solid var(--line); font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 20px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.btnGhost:hover { border-color: var(--ink3); color: var(--ink); }
-@media (max-width: 860px) { .formGrid { grid-template-columns: 1fr; } .checkGrid { grid-template-columns: 1fr; } }
+/* ── LOCAL TOKENS ─────────────────────────────────────── */
+.container {
+  --charcoal: #181818;
+  --charcoal2: #242424;
+}
+
+/* ── LAYOUT ───────────────────────────────────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SHARED TYPE ──────────────────────────────────────── */
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 10px;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.goldLink {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.goldLink:hover {
+  border-bottom-color: var(--gold);
+}
+
+.req {
+  color: var(--ember);
+}
+
+.emberStrong {
+  color: var(--ember);
+  font-weight: 600;
+}
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  background: #181818;
+  padding: 100px 0 64px;
+  border-bottom: 1px solid #333;
+}
+
+.heroTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.goldRule {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  margin-bottom: 24px;
+}
+
+.heroSub {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.9rem;
+  color: var(--ink2);
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0;
+}
+
+/* ── ROLES SECTION ────────────────────────────────────── */
+.rolesSection {
+  background: #181818;
+  padding: 64px 0;
+  border-bottom: 1px solid #333;
+}
+
+.rolesSectionTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.rolesSectionSub {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.8rem;
+  color: var(--ink3);
+  margin: 0 0 32px;
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.roleCard {
+  background: #242424;
+  border: 1px solid #333;
+  padding: 18px 16px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.15s, background 0.15s;
+  border-radius: 2px;
+}
+
+.roleCard:hover {
+  border-color: var(--gold);
+}
+
+.roleCardSelected {
+  border-color: var(--gold);
+  background: rgba(212, 168, 67, 0.06);
+}
+
+.roleCardTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roleIcon {
+  font-size: 1rem;
+  color: var(--ink3);
+  flex-shrink: 0;
+}
+
+.roleLabel {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  flex: 1;
+}
+
+.roleCardSelected .roleLabel {
+  color: var(--gold);
+}
+
+.roleCheck {
+  float: right;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.roleDesc {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.72rem;
+  color: var(--ink3);
+  line-height: 1.5;
+}
+
+/* ── FORM SECTION ─────────────────────────────────────── */
+.formSection {
+  background: #242424;
+  padding: 72px 0;
+  border-bottom: 1px solid #333;
+}
+
+.formIntro {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.82rem;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin: 0 0 36px;
+  max-width: 560px;
+}
+
+.intakeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.fieldInput {
+  background: #181818;
+  border: 1px solid #444;
+  color: var(--ink);
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.84rem;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.fieldInput:focus {
+  border-color: var(--gold);
+}
+
+.fieldSelect {
+  background: #181818;
+  border: 1px solid #444;
+  color: var(--ink);
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.84rem;
+  padding: 11px 14px;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.fieldSelect:focus {
+  border-color: var(--gold);
+}
+
+.fieldTextarea {
+  background: #181818;
+  border: 1px solid #444;
+  color: var(--ink);
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.84rem;
+  padding: 11px 14px;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+
+.fieldTextarea:focus {
+  border-color: var(--gold);
+}
+
+/* ── CONSENT ──────────────────────────────────────────── */
+.consentBlock {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.consentList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.consentRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.78rem;
+  color: var(--ink2);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.consentCheck {
+  margin-top: 2px;
+  accent-color: var(--gold);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* ── PRIVACY NOTE ─────────────────────────────────────── */
+.privacyNote {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.76rem;
+  color: var(--ink3);
+  line-height: 1.65;
+  margin: 0 0 28px;
+  padding: 14px 16px;
+  background: rgba(212, 98, 46, 0.05);
+  border-left: 2px solid var(--ember);
+}
+
+/* ── SUBMIT ───────────────────────────────────────────── */
+.btnSubmit {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gold);
+  color: #181818;
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+
+.btnSubmit:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btnSubmit:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ── SUCCESS SCREEN ───────────────────────────────────── */
+.successScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 48px 0;
+}
+
+.successTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0;
+}
+
+.successBody {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.86rem;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 480px;
+}
+
+.btnEmber {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ember);
+  color: var(--ink);
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+}
+
+.btnEmber:hover {
+  opacity: 0.85;
+}
+
+/* ── VALUES SECTION ───────────────────────────────────── */
+.valuesSection {
+  background: #181818;
+  padding: 72px 0;
+}
+
+.valuesSectionTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 36px;
+}
+
+.valuesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #333;
+}
+
+.valueItem {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  border-bottom: 1px solid #333;
+}
+
+.valueItem:last-child {
+  border-bottom: none;
+}
+
+.valueMarker {
+  font-size: 1.1rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.valueContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.valueTitle {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.valueBody {
+  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-size: 0.8rem;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 700px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rolesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .valueItem {
+    gap: 14px;
+  }
+}
+
+/* ── HERO FLEX IMAGE LAYOUT ── */
+.heroFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+
+.heroText {
+  flex: 1;
+}
+
+.heroImageWrapper {
+  flex-shrink: 0;
+  width: 380px;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--line);
+  transition: transform 0.3s ease;
+}
+
+.heroImageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 868px) {
+  .heroFlex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+  .heroImageWrapper {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}

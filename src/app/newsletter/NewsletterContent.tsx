@@ -1,112 +1,202 @@
 'use client';
-import { motion } from 'framer-motion';
-import { FileText, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import styles from './newsletter.module.css';
 
-const issues = [
+const EXPECT_CARDS = [
   {
-    vol: 'Vol. 01 · No. 01',
-    date: 'June 2026',
-    title: 'The People\'s Intelligence Brief',
-    desc: 'Priority briefing, Case File 001 Newport News, The Watchlist (11 agencies), IRN OS v2, field notes from Baltimore.',
-    href: '/irn-dispatch-vol01.html',
+    category: 'Documentation',
+    title: 'FOIA Updates',
+    desc: 'What we filed, what agencies responded, what was denied, and where we are in the appeal process.',
+  },
+  {
+    category: 'Community Education',
+    title: 'Know Your Rights',
+    desc: 'Legal updates affecting your rights — traffic stops, search and seizure, tenant protections, and more. In English and Spanish.',
+  },
+  {
+    category: 'Case Tracking',
+    title: 'Cases We\u2019re Watching',
+    desc: 'Updates on cases IRN is documenting \u2014 including Ebony Parker, the Robinson ruling, and ongoing accountability campaigns.',
+  },
+  {
+    category: 'Action',
+    title: 'Campaign Alerts',
+    desc: 'When the Community Safety & Equity Act has a hearing, when your council member needs to hear from you, when to show up.',
+  },
+  {
+    category: 'Accountability',
+    title: 'Institutional Watch',
+    desc: 'Updates on the NAACP grievance, Hampton Roads Sheriff accountability, and other ongoing institutional pressure campaigns.',
+  },
+  {
+    category: 'Frequency',
+    title: 'Irregular. Intentional.',
+    desc: 'The Dispatch goes out when there\u2019s something worth reporting \u2014 not on a schedule, not to fill a calendar, not to pad metrics.',
+  },
+];
+
+const ARCHIVE_ISSUES = [
+  {
+    month: 'Jun 2026',
+    headline: 'Ebony Parker vindicated \u2014 what the Robinson ruling means for Hampton Roads',
+    tag: 'Case Update',
+    href: '/blog/',
+  },
+  {
+    month: 'May 2026',
+    headline: 'Newport News CSE Act \u2014 what happened at the council meeting',
+    tag: 'Campaign',
+    href: '/blog/',
+  },
+  {
+    month: 'Apr 2026',
+    headline: 'FOIA denied: Hampton Sheriff cites exemption we\u2019re appealing',
+    tag: 'FOIA',
+    href: '/blog/',
+  },
+  {
+    month: 'Mar 2026',
+    headline: 'Know Your Rights \u2014 new Virginia traffic stop law and what it means for you',
+    tag: 'KYR',
+    href: '/blog/',
   },
 ];
 
 export default function NewsletterContent() {
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState('');
+
+  function handleSubscribe() {
+    if (!email.includes('@')) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!consent) {
+      setError('Please check the consent box to subscribe.');
+      return;
+    }
+    setError('');
+    setSubscribed(true);
+  }
+
   return (
-    <main id="main-content" className={styles.main}>
-      <div className={styles.accentBar} aria-hidden="true" />
+    <div id="main-content" className={styles.newsletterWrap}>
 
-      <header className={styles.hero}>
-        <div className={styles.container}>
-          <motion.span className={styles.kicker} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-            The Dispatch
-          </motion.span>
-          <motion.h1 className={styles.heroTitle} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
-            The People&apos;s<br />Intelligence Brief.
-          </motion.h1>
-          <motion.p className={styles.heroSubtitle} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-            Case files, accountability reports, policy updates, and field notes from Hampton Roads to Baltimore.
-            Because power hates witnesses.
-          </motion.p>
+      {/* ── MASTHEAD ── */}
+      <div className={styles.mastheadOuter}>
+        <div className={styles.mastheadInner}>
+          <span className={styles.dispatchLabel}>Published by the Injustice Reform Network</span>
+          <h1 className={styles.dispatchTitle}>The Dispatch</h1>
+          <p className={styles.dispatchSub}>Documentation. Accountability. Community power.</p>
+          <div className={styles.mastheadRule}>
+            <span className={styles.mastheadRuleText}>EST. BALTIMORE, MD</span>
+          </div>
+          <div className={styles.mastheadMeta}>
+            <span>Vol. 1 &middot; 2024&ndash;26</span>
+            <span>Baltimore &middot; Hampton Roads &middot; Virginia</span>
+            <span>Free &middot; Published when there&apos;s news worth reporting</span>
+          </div>
         </div>
-      </header>
+      </div>
 
-      {/* SUBSCRIBE */}
-      <section className={styles.subscribeSection} aria-labelledby="subscribe-heading">
-        <div className={styles.container}>
-          <motion.div className={styles.subscribeCard} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <h2 id="subscribe-heading" className={styles.subscribeTitle}>Subscribe to The Dispatch</h2>
-            <p className={styles.subscribeBody}>New issues drop when there&apos;s something worth saying. No spam. Unsubscribe anytime.</p>
+      {/* ── HERO ── */}
+      <div className={styles.heroOuter}>
+        <div className={styles.heroInner}>
+          <p className={styles.heroKicker}>
+            The fight needs witnesses,&nbsp;not just{' '}
+            <em className={styles.heroKickerGold}>followers</em>.
+          </p>
+          <p className={styles.heroBody}>
+            The Dispatch is IRN&rsquo;s newsletter for people who want more than a donation button. We publish FOIA updates, case files, Know Your Rights briefings, and campaign alerts \u2014 when there&rsquo;s something worth saying.
+          </p>
 
-            {/* Buttondown embed form */}
-            <form
-              action="https://buttondown.com/api/emails/embed-subscribe/irn"
-              method="post"
-              target="popupwindow"
-              onSubmit={() => window.open('https://buttondown.com/irn', 'popupwindow')}
-              className={styles.bdForm}
-            >
-              <div className={styles.bdInputRow}>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your email address"
-                  required
-                  className={styles.bdInput}
-                  aria-label="Email address"
-                />
-                <button type="submit" className={styles.bdSubmit}>
-                  Subscribe <ArrowRight size={14} aria-hidden="true" />
-                </button>
-              </div>
-              <input type="hidden" value="1" name="embed" />
-              <p className={styles.bdNote}>
-                Powered by <a href="https://buttondown.com" target="_blank" rel="noopener noreferrer" className={styles.bdLink}>Buttondown</a>.
-                IRN does not sell or share your email.
-              </p>
-            </form>
-          </motion.div>
-        </div>
-      </section>
+          {/* SIGNUP BOX */}
+          <div className={styles.signupBox}>
+            <h2 className={styles.signupHead}>Subscribe to The Dispatch</h2>
+            <p className={styles.signupSub}>Join the community staying informed and staying ready.</p>
 
-      {/* ARCHIVE */}
-      <section className={styles.archiveSection} aria-labelledby="archive-heading">
-        <div className={styles.container}>
-          <span className={styles.sectionKicker}>Archive</span>
-          <h2 id="archive-heading" className={styles.sectionTitle}>Past Issues</h2>
-
-          <div className={styles.issueList}>
-            {issues.map((issue, i) => (
-              <motion.a
-                key={issue.vol}
-                href={issue.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.issueCard}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-              >
-                <FileText size={18} className={styles.issueIcon} aria-hidden="true" />
-                <div className={styles.issueContent}>
-                  <div className={styles.issueMeta}>
-                    <span className={styles.issueVol}>{issue.vol}</span>
-                    <span className={styles.issueDate}>{issue.date}</span>
-                  </div>
-                  <h3 className={styles.issueTitle}>{issue.title}</h3>
-                  <p className={styles.issueDesc}>{issue.desc}</p>
+            {!subscribed ? (
+              <>
+                <div className={styles.emailRow}>
+                  <input
+                    type="email"
+                    className={styles.emailInput}
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    aria-label="Email address"
+                    disabled={subscribed}
+                  />
+                  <button
+                    type="button"
+                    className={styles.subscribeBtn}
+                    onClick={handleSubscribe}
+                    disabled={subscribed}
+                  >
+                    Subscribe &rarr;
+                  </button>
                 </div>
-                <ArrowRight size={18} className={styles.issueArrow} aria-hidden="true" />
-              </motion.a>
+                <label className={styles.consentLabel}>
+                  <input
+                    type="checkbox"
+                    className={styles.consentCheck}
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                  />
+                  I agree to receive The Dispatch newsletter from IRN. I can unsubscribe any time.
+                </label>
+                {error && <p className={styles.errorMsg}>{error}</p>}
+              </>
+            ) : (
+              <p className={styles.successMsg}>
+                &#10003; You&rsquo;re subscribed. Welcome to The Dispatch. Check your inbox for a confirmation email.
+              </p>
+            )}
+
+            <p className={styles.privacyMicro}>
+              No tracking pixels. No sharing your email. No spam. Just The Dispatch, when it&rsquo;s ready.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── WHAT'S IN THE DISPATCH ── */}
+      <div className={styles.expectOuter}>
+        <div className={styles.expectInner}>
+          <h2 className={styles.expectSectionTitle}>What&rsquo;s in The Dispatch</h2>
+          <div className={styles.expectGrid}>
+            {EXPECT_CARDS.map((card) => (
+              <div key={card.title} className={styles.expectCard}>
+                <span className={styles.expectLabel}>{card.category}</span>
+                <h3 className={styles.expectTitle}>{card.title}</h3>
+                <p className={styles.expectDesc}>{card.desc}</p>
+              </div>
             ))}
           </div>
-
-          <p className={styles.archiveNote}>Vol. 02 in production — subscribe above to get it first.</p>
         </div>
-      </section>
-    </main>
+      </div>
+
+      {/* ── ARCHIVE ── */}
+      <div className={styles.archiveOuter}>
+        <div className={styles.archiveInner}>
+          <h2 className={styles.archiveTitle}>Recent Issues</h2>
+          <div className={styles.issueList}>
+            {ARCHIVE_ISSUES.map((issue) => (
+              <a key={issue.month} href={issue.href} className={styles.issueRow}>
+                <span className={styles.issueMonth}>{issue.month}</span>
+                <span className={styles.issueHeadline}>{issue.headline}</span>
+                <span className={styles.issueTag}>{issue.tag}</span>
+              </a>
+            ))}
+          </div>
+          <p className={styles.archiveNote}>
+            <em>Full archive coming as issues are published. Subscribe above to get each issue when it drops.</em>
+          </p>
+        </div>
+      </div>
+
+    </div>
   );
 }
