@@ -88,6 +88,7 @@ describe('AgentsPage Global Search', () => {
   });
 
   it('loads a template and displays a toast when clicking on a template result', () => {
+    vi.useFakeTimers();
     render(<AgentsPage />);
     const searchInput = screen.getByPlaceholderText(/search agents, capabilities, legal resources/i);
     
@@ -97,12 +98,17 @@ describe('AgentsPage Global Search', () => {
     const result = screen.getByText(/Template: Norfolk Protest Arrest/i);
     fireEvent.click(result);
 
+    // Flush the setTimeout timer
+    vi.runAllTimers();
+
     // It should switch active tab to Intake Analyst and load template text into input textarea
     const textarea = screen.getByPlaceholderText(/Enter case narrative, facts, or instructions for the agent/i) as HTMLTextAreaElement;
     expect(textarea.value).toContain('peaceful protest sign when Officer Davis grabbed him');
 
     // Should show a toast message
     expect(screen.getByText(/Loaded template: "Norfolk Protest Arrest"/i)).toBeInTheDocument();
+    
+    vi.useRealTimers();
   });
 
   it('navigates to page path when clicking on a page search result', () => {

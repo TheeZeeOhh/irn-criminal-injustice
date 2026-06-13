@@ -504,10 +504,14 @@ export default function AgentsPage() {
       setInputText(item.templateText);
       setToastMessage(`Loaded template: "${item.title.replace('Template: ', '')}"`);
       setTimeout(() => {
-        const textarea = document.querySelector('textarea');
-        if (textarea) {
-          textarea.focus();
-          textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (typeof document !== 'undefined') {
+          const textarea = document.querySelector('textarea');
+          if (textarea) {
+            textarea.focus();
+            if (typeof textarea.scrollIntoView === 'function') {
+              textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
         }
       }, 100);
     } else if (item.type === 'page' && item.path) {

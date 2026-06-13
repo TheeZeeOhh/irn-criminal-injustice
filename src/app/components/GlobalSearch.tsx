@@ -50,6 +50,13 @@ export const SEARCH_INDEX = [
     snippet: "Interact with our specialized AI agents: Intake Analyst, FOIA Generator, Attorney Matcher, and Campaign Press Writer."
   },
   {
+    title: "LGBTQIA+ Resource Directory",
+    path: "/resources/",
+    category: "Resources",
+    tags: "resource library directory lgbtqia elders support legal help housing youth education pflag",
+    snippet: "Find inclusive public resources, housing programs, legal help, crisis support, and community organizations across Maryland."
+  },
+  {
     title: "Book Intake Callback",
     path: "/booking/",
     category: "Services",

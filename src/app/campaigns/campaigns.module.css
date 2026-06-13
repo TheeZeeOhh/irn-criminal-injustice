@@ -1,0 +1,76 @@
+.main { min-height: 100vh; background: var(--bg); }
+
+.accentBar { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--ember) 0%, var(--gold) 50%, var(--ember) 100%); z-index: 1001; }
+
+.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+.hero { background: var(--bg2); padding: 120px 0 56px; border-bottom: 1px solid var(--line); }
+
+.kicker { display: block; font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember); margin-bottom: 12px; }
+
+.heroTitle { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; color: var(--ink); line-height: 1.1; margin: 0 0 16px; }
+
+.heroSubtitle { font-family: var(--font-body); font-size: 0.88rem; color: var(--ink2); line-height: 1.7; max-width: 560px; margin: 0; }
+
+/* Section base */
+.section { padding: 64px 0; }
+
+.sectionAlt { padding: 64px 0; background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.sectionHeading { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink3); margin: 0 0 32px; }
+
+/* Campaign cards grid */
+.campaignGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+@media (max-width: 680px) {
+  .campaignGrid { grid-template-columns: 1fr; }
+}
+
+.campaignCard { background: var(--bg2); border: 1px solid var(--line); border-left: 3px solid var(--ember); padding: 28px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s; }
+
+.campaignCard:hover { border-color: var(--ember); }
+
+.cardMeta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.activeBadge { font-family: var(--font-body); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--ember); color: var(--bg); padding: 2px 7px; flex-shrink: 0; }
+
+.categoryTag { font-family: var(--font-body); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+.cardTitle { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.2; }
+
+.cardDesc { font-family: var(--font-body); font-size: 0.82rem; color: var(--ink2); line-height: 1.65; margin: 0; flex: 1; }
+
+.cardCta { font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); text-decoration: none; margin-top: 4px; }
+
+.cardCta:hover { text-decoration: underline; }
+
+/* How to help grid */
+.helpGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+@media (max-width: 720px) {
+  .helpGrid { grid-template-columns: 1fr; }
+}
+
+.helpCard { background: var(--bg3); border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s; }
+
+.helpCard:hover { border-color: var(--gold); }
+
+.helpIcon { color: var(--ember); flex-shrink: 0; }
+
+.helpTitle { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 0; }
+
+.helpBody { font-family: var(--font-body); font-size: 0.82rem; color: var(--ink2); line-height: 1.65; margin: 0; flex: 1; }
+
+.helpLink { font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); text-decoration: none; margin-top: 4px; }
+
+.helpLink:hover { text-decoration: underline; }
+
+/* Bottom strip */
+.bottomStrip { background: var(--bg2); border-top: 1px solid var(--line); padding: 40px 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+
+.stripText { font-family: var(--font-body); font-size: 0.88rem; color: var(--ink2); margin: 0; }
+
+.stripLink { font-family: var(--font-body); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+
+.stripLink:hover { text-decoration: underline; }

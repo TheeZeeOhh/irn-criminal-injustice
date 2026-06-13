@@ -1,0 +1,817 @@
+{
+  "elders": {
+    "page_title": "Elders",
+    "sections": [
+      {
+        "section_title": "Resources for LGBTQIA+ elders",
+        "items": [
+          {
+            "title": "Maryland Department of Aging",
+            "url": "https://aging.maryland.gov/Pages/LGBTQElders.aspx",
+            "download": false,
+            "external": false,
+            "description": "LGBTQIA+ elder resources, aging support, caregiver information, and inclusive services for older adults in Maryland."
+          },
+          {
+            "title": "SAGE",
+            "url": "https://www.sageusa.org/",
+            "download": false,
+            "external": true,
+            "description": "Offers advocacy, support services, and resources for LGBTQIA+ elders, with virtual programs, local connections, and aging support nationwide."
+          }
+        ]
+      }
+    ]
+  },
+  "employment": {
+    "page_title": "Employment",
+    "sections": [
+      {
+        "section_title": "LGBTQIA+ employment resources",
+        "items": [
+          {
+            "title": "Governor\u2019s Resources for Impacted Federal Workers",
+            "url": "https://response.maryland.gov/federalpublicservants/",
+            "download": false,
+            "external": false,
+            "description": "For workers impacted by recent federal actions, including unemployment, health coverage, housing, legal help, and job support."
+          },
+          {
+            "title": "Resources for Workers Impacted by the Federal Government Transition",
+            "url": "https://labor.maryland.gov/federalworkers/",
+            "download": false,
+            "external": false,
+            "description": "For former federal workers, including unemployment benefits, job search support, workshops, loan programs, and career guidance."
+          }
+        ]
+      }
+    ]
+  },
+  "health-and-crisis-support": {
+    "page_title": "Health and Crisis Support",
+    "sections": [
+      {
+        "section_title": "Health and crisis support resources",
+        "items": [
+          {
+            "title": "Chase Brexton",
+            "url": "https://chasebrexton.org/",
+            "download": false,
+            "external": true,
+            "description": "Offers primary care, dental, mental health, sexual health, and support services at five Maryland locations."
+          },
+          {
+            "title": "Maryland Department of Health: LGBTQ+ Health",
+            "url": "https://health.maryland.gov/phpa/mch/Pages/MFPP-LGBTQ-+-Health.aspx",
+            "download": false,
+            "external": false,
+            "description": "Find free or affordable LGBTQ+ health services in Maryland, including family planning clinics, care resources, and local support organizations."
+          },
+          {
+            "title": "Planned Parenthood of Maryland",
+            "url": "https://www.plannedparenthood.org/planned-parenthood-maryland",
+            "download": false,
+            "external": true,
+            "description": "Planned Parenthood of Maryland provides abortion, birth control, telehealth, STI testing, and reproductive health care at centers across Maryland."
+          },
+          {
+            "title": "Whitman-Walker Health",
+            "url": "https://www.whitman-walker.org/",
+            "download": false,
+            "external": true,
+            "description": "Offers inclusive primary care, dental, mental health, HIV/STI services, and legal support."
+          },
+          {
+            "title": "Women\u2019s Health Center of Maryland",
+            "url": "https://www.womenshealthmd.org/",
+            "download": false,
+            "external": true,
+            "description": "Offers abortion care, STI testing, contraception, annual exams, and gender-affirming hormone therapy."
+          },
+          {
+            "title": "The Trevor Project",
+            "url": "https://www.thetrevorproject.org/resources/",
+            "download": false,
+            "external": true,
+            "description": "Resources for LGBTQ+ young people and allies, including mental health guides, coming out support, and identity resources."
+          },
+          {
+            "title": "The 988 Lifeline",
+            "url": "https://988lifeline.org/",
+            "download": false,
+            "external": true,
+            "description": "Call, text, or chat 988 for free, confidential mental health and crisis support 24/7, including help for emotional distress or substance use."
+          },
+          {
+            "title": "SAGE x HearMe",
+            "url": "https://www.sageusa.org/find-support/virtual/",
+            "download": false,
+            "external": true,
+            "description": "Offers virtual support for LGBTQ+ older adults, including online events, resources, community connection, and financial wellness tools."
+          },
+          {
+            "title": "Trans Lifeline",
+            "url": "https://translifeline.org/",
+            "download": false,
+            "external": true,
+            "description": "Trans-led nonprofit offering peer support, crisis resources, and community tools to help trans people survive and thrive."
+          }
+        ]
+      }
+    ]
+  },
+  "housing": {
+    "page_title": "Housing",
+    "sections": [
+      {
+        "section_title": "LGBTQIA+ housing resources",
+        "items": [
+          {
+            "title": "Maryland Safe Haven (Baltimore Safe Haven)",
+            "url": "https://www.baltimoresafehaven.org/",
+            "download": false,
+            "external": true,
+            "description": "Provides housing support, harm reduction, HIV testing, legal help, and wellness services for LGBTQIA+ people in Maryland."
+          },
+          {
+            "title": "Auntie\u2019s Home",
+            "url": "https://auntieshomemd.org/",
+            "download": false,
+            "external": true,
+            "description": "Provides transitional housing, community resources, and support for transgender, gender-diverse, and nonbinary people in Maryland."
+          }
+        ]
+      }
+    ]
+  },
+  "organizations-pride-centers": {
+    "page_title": "LGBTQIA+ Organizations & Pride Centers",
+    "sections": [
+      {
+        "section_title": "Resources",
+        "items": [
+          {
+            "title": "Annapolis Pride",
+            "url": "https://annapolispride.org/resources/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Aunties Home",
+            "url": "https://auntieshomemd.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Baltimore Blaq Pride",
+            "url": "https://www.blaqequity.org/pride",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Baltimore Mayor\u2019s Office of LGBTQ Affairs",
+            "url": "https://lgbtq.baltimorecity.gov/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Baltimore Pride",
+            "url": "https://www.baltimorepride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Baltimore Trans Pride",
+            "url": "https://www.facebook.com/events/druid-hill-park-baltimore-md/baltimore-trans-pride-festival-2026/3817685698390591/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Blaq Equity",
+            "url": "https://www.blaqequity.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Catonsville Pride",
+            "url": "https://www.thechildrenshome.net/pride/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "CARY (Community Allies of Rainbow Youth)",
+            "url": "https://www.cary-hoco.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Cecil Pride",
+            "url": "https://linktr.ee/cecilprideevents",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Cecil Solidarity",
+            "url": "https://cecilsolidarity.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Crofton Pride",
+            "url": "https://croftonpride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Cumberland Pride",
+            "url": "https://www.cumberlandpride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Delmarva Pride",
+            "url": "https://www.delmarvapridecenter.com/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "DoCo Pride",
+            "url": "https://www.facebook.com/p/DoCo-Pride-100079104575858/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Frederick Pride Center",
+            "url": "https://thefrederickcenter.org/resources",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "FreeState Justice",
+            "url": "https://www.freestate-justice.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Garrett County Pride",
+            "url": "https://garrettcountypride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Greenbelt Pride",
+            "url": "https://www.facebook.com/GreenbeltPride/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Hagerstown Hopes",
+            "url": null,
+            "download": false,
+            "external": false,
+            "description": ""
+          },
+          {
+            "title": "Hearts & Ears",
+            "url": "https://www.heartsandears.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Howard County LGBTQIA+ Commission",
+            "url": "https://www.howardcountymd.gov/boards-commissions/lgbtqia-commission",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Howard County Pride",
+            "url": "https://www.howardcountypride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Laurel Pride",
+            "url": "https://laurelpride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Maryland LGBTQ+ Chamber of Commerce",
+            "url": "https://mdlgbt.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Maryland Safe Haven",
+            "url": "https://www.baltimoresafehaven.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "MoCo Pride Center",
+            "url": "https://www.mocopridefamily.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Mosaic",
+            "url": "https://mosaiccooperative.squarespace.com/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Old Ellicott City Pride",
+            "url": "https://www.facebook.com/events/ellicott-city/oec-pride-festival/1865580693879344/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Poolesville Pride",
+            "url": "https://poolesvillepride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Pride Center of Maryland",
+            "url": "https://www.pridecentermd.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Pride SoMD",
+            "url": "https://www.pridesomd.com/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Responders for Pride",
+            "url": "https://www.respondersforpride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Rockville Pride",
+            "url": "https://www.rockvillemd.gov/2276/Rockville-Pride",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Safe Space Cumberland",
+            "url": null,
+            "download": false,
+            "external": false,
+            "description": ""
+          },
+          {
+            "title": "Salisbury Pride",
+            "url": null,
+            "download": false,
+            "external": false,
+            "description": ""
+          },
+          {
+            "title": "Trans Maryland",
+            "url": "https://transmaryland.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Trans Rights Advocacy Coalition",
+            "url": "https://www.transrightsmd.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Unmatched Athlete",
+            "url": "https://unmatchedathlete.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Upper Chesapeake Bay Pride",
+            "url": "https://ucbpride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "Westminster Pride",
+            "url": "https://westminsterpride.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  "pflag-chapters": {
+    "page_title": "PFLAG Chapters",
+    "sections": [
+      {
+        "section_title": "PFLAG chapters in Maryland",
+        "items": [
+          {
+            "title": "PFLAG Annapolis/Anne Arundel County",
+            "url": "https://www.pflagannapolis.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Baltimore",
+            "url": "https://pflag.org/chapter/baltimore/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Belair/Harford County",
+            "url": "https://pflag.org/chapter/bel-air-harford/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Bowie",
+            "url": "https://pflagbowie.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Columbia/Howard County",
+            "url": "http://pflaghoco.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Frederick",
+            "url": "https://pflag.org/chapter/frederick/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Salisbury",
+            "url": "http://www.salisburypflag.com/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Southern Maryland",
+            "url": "https://www.pflagsomd.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          },
+          {
+            "title": "PFLAG Westminster/Carroll County",
+            "url": "https://www.pflagwcc.org/",
+            "download": false,
+            "external": true,
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  "trans-and-intersex": {
+    "page_title": "Trans and Intersex",
+    "sections": [
+      {
+        "section_title": "Trans and intersex resources",
+        "items": [
+          {
+            "title": "Advocates for Trans Equality (A4TE)",
+            "url": "https://transequality.org/",
+            "download": false,
+            "external": true,
+            "description": "A trans-led nonprofit advancing legal, political, and social equality for transgender people."
+          },
+          {
+            "title": "Gender Affirming Letter Access Project",
+            "url": "https://www.thegalap.org/",
+            "download": false,
+            "external": true,
+            "description": "Resources for gender-affirming care, including provider directories, referral letter guidance, FAQs, and support for adults seeking letters."
+          },
+          {
+            "title": "Transition Related Care - Trans Health Equity Act (THEA)",
+            "url": "https://health.maryland.gov/mmcp/Pages/gender-affirming-care.aspx",
+            "download": false,
+            "external": false,
+            "description": "Learn about Maryland Medicaid coverage for gender-affirming care, including eligible services, prior authorization, and provider billing guidance."
+          },
+          {
+            "title": "interACT: Advocates for Intersex Youth",
+            "url": "https://interactadvocates.org/",
+            "download": false,
+            "external": true,
+            "description": "Advocates for intersex youth through law, policy, education, media, and resources that support bodily autonomy and human rights."
+          },
+          {
+            "title": "TIGERRS - Intersex Resources",
+            "url": "https://tigerrs.org/intersex-resources/",
+            "download": false,
+            "external": true,
+            "description": "Intersex resources, peer support, media, and advocacy links for people who are intersex, questioning, or looking for community support."
+          },
+          {
+            "title": "Strategy Lab for Intersex Movements (SLIM)",
+            "url": "https://slimstrategy.org/",
+            "download": false,
+            "external": true,
+            "description": "Builds intersex power through research, media, community events, and organizing for bodily autonomy and change."
+          },
+          {
+            "title": "Outright International: Global Intersex Program",
+            "url": "https://outrightinternational.org/global-intersex-program",
+            "download": false,
+            "external": true,
+            "description": "Advances intersex rights through advocacy, education, research, and global movement building."
+          }
+        ]
+      }
+    ]
+  },
+  "veterans": {
+    "page_title": "Veterans",
+    "sections": [
+      {
+        "section_title": "Resources for LGBTQIA+ veterans",
+        "items": [
+          {
+            "title": "Maryland Department of Veterans and Military Families",
+            "url": "https://veterans.maryland.gov/about-us/initiatives/lgbtqia-veteran-support",
+            "download": false,
+            "external": false,
+            "description": "Find LGBTQIA+ veteran support in Maryland, including benefits, legal help, crisis resources, discharge upgrades, and community services."
+          },
+          {
+            "title": "Modern Military Association of America",
+            "url": "https://modernmilitary.org/",
+            "download": false,
+            "external": true,
+            "description": "Advocacy organization for LGBTQ+ service members, veterans, families, and policy change."
+          },
+          {
+            "title": "Transgender American Veterans Association (TAVA)",
+            "url": "https://www.transveteran.org/",
+            "download": false,
+            "external": true,
+            "description": "Nonprofit supporting trans veterans through advocacy, membership, and community."
+          },
+          {
+            "title": "Minority Veterans of America",
+            "url": "https://minorityvets.org/",
+            "download": false,
+            "external": true,
+            "description": "Nonprofit building community, advancing equity, and providing advocacy, housing, and support programs."
+          },
+          {
+            "title": "SPARTA",
+            "url": "https://spartapride.org/",
+            "download": false,
+            "external": true,
+            "description": "Nonprofit supporting transgender service members and veterans through advocacy, education, peer support, and grants."
+          },
+          {
+            "title": "American Veterans for Equal Rights (AVER)",
+            "url": "https://aver.us/",
+            "download": false,
+            "external": true,
+            "description": "National organization supporting LGBTQ+ veterans through advocacy, community, chapters, and resources."
+          },
+          {
+            "title": "Military Trans Rights",
+            "url": "https://militarytransrights.org/",
+            "download": false,
+            "external": true,
+            "description": "Learn about military trans rights, including policy updates, legal resources, advocacy tools, and support for transgender service members."
+          }
+        ]
+      }
+    ]
+  },
+  "your-rights-and-legal-help": {
+    "page_title": "Your Rights and Legal Help",
+    "sections": [
+      {
+        "section_title": "Rights and legal resources",
+        "items": [
+          {
+            "title": "Guidance on LGBTQIA+ protections under Maryland law",
+            "url": "https://oag.maryland.gov/News/Documents/pdfs/Joint_KYR_Booklet.pdf",
+            "download": true,
+            "external": false,
+            "description": "Know your rights in Maryland on housing, work, schools, health care, LGBTQIA+ protections, hate crimes, and how to file a complaint."
+          },
+          {
+            "title": "Find LGBTQIA+ services and rights organizations",
+            "url": "https://oag.maryland.gov/FederalActionsResponse/Pages/lgbtqia--services-and-rights-organizations.aspx",
+            "download": false,
+            "external": false,
+            "description": "Information on legal rights, assistance programs, and key services available to LGBTQAI+ communities in Maryland."
+          },
+          {
+            "title": "Know Your Rights: Passports",
+            "url": "https://transequality.org/documents/know-your-rights-passports",
+            "download": false,
+            "external": true,
+            "description": "Know your rights on U.S. passports, including sex marker rules, name changes, travel tips, and what to do if you face application issues."
+          },
+          {
+            "title": "Trans Legal Survival Guide",
+            "url": "https://transequality.org/resources/trans-legal-survival-guide-20",
+            "download": false,
+            "external": true,
+            "description": "Information to help the trans community navigate changing regulations and advocate for themselves and their networks."
+          },
+          {
+            "title": "Identity Documents for Transgender People: Current Considerations",
+            "url": "https://www.glad.org/transgender-id-updates/",
+            "download": false,
+            "external": true,
+            "description": "Get current guidance on updating identity documents for transgender people, including passports, birth certificates, REAL IDs, and travel concerns."
+          },
+          {
+            "title": "File a complaint with the Maryland Commission on Civil Rights",
+            "url": "https://mccr.maryland.gov/complaint-investigative-process/intake-process",
+            "download": false,
+            "external": false,
+            "description": "Learn about the Maryland Commission on Civil Rights intake process, what to expect when filing a complaint, and how discrimination reports are reviewed."
+          },
+          {
+            "title": "Report a hate crime incident with the Office of the Attorney General",
+            "url": "https://nohomeforhate.md.gov/",
+            "download": false,
+            "external": true,
+            "description": "Report hate crimes and bias incidents in Maryland, learn the difference, find resources, and access support from the Office of the Attorney General."
+          },
+          {
+            "title": "FreeState Justice",
+            "url": "https://www.freestate-justice.org/",
+            "download": false,
+            "external": true,
+            "description": "Provides free legal services, policy advocacy, training, and resources to support LGBTQ+ people across Maryland."
+          },
+          {
+            "title": "GLAD Law",
+            "url": "https://www.gladlaw.org/",
+            "download": false,
+            "external": true,
+            "description": "Fights for LGBTQ+ rights and justice through legal advocacy, policy work, and free resources for people facing discrimination."
+          },
+          {
+            "title": "Lambda Legal",
+            "url": "https://lambdalegal.org/know-your-rights/",
+            "download": false,
+            "external": true,
+            "description": "Resources for LGBTQ+ people and people living with HIV, including legal guides, FAQs, and help desk support."
+          },
+          {
+            "title": "Maryland Legal Aid",
+            "url": "https://www.mdlab.org/",
+            "download": false,
+            "external": true,
+            "description": "Provides free civil legal services, clinics, and legal help for eligible Marylanders facing housing, family, and other issues."
+          }
+        ]
+      }
+    ]
+  },
+  "youth-education": {
+    "page_title": "Youth & Education",
+    "sections": [
+      {
+        "section_title": "Youth & education resources",
+        "items": [
+          {
+            "title": "GLISTEN",
+            "url": "https://glisten.org/",
+            "download": false,
+            "external": true,
+            "description": "A national nonprofit advancing justice for LGBTQ+ youth and creating safer, more affirming K-12 schools."
+          },
+          {
+            "title": "The Trevor Project",
+            "url": "https://www.thetrevorproject.org/resources/",
+            "download": false,
+            "external": true,
+            "description": "Find LGBTQIA+ youth resources, including mental health support, coming out guides, gender identity information, and allyship tools."
+          },
+          {
+            "title": "University of Maryland, College Park: LGBTQ+ Equity Center",
+            "url": "https://lgbtq.umd.edu/",
+            "download": false,
+            "external": true,
+            "description": "Find programs, events, and resources that support an inclusive campus community."
+          },
+          {
+            "title": "University of Maryland, Baltimore County: The Pride Center for LGBTQIA2+ Diversity",
+            "url": "https://campuslife.umbc.edu/belonging/pride-center/",
+            "download": false,
+            "external": true,
+            "description": "Find community, events, leadership opportunities, and campus support resources."
+          }
+        ]
+      },
+      {
+        "section_title": "Maryland State Department of Education",
+        "items": [
+          {
+            "title": "File an Appeal with the State Board",
+            "url": "https://marylandpublicschools.org/stateboard/Pages/appeals.aspx",
+            "download": false,
+            "external": true,
+            "description": "Learn how to appeal a local board of education decision in Maryland, including filing deadlines, procedures, and State Board requirements."
+          },
+          {
+            "title": "Safe and Supportive Schools for All Students",
+            "url": "https://marylandpublicschools.org/about/Documents/DSFSS/SSSP/SafeSpaces/Creating-Safe-Spaces-Memo-A.pdf",
+            "download": true,
+            "external": false,
+            "description": "Guidance for Maryland schools on creating safe spaces for LGBTQIA+ youth, including bullying prevention, mental health support, and inclusive practices."
+          },
+          {
+            "title": "Bullying Prevention and Reporting Form",
+            "url": "https://marylandpublicschools.org/about/Pages/DSFSS/SSSP/Bullying/index.aspx",
+            "download": false,
+            "external": true,
+            "description": "Find Maryland bullying prevention resources, reporting forms, and school guidance on harassment, intimidation, and cyberbullying."
+          },
+          {
+            "title": "Title IX: Applicable Guidance and Compliance",
+            "url": "https://marylandpublicschools.org/programs/Pages/Operations/Equity-Assurance/Title-IX.aspx",
+            "download": false,
+            "external": true,
+            "description": "Learn about Title IX in Maryland, including discrimination protections, complaint filing options, coordinator contacts, and compliance guidance."
+          },
+          {
+            "title": "Nondiscrimination in Education Procedure and Process for Filing Complaints",
+            "url": "https://marylandpublicschools.org/about/Pages/education-nondiscrimination.aspx",
+            "download": false,
+            "external": true,
+            "description": "Learn about Maryland's nondiscrimination in education procedure, including protected classes, complaint filing steps, deadlines, mediation, and appeals."
+          }
+        ]
+      }
+    ]
+  },
+  "events-programs": {
+    "page_title": "Events & Programs",
+    "sections": [
+      {
+        "section_title": "Maryland LGBTQIA+ Pride Observances",
+        "items": [
+          {
+            "title": "Calendar of LGBTQIA+ Observances and Pride Celebrations",
+            "url": "https://docs.google.com/spreadsheets/d/1tryibvOur04Kj5C1LgDtEdeCYieFaP9XKmQM6OBQAtE/edit?gid=1727493718#gid=1727493718",
+            "download": false,
+            "external": true,
+            "description": "Explore LGBTQIA+ observances and Pride celebrations across Maryland with key dates, events, and community opportunities to celebrate and connect."
+          }
+        ]
+      }
+    ]
+  }
+}
