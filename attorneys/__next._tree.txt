@@ -1,8 +1,8 @@
-:HL["/irn-criminal-injustice/_next/static/chunks/3zovar5rwzsxe.css","style"]
+:HL["/irn-criminal-injustice/_next/static/chunks/2tpaeh2848zjf.css","style"]
 :HL["/irn-criminal-injustice/_next/static/media/DMMono_Light-s.p.2vzxo-8-o9ec8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/irn-criminal-injustice/_next/static/media/DMMono_Medium-s.p.37c59z3d8ru-x.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/irn-criminal-injustice/_next/static/media/DMMono_Regular-s.p.0u-0wza5ulgk6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/irn-criminal-injustice/_next/static/media/PlayfairDisplay_Italic_Variable-s.p.0bri-s8x2zsga.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/irn-criminal-injustice/_next/static/media/PlayfairDisplay_Variable-s.p.1owms3tl8fg7v.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/irn-criminal-injustice/_next/static/chunks/0t9gad1x-hw--.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"attorneys","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"aVx9LWzYQxq7tG2UEV-J0"}
+:HL["/irn-criminal-injustice/_next/static/chunks/0dz7krgcnqi-2.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"attorneys","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"u2Blennc__mKlDuCNcN8k"}
