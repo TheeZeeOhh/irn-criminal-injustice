@@ -175,14 +175,14 @@ export default function Nav() {
   const t = navTranslations[lang];
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <a href="/irn-criminal-injustice/" className={styles.logo} aria-label="Injustice Reform Network Home">
+    <nav className={`${styles.nav} ${(scrolled || theme === 'light') ? styles.scrolled : ''}`}>
+      <Link href="/" className={styles.logo} aria-label="Injustice Reform Network Home">
         <img src="/irn-criminal-injustice/logo.png" alt="" aria-hidden="true" style={{ height: '44px', width: 'auto' }} />
         <span className={styles.logoText}>IRN</span>
-      </a>
+      </Link>
 
       <div className={styles.links}>
-        <a href="/irn-criminal-injustice/" className={styles.link}>{t.home}</a>
+        <Link href="/" className={styles.link}>{t.home}</Link>
 
         <div className={styles.dropdown}>
           <button className={styles.link} aria-haspopup="true" aria-expanded="false">{t.whatWeDo}</button>
@@ -268,7 +268,7 @@ export default function Nav() {
           <X size={32} />
         </button>
         <div className={styles.mobileLinks}>
-          <a href="/irn-criminal-injustice/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t.home}</a>
+          <Link href="/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t.home}</Link>
 
           <div className={styles.mobileLink}>{t.whatWeDo}
             <div className={styles.mobileSublinks}>

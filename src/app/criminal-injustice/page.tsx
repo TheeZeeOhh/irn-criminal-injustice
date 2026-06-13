@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import ProgramCard from '../components/ProgramCard';
@@ -122,13 +123,13 @@ export default function CriminalInjusticePage() {
               <p className={styles.spotlightCtaText}>
                 If this happened to you or someone you know —
               </p>
-              <a
+              <Link
                 href="/chrt"
                 className={styles.spotlightCtaBtn}
                 aria-label="Report through CHRT — anonymous, encrypted civil rights documentation tool"
               >
                 Report Through CHRT →
-              </a>
+              </Link>
               <p className={styles.spotlightCtaPrivacy}>
                 Anonymous. Encrypted. IRN cannot be compelled to identify you.
               </p>
@@ -163,13 +164,13 @@ export default function CriminalInjusticePage() {
               ))}
             </div>
             <div className={styles.kyrCtaWrapper}>
-              <a
+              <Link
                 href="/know-your-rights"
                 className={styles.ghostCta}
                 aria-label="Read the full Know Your Rights guide"
               >
                 Read the Full Know Your Rights Guide →
-              </a>
+              </Link>
             </div>
           </div>
         </section>

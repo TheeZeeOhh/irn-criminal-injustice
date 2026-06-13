@@ -57,7 +57,8 @@ export default function Hero({
       />
       <div className={styles.overlay} aria-hidden="true" />
 
-      <div className={styles.content}>
+      <div className={styles.heroContentWrapper}>
+        <div className={styles.content}>
         <motion.span
           className={styles.kicker}
           initial={shouldReduceMotion ? 'visible' : 'hidden'}
@@ -110,6 +111,15 @@ export default function Hero({
             Learn Our Approach
           </a>
         </motion.div>
+      </div>
+      <motion.div 
+        className={styles.heroImageWrapper}
+        initial={shouldReduceMotion ? 'visible' : 'hidden'}
+        animate="visible"
+        variants={fadeUpVariants}
+      >
+        <img src="/irn-criminal-injustice/2.jpg" alt="IRN Action" className={styles.heroImage} />
+      </motion.div>
       </div>
 
       <div className={styles.scrollIndicator} aria-hidden="true">

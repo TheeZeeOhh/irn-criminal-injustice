@@ -148,20 +148,20 @@ export default function PressContent() {
           <div className={styles.logoGrid}>
             <div className={styles.logoItem}>
               <div className={styles.logoPreviewDark}>
-                <img src="/logo.png" alt="IRN Crest — Gold on Black" className={styles.logoImg} />
+                <img src="/irn-criminal-injustice/logo.png" alt="IRN Crest — Gold on Black" className={styles.logoImg} />
               </div>
               <div className={styles.logoMeta}>
                 <span className={styles.logoName}>Crest&mdash;Gold on Black</span>
-                <a href="/logo.png" download className={styles.downloadLink}>Download PNG &rarr;</a>
+                <a href="/irn-criminal-injustice/logo.png" download className={styles.downloadLink}>Download PNG &rarr;</a>
               </div>
             </div>
             <div className={styles.logoItem}>
               <div className={styles.logoPreviewLight}>
-                <img src="/logo.png" alt="IRN Crest — Dark on Light" className={styles.logoImgInverted} />
+                <img src="/irn-criminal-injustice/logo.png" alt="IRN Crest — Dark on Light" className={styles.logoImgInverted} />
               </div>
               <div className={styles.logoMeta}>
                 <span className={styles.logoName}>Crest&mdash;Dark on Light</span>
-                <a href="/logo.png" download className={styles.downloadLink}>Download PNG &rarr;</a>
+                <a href="/irn-criminal-injustice/logo.png" download className={styles.downloadLink}>Download PNG &rarr;</a>
               </div>
             </div>
             <div className={styles.logoItem}>

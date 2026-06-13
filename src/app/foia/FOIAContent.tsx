@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './foia.module.css';
 
 /* ── constants ── */
@@ -381,9 +382,9 @@ export default function FOIAContent() {
                   mail), and tracking number. Virginia agencies must respond within{' '}
                   <strong>5 business days</strong>. Maryland agencies within{' '}
                   <strong>10 business days</strong>. IRN tracks community FOIA requests —{' '}
-                  <a href="/reports/" className={styles.trackingLink}>
+                  <Link href="/reports" className={styles.trackingLink}>
                     see our public tracker →
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -440,9 +441,9 @@ export default function FOIAContent() {
                 Access Ombudsman or file in circuit court.
               </p>
               <p className={styles.guideTimeline}>
-                <a href="/chrt/" className={styles.guideLink}>
+                <Link href="/chrt" className={styles.guideLink}>
                   Document a denial with IRN →
-                </a>
+                </Link>
               </p>
             </div>
           </div>

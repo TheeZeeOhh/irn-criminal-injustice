@@ -1,5 +1,6 @@
 'use client';
 import { motion, type Variants } from 'framer-motion';
+import Link from 'next/link';
 import { ExternalLink, AlertTriangle, TrendingUp, Users, Scale, Shield, FileText } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -299,8 +300,8 @@ export default function CrimeStatsContent() {
               and legislators to act. The data above tells the pattern. Your testimony names it.
             </p>
             <div className={styles.ctaActions}>
-              <a href="/irn-criminal-injustice/chrt" className={styles.btnPrimary}>Report an Incident via CHRT</a>
-              <a href="/criminal-injustice" className={styles.btnGhost}>Back to Criminal Justice</a>
+              <Link href="/chrt" className={styles.btnPrimary}>Report an Incident via CHRT</Link>
+              <Link href="/criminal-injustice" className={styles.btnGhost}>Back to Criminal Justice</Link>
             </div>
           </motion.div>
         </div>

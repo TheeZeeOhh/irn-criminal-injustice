@@ -15,6 +15,7 @@
 
   --font-display: 'Playfair Display', serif;
   --font-body: 'DM Mono', monospace;
+  --nav-bg: rgba(22, 19, 15, 0.9);
 }
 
 * {
@@ -83,4 +84,5 @@ button {
   --gold-l: #D89F35;
   --sage: #5A7E4F;
   --shadow: 0 8px 32px rgba(35, 30, 24, 0.08);
+  --nav-bg: rgba(245, 242, 236, 0.9);
 }

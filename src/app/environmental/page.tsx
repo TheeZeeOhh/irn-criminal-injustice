@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import ProgramCard from '../components/ProgramCard';
@@ -116,13 +117,13 @@ export default function EnvironmentalPage() {
               ))}
             </div>
             <div className={styles.kyrCtaWrapper}>
-              <a
+              <Link
                 href="/know-your-rights"
                 className={styles.ghostCta}
                 aria-label="Read the full Know Your Rights guide"
               >
                 Read the Full Know Your Rights Guide →
-              </a>
+              </Link>
             </div>
           </div>
         </section>

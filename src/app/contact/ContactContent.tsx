@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Shield, Phone, ArrowRight } from 'lucide-react';
 import styles from './contact.module.css';
@@ -77,9 +78,9 @@ export default function ContactContent() {
                 <p className={styles.chrtBody}>
                   Don't use this form. Use CHRT — it's encrypted on your device before it ever reaches us.
                 </p>
-                <a href="/chrt" className={styles.chrtLink}>
+                <Link href="/chrt" className={styles.chrtLink}>
                   Go to CHRT <ArrowRight size={12} aria-hidden="true" style={{ display: 'inline', verticalAlign: 'middle' }} />
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

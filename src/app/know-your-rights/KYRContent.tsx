@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { Download, ChevronDown, ChevronUp, Shield, Scale, Home, Camera, GraduationCap, Globe } from 'lucide-react';
 import styles from './kyr.module.css';
@@ -157,15 +158,15 @@ export default function KYRContent() {
           </motion.h1>
           <motion.p className={styles.heroSubtitle} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
             Virginia · Maryland · North Carolina · DC — your rights during police encounters, evictions, school discipline, and more.
-            Not legal advice. For your situation, <a href="/chrt" className={styles.heroLink}>file through CHRT</a>.
+            Not legal advice. For your situation, <Link href="/chrt" className={styles.heroLink}>file through CHRT</Link>.
           </motion.p>
           <motion.div className={styles.heroActions} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }}>
             <a href="#wallet-card" className={styles.btnPrimary}>
               <Download size={15} aria-hidden="true" /> Get the Wallet Card
             </a>
-            <a href="/conoce-tus-derechos" className={styles.btnGhost}>
+            <Link href="/conoce-tus-derechos" className={styles.btnGhost}>
               En Español →
-            </a>
+            </Link>
           </motion.div>
         </div>
       </header>
@@ -266,7 +267,7 @@ export default function KYRContent() {
           <motion.div className={styles.ctaBlock} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
             <h2 id="kyr-cta-heading" className={styles.ctaTitle}>Your rights were violated?</h2>
             <p className={styles.ctaBody}>Use CHRT to document what happened — anonymously, encrypted, no name required.</p>
-            <a href="/chrt" className={styles.btnPrimary}>Report Through CHRT →</a>
+            <Link href="/chrt" className={styles.btnPrimary}>Report Through CHRT →</Link>
           </motion.div>
         </div>
       </section>

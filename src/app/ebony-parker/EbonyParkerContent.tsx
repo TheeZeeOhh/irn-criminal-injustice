@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Download, Scale, CheckCircle, FileText } from 'lucide-react';
 import styles from './ebony.module.css';
 
@@ -38,9 +39,9 @@ export default function EbonyParkerContent() {
             <button className={styles.btnPrimary} onClick={() => window.print()}>
               <Download size={15} aria-hidden="true" /> Download One-Pager (Print)
             </button>
-            <a href="/chrt" className={styles.btnGhost}>
+            <Link href="/chrt" className={styles.btnGhost}>
               Report Your Case →
-            </a>
+            </Link>
           </motion.div>
         </div>
       </header>
@@ -127,7 +128,7 @@ export default function EbonyParkerContent() {
           <motion.div className={styles.ctaBlock} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <h2 id="ep-cta-heading" className={styles.ctaTitle}>If this happened to you —</h2>
             <p className={styles.ctaBody}>Report through CHRT. Anonymous. Encrypted. IRN cannot be compelled to identify you.</p>
-            <a href="/chrt" className={styles.btnPrimary}>Report Through CHRT →</a>
+            <Link href="/chrt" className={styles.btnPrimary}>Report Through CHRT →</Link>
           </motion.div>
         </div>
       </section>

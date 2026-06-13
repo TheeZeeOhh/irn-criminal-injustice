@@ -125,9 +125,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.top}>
         <div className={styles.brand}>
-          <a href="/irn-criminal-injustice/" className={styles.logo} aria-label="Injustice Reform Network — home">
+          <Link href="/" className={styles.logo} aria-label="Injustice Reform Network — home">
             IRN
-          </a>
+          </Link>
           <p className={styles.mission}>
             {t.mission}
           </p>
