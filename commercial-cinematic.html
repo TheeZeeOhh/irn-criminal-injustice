@@ -595,6 +595,8 @@ if ('speechSynthesis' in window) {
   speechSynthesis.getVoices();
   speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 }
+
+window.addEventListener('load', () => setTimeout(startCommercial, 500));
 </script>
 
 </body>
