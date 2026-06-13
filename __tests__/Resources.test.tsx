@@ -98,7 +98,7 @@ describe('ResourcesPage', () => {
     expect(screen.getByRole('heading', { level: 1, name: /maryland community resource library/i })).toBeInTheDocument();
 
     // Find language button
-    const langBtn = screen.getAllByRole('button', { name: /change language to español/i })[0];
+    const langBtn = screen.getAllByRole('button', { name: /change language to español|cambiar idioma a español/i })[0];
     expect(langBtn).toBeInTheDocument();
 
     // Toggle language
@@ -114,7 +114,7 @@ describe('ResourcesPage', () => {
     expect(screen.getByRole('button', { name: /personas mayores/i })).toBeInTheDocument();
 
     // Switch back to English
-    const langBtnEn = screen.getAllByRole('button', { name: /change language to english/i })[0];
+    const langBtnEn = screen.getAllByRole('button', { name: /change language to english|cambiar idioma a inglés/i })[0];
     fireEvent.click(langBtnEn);
     expect(screen.getByRole('heading', { level: 1, name: /maryland community resource library/i })).toBeInTheDocument();
 

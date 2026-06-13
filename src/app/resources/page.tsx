@@ -106,9 +106,9 @@ const categoryTranslations: Record<string, Record<string, string>> = {
     'pflag-chapters': 'PFLAG Chapters',
     'trans-and-intersex': 'Trans and Intersex',
     'veterans': 'Veterans',
-    'rights-and-legal-help': 'Your Rights and Legal Help',
-    'youth-and-education': 'Youth & Education',
-    'events-and-programs': 'Events & Programs',
+    'your-rights-and-legal-help': 'Your Rights and Legal Help',
+    'youth-education': 'Youth & Education',
+    'events-programs': 'Events & Programs',
   },
   es: {
     'elders': 'Personas Mayores',
@@ -119,9 +119,9 @@ const categoryTranslations: Record<string, Record<string, string>> = {
     'pflag-chapters': 'Capítulos de PFLAG',
     'trans-and-intersex': 'Trans e Intersexo',
     'veterans': 'Veteranos',
-    'rights-and-legal-help': 'Sus Derechos y Ayuda Legal',
-    'youth-and-education': 'Juventud y Educación',
-    'events-and-programs': 'Eventos y Programas',
+    'your-rights-and-legal-help': 'Sus Derechos y Ayuda Legal',
+    'youth-education': 'Juventud y Educación',
+    'events-programs': 'Eventos y Programas',
   }
 };
 
@@ -165,9 +165,9 @@ const categoryConfig: Record<string, { icon: React.ReactNode; color: string }> =
   'pflag-chapters': { icon: <HeartHandshake size={16} />, color: 'var(--teal)' },
   'trans-and-intersex': { icon: <Sparkles size={16} />, color: 'var(--gold-l)' },
   'veterans': { icon: <Award size={16} />, color: 'var(--sage)' },
-  'rights-and-legal-help': { icon: <Scale size={16} />, color: 'var(--gold)' },
-  'youth-and-education': { icon: <GraduationCap size={16} />, color: 'var(--violet)' },
-  'events-and-programs': { icon: <Calendar size={16} />, color: 'var(--ember)' },
+  'your-rights-and-legal-help': { icon: <Scale size={16} />, color: 'var(--gold)' },
+  'youth-education': { icon: <GraduationCap size={16} />, color: 'var(--violet)' },
+  'events-programs': { icon: <Calendar size={16} />, color: 'var(--ember)' },
 };
 
 export default function ResourcesPage() {
@@ -190,16 +190,32 @@ export default function ResourcesPage() {
 
   // Sync theme and language from localStorage on mount and listen to changes
   useEffect(() => {
-    const savedLang = localStorage.getItem('lang') as 'en' | 'es' || 'en';
-    setLang(savedLang);
+    // Initial language detection
+    let initialLang: 'en' | 'es' = 'en';
+    if (window.location.pathname.includes('/conoce-tus-derechos')) {
+      initialLang = 'es';
+    } else if (window.location.pathname.includes('/know-your-rights')) {
+      initialLang = 'en';
+    } else {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'en' || savedLang === 'es') {
+        initialLang = savedLang;
+      }
+    }
+    setLang(initialLang);
 
-    const handleLangChange = (e: Event) => {
-      const customEvent = e as CustomEvent<'en' | 'es'>;
-      setLang(customEvent.detail);
+    const handleLangChange = () => {
+      const currentLang = localStorage.getItem('lang') as 'en' | 'es' || 'en';
+      setLang(currentLang);
     };
 
-    window.addEventListener('langChange', handleLangChange);
-    return () => window.removeEventListener('langChange', handleLangChange);
+    window.addEventListener('langchange', handleLangChange);
+    window.addEventListener('storage', handleLangChange);
+
+    return () => {
+      window.removeEventListener('langchange', handleLangChange);
+      window.removeEventListener('storage', handleLangChange);
+    };
   }, []);
 
   // Update document title for SEO

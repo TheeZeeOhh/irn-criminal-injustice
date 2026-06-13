@@ -126,9 +126,60 @@ interface GlobalSearchProps {
   onClose: () => void;
 }
 
+const searchTranslations = {
+  en: {
+    placeholder: "Search resources, cases, rights guides...",
+    noQuery: "Type keywords to search across the entire IRN platform...",
+    noResults: "No results found for",
+    tryAnother: "Try another search term.",
+    tipNavigate: "Navigate with your mouse or keyboard",
+    tipClose: "Close with",
+    closeBtn: "Close search",
+  },
+  es: {
+    placeholder: "Buscar recursos, casos, guías de derechos...",
+    noQuery: "Escriba palabras clave para buscar en toda la plataforma de IRN...",
+    noResults: "No se encontraron resultados para",
+    tryAnother: "Intente con otro término.",
+    tipNavigate: "Navegue con el ratón o el teclado",
+    tipClose: "Cerrar con",
+    closeBtn: "Cerrar búsqueda",
+  }
+};
+
 export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
   const [query, setQuery] = useState('');
+  const [lang, setLang] = useState<'en' | 'es'>('en');
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Sync language from localStorage on mount and listen to changes
+  useEffect(() => {
+    let initialLang: 'en' | 'es' = 'en';
+    if (window.location.pathname.includes('/conoce-tus-derechos')) {
+      initialLang = 'es';
+    } else if (window.location.pathname.includes('/know-your-rights')) {
+      initialLang = 'en';
+    } else {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'en' || savedLang === 'es') {
+        initialLang = savedLang;
+      }
+    }
+    setLang(initialLang);
+
+    const handleLangChange = () => {
+      const currentLang = localStorage.getItem('lang') as 'en' | 'es' || 'en';
+      setLang(currentLang);
+    };
+
+    window.addEventListener('langchange', handleLangChange);
+    window.addEventListener('storage', handleLangChange);
+
+    return () => {
+      window.removeEventListener('langchange', handleLangChange);
+      window.removeEventListener('storage', handleLangChange);
+    };
+  }, []);
 
   // Focus input on open
   useEffect(() => {
@@ -161,6 +212,8 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
         );
       });
 
+  const t = searchTranslations[lang];
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -187,11 +240,11 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                 ref={inputRef}
                 type="text"
                 className={styles.searchInput}
-                placeholder="Search resources, cases, rights guides..."
+                placeholder={t.placeholder}
                 value={query}
                 onChange={e => setQuery(e.target.value)}
               />
-              <button className={styles.closeButton} onClick={onClose} aria-label="Close search">
+              <button className={styles.closeButton} onClick={onClose} aria-label={t.closeBtn}>
                 <X size={20} />
               </button>
             </div>
@@ -200,7 +253,7 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             <div className={styles.searchResults}>
               {query.trim() === '' ? (
                 <div className={styles.noResults}>
-                  Type keywords to search across the entire IRN platform...
+                  {t.noQuery}
                 </div>
               ) : filteredResults.length > 0 ? (
                 filteredResults.map((result, idx) => (
@@ -219,16 +272,16 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                 ))
               ) : (
                 <div className={styles.noResults}>
-                  No results found for &ldquo;{query}&rdquo;. Try another search term.
+                  {t.noResults} &ldquo;{query}&rdquo;. {t.tryAnother}
                 </div>
               )}
             </div>
 
             {/* Footer tips */}
             <div className={styles.searchTip}>
-              <span>Navigate with your mouse or keyboard</span>
+              <span>{t.tipNavigate}</span>
               <span>
-                Close with <span className={styles.tipKey}>ESC</span>
+                {t.tipClose} <span className={styles.tipKey}>ESC</span>
               </span>
             </div>
 

@@ -1,3 +1,5 @@
+'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
@@ -26,7 +28,99 @@ function YoutubeIcon() {
   );
 }
 
+const footerTranslations = {
+  en: {
+    mission: 'Documenting harm, fighting wrongful prosecution, and building the infrastructure communities need to hold institutions accountable.',
+    programs: 'Programs',
+    criminalInjustice: 'Criminal Injustice',
+    environmental: 'Environmental',
+    familyPolicing: 'Family Policing',
+    chrtPortal: 'CHRT Portal',
+    getInvolved: 'Get Involved',
+    donate: 'Donate',
+    volunteer: 'Volunteer',
+    campaigns: 'Campaigns',
+    events: 'Events',
+    resources: 'Resources',
+    knowYourRights: 'Know Your Rights',
+    attorneys: 'Attorneys',
+    foiaGenerator: 'FOIA Generator',
+    impactData: 'Impact & Data',
+    chapters: 'Chapters',
+    blog: 'Blog',
+    press: 'Press',
+    legal: 'Legal',
+    privacyPolicy: 'Privacy Policy',
+    termsOfService: 'Terms of Service',
+    accessibility: 'AccessibilityStatement',
+    contact: 'Contact',
+    copyright: '© 2024–2026 Injustice Reform Network · EIN 41-4321283 · 501(c)(3) Nonprofit · Virginia, Maryland, North Carolina & DC · All Rights Reserved',
+    disclaimer: 'IRN is not a law firm. Nothing on this site constitutes legal advice or creates an attorney-client relationship.',
+  },
+  es: {
+    mission: 'Documentando daños, luchando contra procesamientos injustos y construyendo la infraestructura que las comunidades necesitan para responsabilizar a las instituciones.',
+    programs: 'Programas',
+    criminalInjustice: 'Injusticia Criminal',
+    environmental: 'Injusticia Ambiental',
+    familyPolicing: 'Vigilancia Familiar',
+    chrtPortal: 'Portal CHRT',
+    getInvolved: 'Participe',
+    donate: 'Donar',
+    volunteer: 'Voluntariado',
+    campaigns: 'Campañas',
+    events: 'Eventos',
+    resources: 'Recursos',
+    knowYourRights: 'Conoce Tus Derechos',
+    attorneys: 'Abogados',
+    foiaGenerator: 'Generador de FOIA',
+    impactData: 'Impacto y Datos',
+    chapters: 'Capítulos',
+    blog: 'Blog',
+    press: 'Prensa',
+    legal: 'Legal',
+    privacyPolicy: 'Política de Privacidad',
+    termsOfService: 'Términos de Servicio',
+    accessibility: 'Accesibilidad',
+    contact: 'Contacto',
+    copyright: '© 2024–2026 Injustice Reform Network · EIN 41-4321283 · Entidad 501(c)(3) sin fines de lucro · Virginia, Maryland, Carolina del Norte y DC · Todos los derechos reservados',
+    disclaimer: 'IRN no es un bufete de abogados. Nada en este sitio constituye asesoría legal ni crea una relación abogado-cliente.',
+  }
+};
+
 export default function Footer() {
+  const [lang, setLang] = useState<'en' | 'es'>('en');
+
+  useEffect(() => {
+    // Detect initial language
+    let initialLang: 'en' | 'es' = 'en';
+    if (window.location.pathname.includes('/conoce-tus-derechos')) {
+      initialLang = 'es';
+    } else if (window.location.pathname.includes('/know-your-rights')) {
+      initialLang = 'en';
+    } else {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'en' || savedLang === 'es') {
+        initialLang = savedLang;
+      }
+    }
+    setLang(initialLang);
+
+    const handleLangChange = () => {
+      const currentLang = localStorage.getItem('lang') as 'en' | 'es' || 'en';
+      setLang(currentLang);
+    };
+
+    window.addEventListener('langchange', handleLangChange);
+    window.addEventListener('storage', handleLangChange);
+
+    return () => {
+      window.removeEventListener('langchange', handleLangChange);
+      window.removeEventListener('storage', handleLangChange);
+    };
+  }, []);
+
+  const t = footerTranslations[lang];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
@@ -35,8 +129,7 @@ export default function Footer() {
             IRN
           </a>
           <p className={styles.mission}>
-            Documenting harm, fighting wrongful prosecution, and building the infrastructure
-            communities need to hold institutions accountable.
+            {t.mission}
           </p>
           <div className={styles.socials}>
             <a
@@ -71,57 +164,55 @@ export default function Footer() {
 
         <nav className={styles.grid} aria-label="Footer navigation">
           <div className={styles.col}>
-            <span className={styles.colTitle}>Programs</span>
+            <span className={styles.colTitle}>{t.programs}</span>
             <Link href="/criminal-injustice" className={styles.link} aria-label="Criminal Injustice program">
-              Criminal Injustice
+              {t.criminalInjustice}
             </Link>
             <Link href="/environmental" className={styles.link} aria-label="Environmental Injustice program">
-              Environmental
+              {t.environmental}
             </Link>
             <Link href="/family" className={styles.link} aria-label="Family Policing and Reproductive Health">
-              Family Policing
+              {t.familyPolicing}
             </Link>
             <Link href="/chrt" className={styles.link} aria-label="CHRT — Community Harm Reporting Tool">
-              CHRT Portal
+              {t.chrtPortal}
             </Link>
           </div>
           <div className={styles.col}>
-            <span className={styles.colTitle}>Get Involved</span>
-            <Link href="/donate" className={styles.link} aria-label="Donate to IRN">Donate</Link>
-            <Link href="/volunteer" className={styles.link} aria-label="Volunteer with IRN">Volunteer</Link>
-            <Link href="/campaigns" className={styles.link} aria-label="IRN Campaigns">Campaigns</Link>
-            <Link href="/events" className={styles.link} aria-label="IRN Events">Events</Link>
+            <span className={styles.colTitle}>{t.getInvolved}</span>
+            <Link href="/donate" className={styles.link} aria-label="Donate to IRN">{t.donate}</Link>
+            <Link href="/volunteer" className={styles.link} aria-label="Volunteer with IRN">{t.volunteer}</Link>
+            <Link href="/campaigns" className={styles.link} aria-label="IRN Campaigns">{t.campaigns}</Link>
+            <Link href="/events" className={styles.link} aria-label="IRN Events">{t.events}</Link>
           </div>
           <div className={styles.col}>
-            <span className={styles.colTitle}>Resources</span>
-            <Link href="/know-your-rights" className={styles.link} aria-label="Know Your Rights guide">Know Your Rights</Link>
-            <Link href="/attorneys" className={styles.link} aria-label="Attorney Directory">Attorneys</Link>
-            <Link href="/foia" className={styles.link} aria-label="FOIA Generator">FOIA Generator</Link>
-            <Link href="/impact" className={styles.link} aria-label="Impact & Data">Impact &amp; Data</Link>
-            <Link href="/chapters" className={styles.link} aria-label="IRN Chapters & Locations">Chapters</Link>
-            <Link href="/blog" className={styles.link} aria-label="IRN Blog">Blog</Link>
-            <Link href="/press" className={styles.link} aria-label="IRN Press">Press</Link>
+            <span className={styles.colTitle}>{t.resources}</span>
+            <Link href="/know-your-rights" className={styles.link} aria-label="Know Your Rights guide">{t.knowYourRights}</Link>
+            <Link href="/attorneys" className={styles.link} aria-label="Attorney Directory">{t.attorneys}</Link>
+            <Link href="/foia" className={styles.link} aria-label="FOIA Generator">{t.foiaGenerator}</Link>
+            <Link href="/impact" className={styles.link} aria-label="Impact & Data">{t.impactData}</Link>
+            <Link href="/chapters" className={styles.link} aria-label="IRN Chapters & Locations">{t.chapters}</Link>
+            <Link href="/blog" className={styles.link} aria-label="IRN Blog">{t.blog}</Link>
+            <Link href="/press" className={styles.link} aria-label="IRN Press">{t.press}</Link>
           </div>
           <div className={styles.col}>
-            <span className={styles.colTitle}>Legal</span>
-            <Link href="/privacy" className={styles.link} aria-label="Privacy Policy">Privacy Policy</Link>
-            <Link href="/terms" className={styles.link} aria-label="Terms of Service">Terms of Service</Link>
+            <span className={styles.colTitle}>{t.legal}</span>
+            <Link href="/privacy" className={styles.link} aria-label="Privacy Policy">{t.privacyPolicy}</Link>
+            <Link href="/terms" className={styles.link} aria-label="Terms of Service">{t.termsOfService}</Link>
             <Link href="/accessibility" className={styles.link} aria-label="Accessibility statement">
-              Accessibility
+              {t.accessibility}
             </Link>
-            <Link href="/contact" className={styles.link} aria-label="Contact IRN">Contact</Link>
+            <Link href="/contact" className={styles.link} aria-label="Contact IRN">{t.contact}</Link>
           </div>
         </nav>
       </div>
 
       <div className={styles.bottom}>
         <p className={styles.copyright}>
-          &copy; 2024&ndash;2026 Injustice Reform Network &middot; EIN 41-4321283 &middot;
-          501(c)(3) Nonprofit &middot; Virginia, Maryland, North Carolina &amp; DC &middot; All Rights Reserved
+          {t.copyright}
         </p>
         <p className={styles.disclaimer}>
-          IRN is not a law firm. Nothing on this site constitutes legal advice or creates an
-          attorney-client relationship.
+          {t.disclaimer}
         </p>
       </div>
     </footer>
