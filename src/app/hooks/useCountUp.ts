@@ -2,14 +2,15 @@
 import { useState, useEffect } from 'react';
 
 export function useCountUp(end: number, duration: number = 2000, trigger: boolean = true) {
-  // Initialize to 'end' so the SSR markup contains the final number for crawlers
-  const [count, setCount] = useState(0);
+  // Initialize to 'end' so the SSR markup contains the final number for crawlers/fallback
+  const [count, setCount] = useState(end);
   const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!trigger) return;
     if (hasStarted) return;
     setHasStarted(true);
+    setCount(0); // Reset to 0 to begin the count-up animation
 
     let startTime: number | null = null;
     let animationFrameId: number;

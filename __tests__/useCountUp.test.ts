@@ -10,14 +10,14 @@ describe('useCountUp', () => {
     vi.clearAllMocks();
   });
 
-  it('returns 0 when trigger is false', () => {
+  it('returns end value when trigger is false', () => {
     const { result } = renderHook(() => useCountUp(147, 2000, false));
-    expect(result.current).toBe(0);
+    expect(result.current).toBe(147);
   });
 
   it('returns 0 initially even when trigger is true (animation is async)', () => {
     const { result } = renderHook(() => useCountUp(147, 2000, true));
-    // rAF is a no-op so count stays at 0 until frames fire
+    // When trigger is true, it immediately schedules reset to 0 on mount
     expect(result.current).toBe(0);
   });
 

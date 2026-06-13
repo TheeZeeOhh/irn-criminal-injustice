@@ -1,12 +1,12 @@
 {
   "heroStats": [
-    { "value": 147, "label": "incidents documented", "suffix": "+" },
+    { "value": 150, "label": "incidents documented", "suffix": "+" },
     { "value": 38, "label": "FOIA requests filed", "suffix": "" },
     { "value": 6, "label": "cases resolved 2025–26", "suffix": "" }
   ],
   "impactStats": [
-    { "value": 147, "label": "Incidents documented 2024–26", "suffix": "+" },
-    { "value": 72, "label": "CJRRP response commitment", "suffix": " hrs" },
+    { "value": 150, "label": "Incidents documented 2024–26", "suffix": "+" },
+    { "value": 1500, "label": "CJRRP response commitment", "suffix": " hrs" },
     { "value": 100, "label": "Reporters protected — zero disclosures", "suffix": "%" }
   ]
 }

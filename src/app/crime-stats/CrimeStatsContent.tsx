@@ -16,7 +16,7 @@ const fadeUp: Variants = {
 const heroStats = [
   { value: '3.7×', label: 'Black residents more likely to be arrested in Hampton Roads than white residents' },
   { value: '68%', label: 'Of Virginia prison population is Black — despite being 20% of the state population' },
-  { value: '147+', label: 'Incidents documented by IRN across Hampton Roads since 2023' },
+  { value: '150+', label: 'Incidents documented by IRN across Hampton Roads since 2023' },
   { value: '38', label: 'FOIA requests filed by IRN to obtain police and agency records' },
 ];
 
