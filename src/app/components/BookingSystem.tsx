@@ -283,7 +283,7 @@ export default function BookingSystem() {
                 Our advocates will reach out to you via {formData.method === 'signal' ? 'Signal' : formData.method === 'proton' ? 'ProtonMail' : 'your preferred contact method'} within 24 hours to confirm any final details prior to the meeting.
               </p>
 
-              <button className={styles.secondaryBtn} onClick={() => window.location.href = '/'}>
+              <button className={styles.secondaryBtn} onClick={() => window.location.href = '/irn-criminal-injustice/'}>
                 Return to Home
               </button>
             </motion.div>

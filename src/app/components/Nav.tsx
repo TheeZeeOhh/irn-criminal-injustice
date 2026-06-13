@@ -51,7 +51,7 @@ export default function Nav() {
       </a>
 
       <div className={styles.links}>
-        <Link href="/" className={styles.link}>Home</Link>
+        <a href="/irn-criminal-injustice/" className={styles.link}>Home</a>
 
         <div className={styles.dropdown}>
           <button className={styles.link} aria-haspopup="true" aria-expanded="false">What We Do</button>
@@ -119,7 +119,7 @@ export default function Nav() {
           <X size={32} />
         </button>
         <div className={styles.mobileLinks}>
-          <Link href="/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Home</Link>
+          <a href="/irn-criminal-injustice/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Home</a>
 
           <div className={styles.mobileLink}>What We Do
             <div className={styles.mobileSublinks}>

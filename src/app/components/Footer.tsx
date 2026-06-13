@@ -31,9 +31,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.top}>
         <div className={styles.brand}>
-          <Link href="/" className={styles.logo} aria-label="Injustice Reform Network — home">
+          <a href="/irn-criminal-injustice/" className={styles.logo} aria-label="Injustice Reform Network — home">
             IRN
-          </Link>
+          </a>
           <p className={styles.mission}>
             Documenting harm, fighting wrongful prosecution, and building the infrastructure
             communities need to hold institutions accountable.
