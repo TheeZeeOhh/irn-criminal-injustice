@@ -5,4 +5,4 @@
 :HL["/irn-criminal-injustice/_next/static/media/PlayfairDisplay_Italic_Variable-s.p.0bri-s8x2zsga.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/irn-criminal-injustice/_next/static/media/PlayfairDisplay_Variable-s.p.1owms3tl8fg7v.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/irn-criminal-injustice/_next/static/chunks/0dz7krgcnqi-2.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"foia","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"WnHKzmz3NgHMG95dpsCPO"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"foia","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"ukrmCMn9jIP7oeaHzxPFX"}
