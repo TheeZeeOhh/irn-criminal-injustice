@@ -22,7 +22,7 @@ export default function NewsletterStrip() {
     if (error) setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) {
       setError('Please enter your email address.');
@@ -32,8 +32,40 @@ export default function NewsletterStrip() {
       setError('Please enter a valid email address.');
       return;
     }
-    localStorage.setItem('irn_newsletter_subscribed', 'true');
-    setIsSubscribed(true);
+
+    // Mailchimp embedded form POST
+    // TODO: replace u= and id= values with IRN's actual Mailchimp audience params
+    // Get them from: Mailchimp → Audience → Signup forms → Embedded forms → copy action URL
+    const MAILCHIMP_URL =
+      'https://network.us21.list-manage.com/subscribe/post?u=REPLACE_U&amp;id=REPLACE_ID&amp;f_id=REPLACE_FID';
+
+    if (MAILCHIMP_URL.includes('REPLACE_U')) {
+      // Mailchimp not yet configured — store locally and show success
+      localStorage.setItem('irn_newsletter_subscribed', 'true');
+      setIsSubscribed(true);
+      return;
+    }
+
+    try {
+      // Mailchimp requires JSONP for cross-origin — swap to -json endpoint
+      const jsonpUrl = MAILCHIMP_URL.replace('/post?', '/post-json?') + `&EMAIL=${encodeURIComponent(email)}&c=__irn_mc_cb`;
+      await new Promise<void>((resolve, reject) => {
+        const script = document.createElement('script');
+        (window as unknown as Record<string, unknown>)['__irn_mc_cb'] = (data: { result: string }) => {
+          delete (window as unknown as Record<string, unknown>)['__irn_mc_cb'];
+          script.remove();
+          if (data.result === 'success') resolve();
+          else reject(new Error(data.result));
+        };
+        script.src = jsonpUrl;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+      localStorage.setItem('irn_newsletter_subscribed', 'true');
+      setIsSubscribed(true);
+    } catch {
+      setError('Subscription failed. Email us at info@injusticereformnetwork.org to join the list.');
+    }
   };
 
   return (

@@ -64,7 +64,7 @@ export default function Chatbot() {
     setLoading(true);
     try {
       if (!GEMINI_KEY) {
-        setMessages([...next, { role: 'assistant', text: 'The AI assistant is not configured yet. Please contact IRN directly at the contact page.' }]);
+        setMessages([...next, { role: 'assistant', text: 'The AI assistant is offline right now.\n\nFor immediate help:\n• Report harm anonymously: injusticereformnetwork.org/chrt\n• Contact IRN: injusticereformnetwork.org/contact\n• Virginia Legal Aid: 1-866-534-5243\n• Crisis line: 988' }]);
         return;
       }
       const contents = next

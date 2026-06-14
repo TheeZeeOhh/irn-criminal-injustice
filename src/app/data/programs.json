@@ -2,36 +2,36 @@
   {
     "id": "trans-reentry",
     "title": "TRANS REENTRY SUPPORT PROGRAM",
-    "description": "Dedicated reentry navigation for trans people leaving incarceration. The 72 hours post-release are highest risk for housing discrimination, healthcare gaps, and re-arrest. We provide immediate, life-saving stabilization."
+    "description": "Dedicated reentry navigation for trans people leaving incarceration in Virginia, Maryland, and North Carolina. The 72 hours post-release are the highest-risk window for housing discrimination, healthcare interruption, and re-arrest — and for trans people, that risk is compounded by identity document barriers, HRT access gaps, and shelters that refuse to affirm gender. IRN provides immediate stabilization: housing referrals, ID correction navigation, HRT continuity coordination, and connection to affirming case managers who will not misgender or abandon. This is not a hotline. This is accompaniment."
   },
   {
     "id": "bail-navigation",
     "title": "COMMUNITY BAIL & RELEASE NAVIGATION",
-    "description": "Pretrial detention is where significant harm concentrates for LGBTQ+ people—misgendering, denial of healthcare, and isolation. Our rapid release support reduces exposure time and connects individuals to trauma-informed care."
+    "description": "Pretrial detention is where the most concentrated harm happens for LGBTQ+ people — misgendering by staff, denial of gender-affirming healthcare, isolation from community, and coerced plea deals made under duress. IRN's rapid release support intervenes early: we identify bail options, connect individuals with legal representation, and coordinate release logistics so people spend as little time in pretrial custody as possible. Every day inside without a conviction is harm. We work to reduce that exposure and connect people to trauma-informed care before the system does more damage."
   },
   {
     "id": "trauma-informed-legal",
     "title": "TRAUMA-INFORMED LEGAL NAVIGATION",
-    "description": "Specialized legal navigation that integrates trauma-informed practice into every interaction, reducing case attrition for survivors of violence and marginalized individuals navigating hostile courts."
+    "description": "Standard legal systems re-traumatize — they require survivors to repeat their story to strangers in hostile environments, on hostile timelines, with hostile consequences for emotional responses. IRN's legal navigation integrates trauma-informed practice from the first intake call through every court appearance. We slow down where the system speeds up, translate where the system obfuscates, and stay present where the system abandons. Our approach reduces case attrition for survivors of violence, people with mental health needs, and marginalized individuals navigating courts that were not designed for them."
   },
   {
     "id": "youth-diversion",
     "title": "LGBTQ+ YOUTH DIVERSION PROGRAMS",
-    "description": "Pre-arrest and pre-adjudication diversion programming to prevent pipeline entry for LGBTQ+ youth. We know that early diversion is the highest-leverage intervention to prevent long-term criminalization."
+    "description": "LGBTQ+ youth — especially Black trans youth — are overrepresented at every stage of the juvenile justice pipeline, from school pushout to arrest to detention. Pre-arrest and pre-adjudication diversion is the highest-leverage intervention because pipeline entry compounds: one arrest increases the probability of a second, a third, and eventual adult incarceration. IRN works with schools, community organizations, and legal advocates to route LGBTQ+ youth away from the system entirely, connecting them to affirmative support before a charge becomes a record that follows them for life."
   },
   {
     "id": "fines-relief",
     "title": "FINES, COSTS & GARNISHMENT RELIEF",
-    "description": "Court fines and cost garnishment trap people in cycles of poverty. IRN identifies relief pathways and documents patterns of predatory fee assessment to advocate for systemic legislative change."
+    "description": "Court-imposed fines and fees do not end at sentencing. In Virginia and Maryland, suspended licenses, wage garnishment, and compounding interest trap people in poverty long after their legal matter is resolved — and inability to pay is itself criminalized, creating a cycle IRN calls 'debt incarceration.' We identify relief pathways including payment plans, waivers, and expungement eligibility, connect individuals with legal aid for complex cases, and document patterns of predatory fee assessment across jurisdictions to build the legislative record for systemic reform."
   },
   {
     "id": "kyr",
     "title": "LEGAL EDUCATION & KNOW YOUR RIGHTS",
-    "description": "We deliver Know Your Rights workshops covering police encounters, pretrial detention, and tenant rights, empowering LGBTQ+ people and communities of color to challenge unlawful treatment and avoid procedural traps."
+    "description": "Know Your Rights is not just a slogan — it is a tactical intervention. When a person knows they have the right to remain silent, the right to refuse consent to search, and the right to request an attorney immediately, outcomes change. IRN delivers community workshops and one-on-one education covering police encounters, pretrial rights, CPS/family policing interactions, tenant rights, and school discipline. Available in English and Spanish. All materials are plain-language and directly actionable — not legal disclaimers, but real guidance for real situations."
   },
   {
     "id": "chrt",
     "title": "COMMUNITY HARM REPORTING (CHRT)",
-    "description": "IRN's privacy-first tool documents civil rights incidents anonymously. Our zero-knowledge architecture ensures we cannot be compelled to identify reporters, building an undeniable evidentiary record of systemic abuse."
+    "description": "IRN's Community Harm Reporting Tool documents civil rights incidents with privacy-first, zero-knowledge architecture. We cannot be compelled to identify reporters — not by court order, not by law enforcement request. Every report builds the evidentiary record: incident patterns, institutional actors, geographic clusters, and timeline documentation that becomes the foundation for FOIA requests, DOJ complaints, legislative testimony, and legal defense. CHRT is not a tip line. It is a community-controlled evidence vault. Report at /chrt — anonymous, encrypted, and yours."
   }
 ]

@@ -132,8 +132,9 @@ export default function Footer() {
             {t.mission}
           </p>
           <div className={styles.socials}>
+            {/* TODO: Replace with IRN's verified Facebook URL */}
             <a
-              href="https://facebook.com/IRN"
+              href="https://www.facebook.com/InjusticeReformNetwork"
               className={styles.socialLink}
               aria-label="Visit IRN on Facebook"
               target="_blank"
@@ -141,8 +142,9 @@ export default function Footer() {
             >
               <FacebookIcon />
             </a>
+            {/* TODO: Replace with IRN's verified X/Twitter URL */}
             <a
-              href="https://twitter.com/IRN"
+              href="https://x.com/IRNetwork"
               className={styles.socialLink}
               aria-label="Visit IRN on X (formerly Twitter)"
               target="_blank"
@@ -150,8 +152,9 @@ export default function Footer() {
             >
               <XSocialIcon />
             </a>
+            {/* TODO: Replace with IRN's verified YouTube URL — remove if channel doesn't exist yet */}
             <a
-              href="https://youtube.com/IRN"
+              href="https://www.youtube.com/@InjusticeReformNetwork"
               className={styles.socialLink}
               aria-label="Visit IRN on YouTube"
               target="_blank"

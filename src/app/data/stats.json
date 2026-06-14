@@ -6,7 +6,7 @@
   ],
   "impactStats": [
     { "value": 150, "label": "Incidents documented 2024–26", "suffix": "+" },
-    { "value": 1500, "label": "CJRRP response commitment", "suffix": " hrs" },
+    { "value": 38, "label": "FOIA requests filed", "suffix": "" },
     { "value": 100, "label": "Reporters protected — zero disclosures", "suffix": "%" }
   ]
 }

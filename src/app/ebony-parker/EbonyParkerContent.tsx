@@ -36,9 +36,19 @@ export default function EbonyParkerContent() {
             Name used with explicit consent. IRN never identifies reporters without authorization.
           </motion.p>
           <motion.div className={styles.heroActions} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.4 }}>
-            <button className={styles.btnPrimary} onClick={() => window.print()}>
-              <Download size={15} aria-hidden="true" /> Download One-Pager (Print)
-            </button>
+            <a
+              className={styles.btnPrimary}
+              href="/irn-criminal-injustice/ebony-parker-one-pager.pdf"
+              download
+              onClick={(e) => {
+                // Fallback to print if PDF not yet deployed
+                fetch('/irn-criminal-injustice/ebony-parker-one-pager.pdf', { method: 'HEAD' })
+                  .then((r) => { if (!r.ok) { e.preventDefault(); window.print(); } })
+                  .catch(() => { e.preventDefault(); window.print(); });
+              }}
+            >
+              <Download size={15} aria-hidden="true" /> Download One-Pager
+            </a>
             <Link href="/chrt" className={styles.btnGhost}>
               Report Your Case →
             </Link>
