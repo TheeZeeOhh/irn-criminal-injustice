@@ -1,11 +1,12 @@
 'use client';
 import Link from 'next/link';
+import MondayTelemetry from './components/MondayTelemetry';
 
 const BASE = '/irn-criminal-injustice';
 
 export default function SplashContent() {
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', padding: '2rem' }}>
+    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', padding: '2rem', paddingTop: '6rem' }}>
       <div style={{ marginBottom: '3rem', animation: 'fadeIn 1s ease-out' }}>
         <img src={`${BASE}/logo.png`} alt="Injustice Reform Network" style={{ height: '80px', width: 'auto' }} />
       </div>
@@ -28,6 +29,9 @@ export default function SplashContent() {
           <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
         </svg>
       </Link>
+
+      <MondayTelemetry />
+
       <style dangerouslySetInnerHTML={{ __html: `@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }` }} />
     </main>
   );

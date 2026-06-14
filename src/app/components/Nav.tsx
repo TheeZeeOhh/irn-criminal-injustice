@@ -8,6 +8,8 @@ import GlobalSearch from './GlobalSearch';
 const navTranslations = {
   en: {
     home: 'Home',
+    surveillanceMap: 'Surveillance Map',
+    mutualAid: 'Mutual Aid',
     whatWeDo: 'What We Do',
     criminalInjustice: 'Criminal Injustice',
     environmentalInjustice: 'Environmental Injustice',
@@ -42,6 +44,8 @@ const navTranslations = {
   },
   es: {
     home: 'Inicio',
+    surveillanceMap: 'Mapa de Vigilancia',
+    mutualAid: 'Ayuda Mutua',
     whatWeDo: 'Qué Hacemos',
     criminalInjustice: 'Injusticia Criminal',
     environmentalInjustice: 'Injusticia Ambiental',
@@ -183,6 +187,8 @@ export default function Nav() {
 
       <div className={styles.links}>
         <Link href="/" className={styles.link}>{t.home}</Link>
+        <Link href="/surveillance-map" className={styles.link}>{t.surveillanceMap}</Link>
+        <Link href="/mutual-aid" className={styles.link}>{t.mutualAid}</Link>
 
         <div className={styles.dropdown}>
           <button className={styles.link} aria-haspopup="true" aria-expanded="false">{t.whatWeDo}</button>
@@ -269,6 +275,8 @@ export default function Nav() {
         </button>
         <div className={styles.mobileLinks}>
           <Link href="/" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t.home}</Link>
+          <Link href="/surveillance-map" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t.surveillanceMap}</Link>
+          <Link href="/mutual-aid" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>{t.mutualAid}</Link>
 
           <div className={styles.mobileLink}>{t.whatWeDo}
             <div className={styles.mobileSublinks}>
