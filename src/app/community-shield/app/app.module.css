@@ -1,0 +1,162 @@
+/* ============================================================
+   CommunityShield App Shell — app.module.css
+   ============================================================ */
+
+.shell {
+  min-height: 100svh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top Nav --- */
+.topNav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--line);
+  padding: 0 1rem;
+}
+
+.topNavInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brandWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.brandLogo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.brandShield {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ember);
+  display: block;
+  line-height: 1;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.exitBtn {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  transition: color 0.2s;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+}
+
+.exitBtn:hover {
+  color: var(--ink);
+}
+
+/* --- Tab Navigation --- */
+.tabBar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabBar::-webkit-scrollbar {
+  display: none;
+}
+
+.tabBarInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 1rem;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  position: relative;
+  bottom: -1px;
+}
+
+.tab:hover {
+  color: var(--ink2);
+}
+
+.tabActive {
+  color: var(--ember);
+  border-bottom-color: var(--ember);
+}
+
+.tabIcon {
+  flex-shrink: 0;
+}
+
+/* --- Main Content --- */
+.main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* --- Auth Gate Loading --- */
+.authCheck {
+  min-height: 100svh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink3);
+  letter-spacing: 0.08em;
+}
