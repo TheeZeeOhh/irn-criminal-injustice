@@ -1,0 +1,26 @@
+[
+  {
+    "cidr": "166.82.0.0/16",
+    "agency": "Commonwealth of Virginia VITA Block 1"
+  },
+  {
+    "cidr": "159.161.0.0/16",
+    "agency": "Commonwealth of Virginia VITA Block 2"
+  },
+  {
+    "cidr": "198.139.0.0/16",
+    "agency": "Commonwealth of Virginia VITA Block 3"
+  },
+  {
+    "cidr": "199.111.0.0/16",
+    "agency": "Commonwealth of Virginia VITA Block 4"
+  },
+  {
+    "cidr": "208.73.208.0/21",
+    "agency": "Richmond City"
+  },
+  {
+    "cidr": "198.244.0.0/16",
+    "agency": "Fairfax County"
+  }
+]

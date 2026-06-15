@@ -5,6 +5,15 @@ import styles from './campaigns.module.css';
 
 const campaigns = [
   {
+    category: 'Advocacy & Storytelling',
+    title: 'Stories of Resilience: Formerly Incarcerated Women & Girls',
+    description:
+      'We are looking to interview formerly and currently incarcerated women and young girls to record stories of resilience, hope, and humanity. These testimonies support efforts toward legislative change and state budget appropriations.',
+    linkText: 'Schedule an Interview / Share Story →',
+    href: '/booking',
+    image: '/stories-of-resilience.jpg',
+  },
+  {
     category: 'Voting Rights',
     title: 'No More Bars',
     description:
@@ -117,6 +126,9 @@ export default function CampaignsContent() {
                   <span className={styles.activeBadge}>Active</span>
                   <span className={styles.categoryTag}>{c.category}</span>
                 </div>
+                {c.image && (
+                  <img src={c.image} alt={c.title} className={styles.cardImage} />
+                )}
                 <h3 className={styles.cardTitle}>{c.title}</h3>
                 <p className={styles.cardDesc}>{c.description}</p>
                 <a href={c.href} className={styles.cardCta}>

@@ -14,28 +14,34 @@ type ServiceCategory = {
 
 const services: ServiceCategory[] = [
   {
-    id: 'legal-bail',
-    name: 'Legal & Bail Navigation',
-    description: 'Intake for urgent bail support, court accompaniment, or legal referrals.',
-    duration: '45 min'
+    id: 'stories-of-resilience',
+    name: 'Stories of Resilience Interview',
+    description: 'Ongoing interview project recording testimonies from formerly and currently incarcerated women and young girls to support legislative reform and state appropriations.',
+    duration: '1.0 hr'
   },
   {
-    id: 'eviction',
-    name: 'Tenant & Eviction Defense',
-    description: 'Rapid-response consultation for illegal lockouts, mold/lead issues, or eviction notices.',
-    duration: '30 min'
+    id: 'kyr-sro',
+    name: 'Know Your Rights & Copwatch Training',
+    description: 'Interactive group training on school-based rights, documenting policing (Copwatch), and SRO defense.',
+    duration: '2.0 hrs'
   },
   {
-    id: 'name-gender',
-    name: 'Name & Gender Marker Update',
-    description: 'Free legal clinic for navigating document updates in Virginia.',
-    duration: '60 min'
+    id: 'restorative',
+    name: 'Restorative Circles & De-escalation',
+    description: 'On-the-ground training for peer mediation, healing circles, and alternatives to calling SROs.',
+    duration: '3.0 hrs'
   },
   {
-    id: 'kyr',
-    name: 'Know Your Rights Workshop',
-    description: 'Request an IRN facilitator to train your community organization or mutual aid group.',
+    id: 'mobilization',
+    name: 'School Board Mobilization Workshop',
+    description: 'Coordinating parent/student cohorts for testimonies, public comments, and budget actions.',
     duration: '1.5 hrs'
+  },
+  {
+    id: 'foia-sprint',
+    name: 'FOIA & Budget Audit Sprint',
+    description: 'Group training and live sprint to compile public records requests auditing school SRO agreements.',
+    duration: '2.5 hrs'
   }
 ];
 
@@ -93,8 +99,8 @@ export default function BookingSystem() {
               exit={{ opacity: 0, x: -20 }}
               className={styles.stepContainer}
             >
-              <h2 className={styles.stepTitle}>Select a Service</h2>
-              <p className={styles.stepSubtitle}>All consultations are free, confidential, and run by community advocates.</p>
+              <h2 className={styles.stepTitle}>Select a Training or Action Workshop</h2>
+              <p className={styles.stepSubtitle}>IRN facilitators coordinate group workshops, restorative audits, and field trainings.</p>
               
               <div className={styles.servicesGrid}>
                 {services.map(service => (
@@ -132,7 +138,7 @@ export default function BookingSystem() {
               className={styles.stepContainer}
             >
               <h2 className={styles.stepTitle}>Select Date & Time</h2>
-              <p className={styles.stepSubtitle}>Times are shown in Eastern Time (ET). Your selection: <strong>{selectedService?.name}</strong></p>
+              <p className={styles.stepSubtitle}>Times are shown in Eastern Time (ET). Selected training: <strong>{selectedService?.name}</strong></p>
               
               <div className={styles.dateTimeLayout}>
                 <div className={styles.dateSelection}>
@@ -195,18 +201,18 @@ export default function BookingSystem() {
               exit={{ opacity: 0, x: -20 }}
               className={styles.stepContainer}
             >
-              <h2 className={styles.stepTitle}>Client Details</h2>
-              <p className={styles.stepSubtitle}>We prioritize your safety. Only share what is necessary.</p>
+              <h2 className={styles.stepTitle}>Cohort & Organization Details</h2>
+              <p className={styles.stepSubtitle}>Please provide details about your group or community space.</p>
               
               <form className={styles.intakeForm} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
-                  <label>Name or Alias</label>
+                  <label>Group, Organization, or Cohort Name</label>
                   <input 
                     type="text" 
                     required 
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    placeholder="How should we refer to you?" 
+                    placeholder="e.g. East End Mutual Aid, Parent-Student Collective" 
                   />
                 </div>
                 
@@ -236,17 +242,17 @@ export default function BookingSystem() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label>Brief Description (Optional)</label>
+                  <label>Session Goals & Target Audience</label>
                   <textarea 
                     rows={4} 
                     value={formData.notes}
                     onChange={e => setFormData({...formData, notes: e.target.value})}
-                    placeholder="Provide a general idea of your need. Do NOT include sensitive legal admissions or confessions."
+                    placeholder="Provide details on expected group size, target issue/school division, and location preferences."
                   ></textarea>
                 </div>
 
                 <div className={styles.summaryBox}>
-                  <strong>Booking Summary:</strong> {selectedService?.name} on {selectedDate} at {selectedTime}
+                  <strong>Session Summary:</strong> {selectedService?.name} on {selectedDate} at {selectedTime}
                 </div>
 
                 <div className={styles.buttonRow}>
@@ -254,7 +260,7 @@ export default function BookingSystem() {
                     <ArrowLeft size={18} /> Back
                   </button>
                   <button type="submit" className={styles.primaryBtn} disabled={isSubmitting || !formData.name || !formData.contact}>
-                    {isSubmitting ? 'Confirming...' : 'Confirm Booking'}
+                    {isSubmitting ? 'Confirming...' : 'Request Session'}
                   </button>
                 </div>
               </form>
@@ -269,18 +275,18 @@ export default function BookingSystem() {
               className={styles.successContainer}
             >
               <div className={styles.successIcon}><CheckCircle2 size={64} /></div>
-              <h2 className={styles.successTitle}>Booking Confirmed.</h2>
+              <h2 className={styles.successTitle}>Request Submitted.</h2>
               <p className={styles.successText}>
-                Your intake appointment for <strong>{selectedService?.name}</strong> has been secured for <strong>{selectedDate} at {selectedTime}</strong>.
+                Your field workshop request for <strong>{selectedService?.name}</strong> has been received for <strong>{selectedDate} at {selectedTime}</strong>.
               </p>
               
               <div className={styles.trackingBox}>
-                <span>Secure Tracking ID</span>
+                <span>Secure Request ID</span>
                 <strong>IRN-{Math.floor(Math.random() * 1000000)}</strong>
               </div>
 
               <p className={styles.nextStepsText}>
-                Our advocates will reach out to you via {formData.method === 'signal' ? 'Signal' : formData.method === 'proton' ? 'ProtonMail' : 'your preferred contact method'} within 24 hours to confirm any final details prior to the meeting.
+                Our regional organizers will reach out to you via {formData.method === 'signal' ? 'Signal' : formData.method === 'proton' ? 'ProtonMail' : 'your preferred contact method'} within 24 hours to finalize training space, material printouts, and cohort coordinates.
               </p>
 
               <button className={styles.secondaryBtn} onClick={() => window.location.href = '/irn-criminal-injustice/'}>
