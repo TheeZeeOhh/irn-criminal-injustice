@@ -1,0 +1,863 @@
+/* ============================================================
+   CommunityShield Panels — panels.module.css (shared)
+   ============================================================ */
+
+:root {
+  --ember-dark: #be4f22;
+  --white: #ffffff;
+}
+
+/* --- Panel wrapper --- */
+.panel {
+  width: 100%;
+}
+
+.panelHeader {
+  margin-bottom: 2rem;
+}
+
+.panelEyebrow {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 0.5rem;
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.panelDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink2);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   RIGHTS PANEL
+   ============================================================ */
+
+.rightsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scenarioCard {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--ember);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.scenarioHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.scenarioHeader:hover {
+  background: rgba(212, 98, 46, 0.04);
+}
+
+.scenarioTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.scenarioIcon {
+  color: var(--ember);
+  flex-shrink: 0;
+}
+
+.scenarioTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.scenarioChevron {
+  color: var(--ink3);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.scenarioChevronOpen {
+  transform: rotate(180deg);
+}
+
+.scenarioBody {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.rightsListLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 1rem 0 0.75rem;
+}
+
+.rightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rightsItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+
+.rightsItemDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  flex-shrink: 0;
+  margin-top: 0.45em;
+}
+
+.printHint {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink3);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   EVIDENCE PANEL
+   ============================================================ */
+
+.evidenceForm {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.formLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.textarea {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  resize: vertical;
+  min-height: 90px;
+  transition: border-color 0.2s;
+  outline: none;
+  line-height: 1.6;
+}
+
+.textarea:focus {
+  border-color: var(--gold);
+}
+
+.fileInputLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink2);
+  cursor: pointer;
+  padding: 0.55rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.fileInputLabel:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.fileInput {
+  display: none;
+}
+
+.selectedFile {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--sage);
+  margin-left: 0.5rem;
+}
+
+.formActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ember);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.btnPrimary:hover {
+  background: var(--ember-dark);
+  transform: translateY(-1px);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--ink2);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.btnSecondary:hover {
+  border-color: var(--ink2);
+  color: var(--ink);
+}
+
+.entriesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.entriesTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.entryCount {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink3);
+}
+
+.entriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.entryCard {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.entryThumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+}
+
+.entryContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.entryTimestamp {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.entryNote {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink2);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.entryDelete {
+  background: none;
+  border: none;
+  color: var(--ink3);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 3px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.entryDelete:hover {
+  color: var(--ember);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--ink3);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+}
+
+.emptyIcon {
+  margin-bottom: 0.75rem;
+  opacity: 0.4;
+}
+
+/* ============================================================
+   RESOURCES PANEL
+   ============================================================ */
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filterBtn {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filterBtn:hover {
+  border-color: var(--ink2);
+  color: var(--ink);
+}
+
+.filterBtnActive {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: var(--white);
+}
+
+.citySection {
+  margin-bottom: 2.5rem;
+}
+
+.cityLabel {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cityDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.resourceCard {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.resourceCard:hover {
+  border-color: var(--ink3);
+}
+
+.resourceTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.resourceName {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.categoryBadge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.badgeShelter { background: rgba(124, 155, 114, 0.15); color: var(--sage); }
+.badgeLegal { background: rgba(212, 98, 46, 0.12); color: var(--ember); }
+.badgeFood { background: rgba(200, 149, 42, 0.12); color: var(--gold); }
+.badgeHealth { background: rgba(181, 169, 146, 0.12); color: var(--ink2); }
+.badgeUtility { background: rgba(200, 149, 42, 0.08); color: var(--gold-l); }
+
+.resourceDetail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink2);
+  line-height: 1.4;
+}
+
+.resourceDetailIcon {
+  color: var(--ink3);
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+.resourcePhone {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.resourcePhone:hover {
+  color: var(--gold-l);
+}
+
+/* ============================================================
+   DEADLINES PANEL
+   ============================================================ */
+
+.deadlineForm {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.deadlineInputRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .deadlineInputRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formInput {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.formInput:focus {
+  border-color: var(--gold);
+}
+
+.dateInput {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  color-scheme: dark;
+  min-width: 160px;
+}
+
+.dateInput:focus {
+  border-color: var(--gold);
+}
+
+.deadlinesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.deadlineItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+
+.deadlineBadge {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: center;
+}
+
+.deadlineUrgent {
+  background: rgba(212, 98, 46, 0.15);
+  color: var(--ember);
+  border: 1px solid rgba(212, 98, 46, 0.3);
+}
+
+.deadlineWarning {
+  background: rgba(200, 149, 42, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(200, 149, 42, 0.25);
+}
+
+.deadlineSafe {
+  background: rgba(124, 155, 114, 0.1);
+  color: var(--sage);
+  border: 1px solid rgba(124, 155, 114, 0.25);
+}
+
+.deadlineContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.deadlineLabel {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.deadlineDate {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink3);
+  letter-spacing: 0.04em;
+}
+
+.deadlineDelete {
+  background: none;
+  border: none;
+  color: var(--ink3);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 3px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.deadlineDelete:hover {
+  color: var(--ember);
+}
+
+/* ============================================================
+   ESCALATE PANEL
+   ============================================================ */
+
+.escalateLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 720px) {
+  .escalateLayout {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+.escalateForm {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.75rem;
+}
+
+.selectInput {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237A6F5C' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.2rem;
+}
+
+.selectInput:focus {
+  border-color: var(--gold);
+}
+
+.selectInput option {
+  background: var(--bg3);
+  color: var(--ink);
+}
+
+.sendBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: var(--ember);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(212, 98, 46, 0.3);
+  margin-top: 1.25rem;
+  letter-spacing: 0.03em;
+}
+
+.sendBtn:hover {
+  background: var(--ember-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(212, 98, 46, 0.4);
+}
+
+.confirmBox {
+  background: rgba(124, 155, 114, 0.08);
+  border: 1px solid rgba(124, 155, 114, 0.3);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.confirmTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.confirmText {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink2);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.mailtoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  word-break: break-all;
+  transition: color 0.2s;
+}
+
+.mailtoLink:hover {
+  color: var(--gold-l);
+}
+
+.escalateSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebarCard {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+
+.sidebarTitle {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink2);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.sidebarItemIcon {
+  color: var(--ink3);
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+.sidebarLink {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sidebarLink:hover {
+  color: var(--gold-l);
+}
+
+.urgentNote {
+  background: rgba(212, 98, 46, 0.08);
+  border: 1px solid rgba(212, 98, 46, 0.2);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+
+.urgentNoteTitle {
+  font-weight: 600;
+  color: var(--ember);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
