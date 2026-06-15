@@ -1,0 +1,273 @@
+/* ============================================================
+   CommunityShield Purchase Page — page.module.css
+   ============================================================ */
+
+:root {
+  --ember-dark: #be4f22;
+  --white: #ffffff;
+}
+
+.wrapper {
+  min-height: 100svh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+}
+
+@media (min-width: 520px) {
+  .card {
+    padding: 3rem 2.5rem;
+  }
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.logoImg {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink2);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.priceDisplay {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.priceCurrency {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.priceAmount {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.priceLabel {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.buyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: var(--ember);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(212, 98, 46, 0.3);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.buyBtn:hover {
+  background: var(--ember-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(212, 98, 46, 0.4);
+}
+
+.stripeBadge {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  color: var(--ink3);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--line);
+}
+
+.codeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.codeLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.codeInputWrap {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.codeInput {
+  flex: 1;
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.codeInput::placeholder {
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink3);
+}
+
+.codeInput:focus {
+  border-color: var(--gold);
+}
+
+.codeInput.error {
+  border-color: var(--ember);
+}
+
+.codeSubmit {
+  background: var(--bg3);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.75rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.codeSubmit:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.errorMsg {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ember);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.successMsg {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(124, 155, 114, 0.1);
+  border: 1px solid rgba(124, 155, 114, 0.3);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink3);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink3);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--ink);
+}
