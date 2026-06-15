@@ -55,7 +55,7 @@ const kyrItems = [
   {
     question: 'What is a Manifestation Determination Review and when do I need one?',
     answer:
-      "A Manifestation Determination Review (MDR) is a required meeting that must happen within 10 school days whenever a school proposes to remove a student with a disability for more than 10 consecutive days, or for a pattern of short-term removals. The team reviews whether the behavior was caused by, or had a direct and substantial relationship to, the student\u2019s disability. If it was, the removal is a change of placement and different legal protections apply. IRN provides accompaniment and rights education at MDR meetings.",
+      "A Manifestation Determination Review (MDR) is a required meeting that must happen within 10 school days whenever a school proposes to remove a student with a disability for more than 10 consecutive days, or for a pattern of short-term removals. The team reviews whether the behavior was caused by, or had a direct and substantial relationship to, the student’s disability. If it was, the removal is a change of placement and different legal protections apply. IRN provides accompaniment and rights education at MDR meetings.",
   },
   {
     question: 'Can IRN represent me in court?',
@@ -66,6 +66,27 @@ const kyrItems = [
     question: 'What happens to my data when I report through CHRT?',
     answer:
       'CHRT is built on a zero-knowledge architecture. Client-side AES-256-GCM encryption means your report is encrypted before it ever leaves your device. A decentralized identifier (DID) links your reports without identifying you. IRN does not possess unencrypted identifying information and therefore cannot be compelled to produce it. Your account. Your data. Your choice.',
+  },
+];
+
+const solidarityCommitments = [
+  {
+    label: 'No carceral strings. Ever.',
+    body:
+      'We will not accept funding that requires us to surveil, report, or criminalize the people we serve.',
+  },
+  {
+    label: 'No data we can be forced to hand over.',
+    body:
+      'Our platforms are built local-first by design — we cannot give up what we don’t possess.',
+  },
+  {
+    label: 'No legislation without intersectionality language.',
+    body: 'Every ordinance we back carries this commitment in the text.',
+  },
+  {
+    label: 'No building about communities without building with them.',
+    body: 'Coalition before consumption, every time.',
   },
 ];
 
@@ -141,6 +162,68 @@ export default function CriminalInjusticePage() {
           </div>
         </section>
 
+        {/* 4.5 SOLIDARITY STATEMENT */}
+        <section className={`${styles.section} ${styles.solidaritySection}`} id="solidarity">
+          <div className={styles.container}>
+            <span className={styles.sectionKicker}>Governing Commitment</span>
+            <h2 className={styles.sectionTitle}>We Stand on the Record</h2>
+            <p className={styles.solidarityIntro}>
+              You cannot pull one thread of injustice free while leaving the rest intact.
+              This is not a gesture. Not for optics. It is a governing commitment that shapes
+              every program we build, every policy we advance, and every dollar we accept —
+              or refuse.
+            </p>
+
+            <div className={styles.solidarityColumns}>
+              <div className={styles.solidarityStandsBlock}>
+                <h3 className={styles.solidaritySubhead}>We stand with:</h3>
+                <ul className={styles.solidarityList}>
+                  {[
+                    'Black trans and gender-expansive people',
+                    'Sex workers',
+                    'Immigrants and undocumented people',
+                    'Disabled communities',
+                    'People directly impacted by incarceration',
+                    'Indigenous communities',
+                  ].map((group) => (
+                    <li key={group} className={styles.solidarityListItem}>
+                      <span className={styles.solidarityBullet} aria-hidden="true">→</span>
+                      {group}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.solidarityCommitmentsBlock}>
+                <h3 className={styles.solidaritySubhead}>
+                  At IRN, &ldquo;standing with&rdquo; means:
+                </h3>
+                <div className={styles.solidarityCommitmentsList}>
+                  {solidarityCommitments.map((c) => (
+                    <div key={c.label} className={styles.solidarityCommitment}>
+                      <strong className={styles.solidarityCommitmentLabel}>{c.label}</strong>
+                      <p className={styles.solidarityCommitmentBody}>{c.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.solidarityCtaWrapper}>
+              <Link
+                href="https://injusticereformnetwork.org"
+                className={styles.ghostCta}
+                aria-label="Read the full IRN Solidarity Statement"
+              >
+                Read the Full Statement →
+              </Link>
+              <p className={styles.spotlightNote}>
+                If your organization wants to co-sign — reach out.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* 5. HOW DOCUMENTATION WORKS */}
         <section className={styles.section} id="documentation">
           <div className={styles.container}>
@@ -183,7 +266,6 @@ export default function CriminalInjusticePage() {
 
         {/* 9. GET INVOLVED */}
         <GetInvolved />
-
 
         {/* 10. NEWSLETTER */}
         <NewsletterStrip />
